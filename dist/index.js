@@ -9,5 +9,5 @@ app.on('ready', () => {
         resizable: false
     });
 
-    mainWindow.loadFile('./index.html');
+    mainWindow.loadURL('http://127.0.0.1:5500/dist/index.html');
 });
