@@ -2,7 +2,7 @@
   "name": "projeto-ultra-secreto",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/index.js",
+  "main": "./src/index.js",
   "scripts": {
     "dev": "electron .",
     "tailwind": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
