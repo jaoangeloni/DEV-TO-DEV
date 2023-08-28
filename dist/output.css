@@ -587,6 +587,10 @@ video {
   background-position: center;
 }
 
+.font-custom {
+  font-family: Tulpen One, sans;
+}
+
 .text-8xl {
   font-size: 6rem;
   line-height: 1;
@@ -596,9 +600,3 @@ video {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
-
-.titulo {
-  font-family: 'Tulpen One', cursive;
-}
-
-;
