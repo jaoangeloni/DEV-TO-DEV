@@ -1,10 +1,10 @@
 const carrossel = document.getElementById("carrossel");
 
 const images = [
+    "https://www.pcgamesn.com/wp-content/uploads/2022/01/best-indie-games-deaths-door-one.jpg",
+];
 
-]
-
-function imagem() {
-    const novaImagemUrl = "https://androidknowledge.com/wp-content/uploads/2022/10/loginpg-1024x576.png";
-    carrossel.style.backgroundImage = `url(${novaImagemUrl})`;
-}
+setInterval(() => {
+    const aleatorio = Math.floor(Math.random() * images.length);
+    carrossel.style.backgroundImage = `url(${images[0]})`;
+}, 0);

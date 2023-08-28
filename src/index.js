@@ -7,7 +7,7 @@ app.on('ready', () => {
         width: 1100,
         height: 700,
         resizable: false,
-        // frame: false
+        frame: false
     });
 
     mainWindow.loadURL('http://127.0.0.1:5500/src/pages/index.html');
