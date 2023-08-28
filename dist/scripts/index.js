@@ -6,9 +6,10 @@ const images = [
     "https://img.redbull.com/images/c_limit,w_1500,h_1000,f_auto,q_auto/redbullcom/2019/05/01/58381390-4957-4436-a623-ad4995168215/proximos-jogos-indie-capa-inmost"
 ];
 
-const imagem = document.querySelector("#imagem");
+const carrossel = document.querySelector("#carrossel");
 
-setInterval(() => {
-    let aleatorio = Math.floor(Math.random() * images.length);
-    imagem.src = images[aleatorio];
-}, 1000);
+// setInterval(() => {
+//     let aleatorio = Math.floor(Math.random() * images.length);
+//     carrossel.style.BackgroundImage = `url('${images[aleatorio]}')`;
+
+// }, 1000);
