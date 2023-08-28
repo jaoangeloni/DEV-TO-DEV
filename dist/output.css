@@ -576,3 +576,23 @@ video {
   --tw-bg-opacity: 1;
   background-color: rgb(161 98 7 / var(--tw-bg-opacity));
 }
+
+.bg-\[\] {
+  background-color: ;
+}
+
+.bg-\[url\(https\:\/\/img\.freepik\.com\/free-vector\/log-concept-landing-page_23-2148269085\.jpg\?w\=2000\)\] {
+  background-image: url(https://img.freepik.com/free-vector/log-concept-landing-page_23-2148269085.jpg?w=2000);
+}
+
+.bg-\[url\(\)\] {
+  background-image: url();
+}
+
+.bg-cover {
+  background-size: cover;
+}
+
+.bg-center {
+  background-position: center;
+}
