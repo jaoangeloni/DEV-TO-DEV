@@ -587,16 +587,25 @@ video {
   background-position: center;
 }
 
-.font-custom {
-  font-family: Tulpen One, sans;
+.p-24 {
+  padding: 6rem;
 }
 
-.text-8xl {
-  font-size: 6rem;
+.font-dev {
+  font-family: Passero One, cursive;
+}
+
+.text-6xl {
+  font-size: 3.75rem;
   line-height: 1;
 }
 
-.text-white {
+.text-yellow-300 {
   --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
+  color: rgb(253 224 71 / var(--tw-text-opacity));
+}
+
+.drop-shadow-sombrinha {
+  --tw-drop-shadow: drop-shadow(-1px 1px 0 #fc03df) drop-shadow(-2px 2px 0 #fc03df);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
