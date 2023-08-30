@@ -6,7 +6,8 @@ module.exports = {
       fontFamily: {
         custom: ['Tulpen One', 'sans'],
         dev: ['Passero One', 'cursive'],
-        osvaldo: ['Oswald', 'sans-serif']
+        osvaldo: ['Oswald', 'sans-serif'],
+        concert: ['Concert One', 'cursive']
       },
       dropShadow: {
         'sombrinha': [
@@ -14,9 +15,9 @@ module.exports = {
           '-2px 2px 0 #fc03df',
         ],
         'sombrinhabaixo': [
-          '0px 1px 0 #fc03df',
-          '0px 2px 0 #fc03df',
-          '0px 2.5px 0 #fc03df',
+          '0px 1px 0 rgb(236, 72, 153)',
+          '0px 2px 0 rgb(236, 72, 153)',
+          '0px 2.5px 0 rgb(236, 72, 153)',
         ]
       }
     },

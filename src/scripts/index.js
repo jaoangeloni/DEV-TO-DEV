@@ -1,5 +1,3 @@
-// const remote = require('electron').remote
-
 const carrossel = document.getElementById("carrossel");
 
 

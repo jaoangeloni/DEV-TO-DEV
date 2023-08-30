@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../dist/output.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
 </head>
 
 <body class="w-screen h-screen">
@@ -15,7 +16,7 @@
     <header class="fixed flex top-0 justify-end items-center w-full p-5 gap-3">
         <div class="w-5 h-5 bg-green-500 rounded-full cursor-pointer"></div>
         <div class="w-5 h-5 bg-yellow-300 rounded-full cursor-pointer"></div>
-        <div class="w-5 h-5 bg-red-500 rounded-full cursor-pointer" onclick="closeWindow()" />
+        <div class="w-5 h-5 bg-red-500 rounded-full cursor-pointer" id="closeBtn"></div>
         </div>
     </header>
 
@@ -24,13 +25,13 @@
         <div id="carrossel" class="w-3/5 h-full bg-cover bg-center">
             <div class="h-full w-full bg-black bg-opacity-60 flex flex-col items-center justify-start">
                 <div class="h-3/5 w-full p-24">
-                    <img src="assets/logo.png" alt="logo" class="w-64">
-                    <!-- <span class="flex items-center gap-4">
-                        <p class=" font-dev text-7xl text-yellow-300 drop-shadow-sombrinha skew-x-6 skew-y-12">DEV</p>
-                        <p class="font-dev text-white text-7xl">to</p>
-                        <p class="font-dev text-7xl text-yellow-300 drop-shadow-sombrinha -skew-x-6 -skew-y-12">DEV</p>
-                    </span> -->
-                    <p class="text-white font-osvaldo text-2xl font-extralight">Conectando mentes criativas,
+                    <!-- <img src="assets/logo.png" alt="logo" class="w-96"> -->
+                    <span class="flex items-center">
+                        <p class="font-concert text-7xl text-yellow-300 drop-shadow-sombrinhabaixo">DEV</p>
+                        <p class="font-concert text-white text-7xl">to</p>
+                        <p class="font-concert text-7xl text-yellow-300 drop-shadow-sombrinhabaixo">DEV</p>
+                    </span>
+                    <p class="text-white font-osvaldo text-2xl font-extralight mt-6">Conectando mentes criativas,
                         somos a
                         plataforma para devs criarem experiências inovadoras juntos!</p>
                 </div>
@@ -64,16 +65,26 @@
                     </span>
                 </div>
                 <button class="bg-pink-500 text-white p-2 w-48 font-osvaldo font-normal rounded-lg">LOGIN</button>
-                <p class="font-osvaldo font-light">Want to join us? <span class="text-pink-500 cursor-pointer">Create an
-                        Account</span>
+                <p class="font-osvaldo font-light">Want to join us? <span class="text-pink-500 cursor-pointer">Create
+                        an Account</span>
                 </p>
 
             </div>
 
             <div class="w-full flex items-center justify-center gap-8 rounded-full">
-                <div class="w-12 h-12 bg-slate-400"></div>
-                <div class="w-12 h-12 bg-slate-400"></div>
-                <div class="w-12 h-12 bg-slate-400"></div>
+                <div
+                    class="w-12 h-12 bg-gray-300 flex items-center justify-center rounded-full hover:cursor-pointer hover:bg-yellow-100 transition-colors duration-300">
+                    <img src="assets/google.png" alt="" class="w-7 h-7">
+                </div>
+                <div
+                    class="w-12 h-12 bg-gray-300 flex items-center justify-center rounded-full hover:cursor-pointer hover:bg-yellow-100 transition-colors duration-300">
+                    <img src="assets/twitter.png" alt="" class="w-7 h-7">
+                </div>
+                <div
+                    class="w-12 h-12 bg-gray-300 flex items-center justify-center rounded-full hover:cursor-pointer hover:bg-yellow-100 transition-colors duration-300">
+                    <img src="assets/github.png" alt="" class="w-7 h-7">
+                </div>
+
             </div>
         </div>
     </main>

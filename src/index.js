@@ -12,3 +12,7 @@ app.on('ready', () => {
 
     mainWindow.loadURL('http://127.0.0.1:5500/src/pages/index.html');
 });
+
+ipcMain.on('close', () => {
+    app.quit()
+})
