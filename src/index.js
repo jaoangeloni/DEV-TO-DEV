@@ -1,4 +1,4 @@
-const { app, BrowserWindow} = require('electron');
+const { app, BrowserWindow } = require('electron');
 
 let mainWindow;
 
@@ -10,9 +10,5 @@ app.on('ready', () => {
         frame: false
     });
 
-
-
     mainWindow.loadURL('http://127.0.0.1:5500/src/pages/index.html');
-    // mainWindow.loadURL('http://127.0.0.1:5500/src/pages/index.html');
-    // mainWindow.loadURL('http://127.0.0.1:5500/src/pages/index.html');
 });
