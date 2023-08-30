@@ -11,29 +11,44 @@
 </head>
 
 <body class="w-screen h-screen">
+    <header class="fixed flex top-0 justify-end items-center w-full p-5 gap-3">
+        <div class="w-5 h-5 bg-green-500 rounded-full cursor-pointer"></div>
+        <div class="w-5 h-5 bg-yellow-300 rounded-full cursor-pointer"></div>
+        <div class="w-5 h-5 bg-red-500 rounded-full cursor-pointer" onclick="closeWindow()"/></div>
+    </header>
     <main class="flex w-full h-full select-none">
         <div id="carrossel" class="w-3/5 h-full bg-cover bg-center">
-            <div class="h-full w-full bg-black bg-opacity-60 flex items-center justify-center">
-                <div class="h-full w-full p-24">
-                    <span class="flex items-center gap-4">
-                        <p class="text-white text-5xl f font-normal font-thin drop-shadow">Welcome to</p>
-                        <span class="flex items-center justify-between gap-2"">
-                            <p class=" font-dev text-7xl text-yellow-300 drop-shadow-sombrinha">Dev </p>
+            <div class="h-full w-full bg-black bg-opacity-60 flex flex-col items-center justify-start">
+                <div class="h-3/5 w-full p-24">
+                        <span class="flex items-center gap-6">
+                            <p class=" font-dev text-7xl text-yellow-300 drop-shadow-sombrinha">DEV</p>
                             <p class="font-dev text-white text-7xl">to</p>
-                            <p class="font-dev text-7xl text-yellow-300 drop-shadow-sombrinha">Dev</p>
+                            <p class="font-dev text-7xl text-yellow-300 drop-shadow-sombrinha">DEV</p>
                         </span>
-                    </span>
-                    <p class="text-white font-normal text-2xl font-thin">A game community for game devs.</p>
+                    <p class="text-white font-osvaldo text-2xl font-extralight">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure consequatur corrupti omnis.</p>
+                </div>
+                <div class="w-full h-1/4 p-24">
+                    <p class="text-white text-4xl font-osvaldo font-light">Game Community</p>
+                    <p class="text-white text-2xl font-osvaldo font-extralight">for game devs.</p>
                 </div>
             </div>
         </div>
-        <div class=" w-2/5 h-full">
+        <div class=" w-2/5 h-full flex flex-col items-center justify-center gap-8">
+                <p class="font-osvaldo font-normal text-2xl">USER LOGIN</p>
+                <div class="flex flex-col gap-2">
+                    <label for="user" class="font-osvaldo font-light">User ID</label>
+                    <input type="text"id="user" class="w-72 bg-yellow-50 p-2 rounded-lg outline-none">
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="senha" class="font-osvaldo font-light">Password</label>
+                    <input type="password" id="senha" class="w-72 bg-yellow-50 p-2 rounded-lg outline-none">
+                </div>
+                <button class="bg-pink-500 text-white p-2 w-48 font-osvaldo font-normal rounded-lg">LOGIN</button>
         </div>
 
     </main>
 </body>
 
-<script src=" ../scripts/index.js">
-</script>
+<script src=" ../scripts/index.js"></script>
 
 </html>
