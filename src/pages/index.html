@@ -11,22 +11,26 @@
 </head>
 
 <body class="w-screen h-screen">
+
     <header class="fixed flex top-0 justify-end items-center w-full p-5 gap-3">
         <div class="w-5 h-5 bg-green-500 rounded-full cursor-pointer"></div>
         <div class="w-5 h-5 bg-yellow-300 rounded-full cursor-pointer"></div>
         <div class="w-5 h-5 bg-red-500 rounded-full cursor-pointer" onclick="closeWindow()" />
         </div>
     </header>
+
     <main class="flex w-full h-full select-none">
+
         <div id="carrossel" class="w-3/5 h-full bg-cover bg-center">
             <div class="h-full w-full bg-black bg-opacity-60 flex flex-col items-center justify-start">
                 <div class="h-3/5 w-full p-24">
-                    <span class="flex items-center gap-6">
-                        <p class=" font-dev text-7xl text-yellow-300 drop-shadow-sombrinha">DEV</p>
+                    <span class="flex items-center gap-4">
+                        <p class=" font-dev text-7xl text-yellow-300 drop-shadow-sombrinha skew-x-6 skew-y-12">DEV</p>
                         <p class="font-dev text-white text-7xl">to</p>
-                        <p class="font-dev text-7xl text-yellow-300 drop-shadow-sombrinha">DEV</p>
+                        <p class="font-dev text-7xl text-yellow-300 drop-shadow-sombrinha -skew-x-6 -skew-y-12">DEV</p>
                     </span>
-                    <p class="text-white font-osvaldo text-2xl font-extralight">Conectando mentes criativas, somos a
+                    <p class="text-white font-osvaldo text-2xl font-extralight">Conectando mentes criativas,
+                        somos a
                         plataforma para devs criarem experiências inovadoras juntos!</p>
                 </div>
                 <div class="w-full h-1/4 p-24">
@@ -35,27 +39,40 @@
                 </div>
             </div>
         </div>
-        <div class=" w-2/5 h-full flex flex-col items-center justify-center gap-8">
-            <p class="font-osvaldo font-normal text-2xl">USER LOGIN</p>
-            <div class="flex flex-col gap-2">
-                <label for="user" class="font-osvaldo font-light">User ID</label>
-                <span class="flex items-center justify-center">
-                    <div class="h-9 bg-gray-300 p-2 flex items-center justify-center rounded-s-lg">
-                        <img src="assets/user.webp" alt="" class="w-6 h-6 bg-gray-300">
-                    </div>
-                    <input type=" text" id="user" class="w-64 h-9 bg-gray-300 rounded-e-lg outline-none">
-                </span>
+
+        <div class=" w-2/5 h-full flex flex-col items-center justify-between gap-8 py-32">
+
+            <div class="w-full h-3/5 flex flex-col items-center justify-center gap-8">
+                <p class="font-osvaldo font-normal text-2xl">USER LOGIN</p>
+                <div class="flex flex-col gap-2">
+                    <label for="user" class="font-osvaldo font-light">User ID</label>
+                    <span class="flex items-center justify-center">
+                        <div class="h-9 bg-gray-300 p-2 flex items-center justify-center rounded-s-lg">
+                            <img src="assets/user.webp" alt="" class="w-6 h-6 bg-gray-300">
+                        </div>
+                        <input type=" text" id="user" class="w-64 h-9 bg-gray-300 rounded-e-lg outline-none">
+                    </span>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <label for="senha" class="font-osvaldo font-light">Password</label>
+                    <span class="flex items-center justify-center">
+                        <div class="h-9 bg-gray-300 p-2 flex items-center justify-center rounded-s-lg">
+                            <img src="assets/password.webp" alt="" class="w-5 h-5 bg-gray-300">
+                        </div>
+                        <input type="password" id="senha" class="w-64 h-9 bg-gray-300 rounded-e-lg outline-none">
+                    </span>
+                </div>
+                <button class="bg-pink-500 text-white p-2 w-48 font-osvaldo font-normal rounded-lg">LOGIN</button>
+                <p class="font-osvaldo font-light">Want to join us? <span class="text-pink-500 cursor-pointer">Create an
+                        Account</span>
+                </p>
+
+            </div class="w-full h-2/5 flex flex-col items-center justify-center gap-8">
+
+            <div>
+
             </div>
-            <div class="flex flex-col gap-2">
-                <label for="senha" class="font-osvaldo font-light">Password</label>
-                <span class="flex items-center justify-center">
-                    <div class="h-9 bg-gray-300 p-2 flex items-center justify-center rounded-s-lg">
-                        <img src="assets/password.webp" alt="" class="w-5 h-5 bg-gray-300">
-                    </div>
-                    <input type="password" id="senha" class="w-64 h-9 bg-gray-300 rounded-e-lg outline-none">
-                </span>
-            </div>
-            <button class="bg-pink-500 text-white p-2 w-48 font-osvaldo font-normal rounded-lg">LOGIN</button>
+
         </div>
 
     </main>
