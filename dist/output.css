@@ -606,6 +606,14 @@ video {
   height: 40%;
 }
 
+.h-2\/4 {
+  height: 50%;
+}
+
+.h-2\/3 {
+  height: 66.666667%;
+}
+
 .w-2\/5 {
   width: 40%;
 }
@@ -644,6 +652,10 @@ video {
 
 .w-64 {
   width: 16rem;
+}
+
+.w-12 {
+  width: 3rem;
 }
 
 .skew-x-12 {
@@ -831,6 +843,11 @@ video {
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
 
+.bg-slate-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(148 163 184 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-60 {
   --tw-bg-opacity: 0.6;
 }
@@ -855,6 +872,14 @@ video {
   padding: 1.25rem;
 }
 
+.p-40 {
+  padding: 10rem;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -868,6 +893,16 @@ video {
 .py-32 {
   padding-top: 8rem;
   padding-bottom: 8rem;
+}
+
+.py-64 {
+  padding-top: 16rem;
+  padding-bottom: 16rem;
+}
+
+.py-40 {
+  padding-top: 10rem;
+  padding-bottom: 10rem;
 }
 
 .font-dev {
