@@ -2,7 +2,6 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path')
 const ipc = ipcMain
 
-
 app.on('ready', () => {
     const win = new BrowserWindow({
         width: 1200,
@@ -47,4 +46,6 @@ app.on('ready', () => {
             app.quit()
         }
     })
+
+    win.loadURL('http://127.0.0.1:5501/src/pages/index.html');
 });
