@@ -1,21 +1,51 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
+const path = require('path')
+const ipc = ipcMain
 
-let mainWindow;
-let APP_DIR = './pages/';
 
 app.on('ready', () => {
-    mainWindow = new BrowserWindow({
+    const win = new BrowserWindow({
         width: 1200,
         height: 600,
         resizable: false,
-        frame: false
+        frame: false,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+            devTools: true,
+            preload: path.join(__dirname, 'preload.js')
+        }
     });
 
-    mainWindow.loadURL('http://127.0.0.1:5501/src/pages/index.html');
-});
+    ipc.on('minimizeApp', () => {
+        win.minimize()
+    })
 
-app.on('window-all-closed', () => {
-    if (process.platform !== 'darwin') {
-        app.quit();
-    }
+    ipc.on('maximizeRestoreApp', () => {
+        if (win.isMaximized()) {
+            win.restore()
+        } else {
+            win.maximize()
+        }
+    })
+
+    win.on('maximize', () => {
+        win.webContents.send('isMaximized')
+    })
+
+    win.on('unmaximize', () => {
+        win.webContents.send('isRestored')
+    })
+
+    ipc.on('closeApp', () => {
+        win.close()
+    })
+
+    app.on('window-all-closed', () => {
+        if (process.platform !== 'darwin') {
+            app.quit()
+        }
+    })
+
+    win.loadURL('http://127.0.0.1:5501/src/pages/index.html');
 });

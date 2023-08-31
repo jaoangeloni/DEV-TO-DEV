@@ -9,15 +9,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+    <script defer src="../scripts/appFunctions.js"></script>
 </head>
 
 <body class="w-screen h-screen">
     <!-- header com botoes customizados para fechar e minimizar ---------------------------------------------------------------------->
     <header class="fixed flex top-0 justify-end items-center w-full p-5 gap-3">
-        <div class="w-5 h-5 bg-green-500 rounded-full cursor-pointer"></div>
-        <div class="w-5 h-5 bg-yellow-300 rounded-full cursor-pointer"></div>
-        <div class="w-5 h-5 bg-red-500 rounded-full cursor-pointer" id="closeBtn"></div>
-        </div>
+        <div id="minimizeBtn" title="Minimize"
+            class="topBtn minimizeBtn w-5 h-5 bg-green-500 rounded-full cursor-pointer"></div>
+        <div id="maxResBtn" title="Maximize" class="maxResBtn w-5 h-5 bg-yellow-300 rounded-full cursor-pointer"></div>
+        <div id="closeBtn" title="Close" class="topBtn closeBtn w-5 h-5 bg-red-500 rounded-full cursor-pointer"></div>
     </header>
 
     <main class="flex w-full h-full select-none">
