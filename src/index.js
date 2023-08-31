@@ -9,6 +9,7 @@ app.on('ready', () => {
         height: 600,
         resizable: false,
         frame: false,
+        icon: __dirname + '/pages/assets/logo2.png',
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
