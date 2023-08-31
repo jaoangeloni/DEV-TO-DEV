@@ -47,6 +47,4 @@ app.on('ready', () => {
             app.quit()
         }
     })
-
-    win.loadURL('http://127.0.0.1:5501/src/pages/index.html');
 });
