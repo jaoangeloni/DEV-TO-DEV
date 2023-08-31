@@ -11,7 +11,7 @@ app.on('ready', () => {
         frame: false
     });
 
-    mainWindow.loadURL('http://127.0.0.1:5500/src/pages/index.html');
+    mainWindow.loadURL('http://127.0.0.1:5501/src/pages/index.html');
 });
 
 app.on('window-all-closed', () => {
