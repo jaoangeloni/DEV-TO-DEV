@@ -1,6 +1,7 @@
 const { app, BrowserWindow } = require('electron');
 
 let mainWindow;
+let APP_DIR = './pages/';
 
 app.on('ready', () => {
     mainWindow = new BrowserWindow({
