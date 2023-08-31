@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
-    <script defer src="../scripts/appFunctions.js"></script>
 </head>
 
 <body class="w-screen h-screen">
@@ -34,13 +33,14 @@
                         <p class="font-concert text-white text-7xl">to</p>
                         <p class="font-concert text-7xl text-yellow-300 drop-shadow-sombrinhabaixo">DEV</p>
                     </span>
-                    <p class="text-white font-osvaldo text-2xl font-extralight mt-6">Conectando mentes criativas,
-                        somos a
-                        plataforma para devs compartilharem experiências inovadoras juntos!</p>
+                    <p class="text-white font-osvaldo text-2xl font-extralight mt-6">
+                        Connecting creative minds,
+                        we are a
+                        platform for devs to share innovative experiences together!</p>
                 </div>
 
                 <!-- Footer--------------------------------------------------------------------------------------------------------->
-                <div class="w-full h-1/4 p-24">
+                <div class="w-full h-2/4 flex flex-col items-start justify-center px-24">
                     <p class="text-white text-4xl font-osvaldo font-light">Game Community</p>
                     <p class="text-white text-2xl font-osvaldo font-extralight">for game devs.</p>
                 </div>
@@ -78,7 +78,8 @@
                 </div>
 
                 <!-- Butao de login------------------------------------------------------------------------------------------------->
-                <button class="bg-pink-500 text-white p-2 w-48 font-osvaldo font-normal rounded-lg">LOGIN</button>
+                <button
+                    class="bg-pink-500 text-white p-2 w-48 font-osvaldo font-normal rounded-md transition-all duration-200 hover:scale-110 hover:bg-pink-600">LOGIN</button>
                 <p class="font-osvaldo font-light">Want to join us? <span class="text-pink-500 cursor-pointer"
                         onclick="goToCreate()">Create
                         an Account</span>
@@ -89,15 +90,15 @@
             <!-- Entrar com outras redes sociais---------------------------------------------------------------------------------->
             <div class=" w-full flex items-center justify-center gap-8 rounded-full">
                 <div
-                    class="w-12 h-12 bg-gray-300 flex items-center justify-center rounded-full hover:cursor-pointer hover:bg-yellow-100 transition-colors duration-300">
+                    class="w-12 h-12 bg-gray-300 flex items-center justify-center rounded-full cursor-pointer transition-all duration-100 hover:bg-gray-200 hover:scale-110">
                     <img src="assets/google.png" alt="" class="w-7 h-7">
                 </div>
                 <div
-                    class="w-12 h-12 bg-gray-300 flex items-center justify-center rounded-full hover:cursor-pointer hover:bg-yellow-100 transition-colors duration-300">
+                    class="w-12 h-12 bg-gray-300 flex items-center justify-center rounded-full cursor-pointer transition-all duration-100 hover:bg-gray-200 hover:scale-110">
                     <img src="assets/twitter.png" alt="" class="w-7 h-7">
                 </div>
                 <div
-                    class="w-12 h-12 bg-gray-300 flex items-center justify-center rounded-full hover:cursor-pointer hover:bg-yellow-100 transition-colors duration-300">
+                    class="w-12 h-12 bg-gray-300 flex items-center justify-center rounded-full cursor-pointer transition-all duration-150 hover:bg-gray-200 hover:scale-110">
                     <img src="assets/github.png" alt="" class="w-7 h-7">
                 </div>
             </div>
@@ -157,7 +158,8 @@
             </div>
 
             <!-- <!-- Criar user ID----------------------------------------------------------------------------------------------------->
-            <button class="bg-pink-500 text-white p-2 font-osvaldo font-normal rounded-lg my-3 w-56">REGISTER</button>
+            <button
+                class="bg-pink-500 text-white p-2 font-osvaldo font-normal my-3 w-56 rounded-md transition-all duration-200 hover:scale-110 hover:bg-pink-600">REGISTER</button>
             <p class="font-osvaldo font-light">Already have an account? <span class="text-pink-500 cursor-pointer"
                     onclick="backToLogin()">Log
                     In</span>
@@ -168,5 +170,7 @@
 </body>
 
 <script src=" ../scripts/index.js"></script>
+<script src=" ../scripts/login.js"></script>
+<script defer src="../scripts/winButtons.js"></script>
 
 </html>
