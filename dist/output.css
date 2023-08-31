@@ -534,6 +534,10 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .fixed {
   position: fixed;
 }
@@ -542,12 +546,35 @@ video {
   top: 0px;
 }
 
+.m-3 {
+  margin: 0.75rem;
+}
+
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
 .mt-6 {
   margin-top: 1.5rem;
 }
 
 .flex {
   display: flex;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-1\/4 {
@@ -630,6 +657,18 @@ video {
   width: 100vw;
 }
 
+.w-72 {
+  width: 18rem;
+}
+
+.w-80 {
+  width: 20rem;
+}
+
+.w-56 {
+  width: 14rem;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -674,6 +713,10 @@ video {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
 }
 
 .rounded-full {
@@ -781,6 +824,10 @@ video {
 
 .font-normal {
   font-weight: 400;
+}
+
+.font-thin {
+  font-weight: 100;
 }
 
 .text-pink-500 {
