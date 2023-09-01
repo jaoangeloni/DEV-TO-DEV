@@ -2,7 +2,7 @@
 //Gerador de imagens aleatórias quando abre o programa
 const carrossel = document.getElementById("carrossel");
 const images = [
-    "../pages/assets/backgrounds/indie1.jpg",
+    // "../pages/assets/backgrounds/indie1.jpg",
     "../pages/assets/backgrounds/indie2.jpg",
     "../pages/assets/backgrounds/indie3.png",
     "../pages/assets/backgrounds/indie4.jpg",
