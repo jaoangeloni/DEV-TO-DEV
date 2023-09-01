@@ -15,9 +15,14 @@
     <!-- header com botoes customizados para fechar e minimizar ---------------------------------------------------------------------->
     <header class="fixed flex top-0 justify-end items-center w-full p-5 gap-3">
         <div id="minimizeBtn" title="Minimize"
-            class="topBtn minimizeBtn w-5 h-5 bg-green-500 rounded-full cursor-pointer"></div>
-        <div id="maxResBtn" title="Maximize" class="maxResBtn w-5 h-5 bg-yellow-300 rounded-full cursor-pointer"></div>
-        <div id="closeBtn" title="Close" class="topBtn closeBtn w-5 h-5 bg-red-500 rounded-full cursor-pointer"></div>
+            class="topBtn minimizeBtn w-5 h-5 bg-green-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+        </div>
+        <div id="maxResBtn" title="Maximize"
+            class="maxResBtn w-5 h-5 bg-yellow-300 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+        </div>
+        <div id="closeBtn" title="Close"
+            class="topBtn closeBtn w-5 h-5 bg-red-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+        </div>
     </header>
 
     <main class="flex w-full h-full select-none">
@@ -80,7 +85,8 @@
                 <!-- Butao de login------------------------------------------------------------------------------------------------->
                 <button
                     class="bg-pink-500 text-white p-2 w-48 font-osvaldo font-normal rounded-md transition-all duration-100 hover:scale-110 hover:bg-pink-600">LOGIN</button>
-                <p class="font-osvaldo font-light">Want to join us? <span class="text-pink-500 cursor-pointer"
+                <p class="font-osvaldo font-light">Want to join us? <span
+                        class="text-pink-500 cursor-pointer hover:text-yellow-300 transition-all duration-200"
                         onclick="goToCreate()">Create
                         an Account</span>
                 </p>
@@ -160,7 +166,8 @@
             <!-- <!-- Criar user ID----------------------------------------------------------------------------------------------------->
             <button
                 class="bg-pink-500 text-white p-2 font-osvaldo font-normal my-3 w-56 rounded-md transition-all duration-100 hover:scale-110 hover:bg-pink-600">REGISTER</button>
-            <p class="font-osvaldo font-light">Already have an account? <span class="text-pink-500 cursor-pointer"
+            <p class="font-osvaldo font-light">Already have an account? <span
+                    class="text-pink-500 cursor-pointer hover:text-yellow-300 transition-all duration-200"
                     onclick="backToLogin()">Log
                     In</span>
             </p>
