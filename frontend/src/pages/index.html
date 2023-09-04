@@ -9,9 +9,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../scripts/api.js"></script>
 </head>
 
-<body class="w-screen h-screen">
+<body class="w-screen h-screen overflow-hidden">
     <!-- header com botoes customizados para fechar e minimizar ---------------------------------------------------------------------->
     <header class="fixed flex top-0 justify-end items-center w-full p-5 gap-3">
         <div id="minimizeBtn" title="Minimize"
@@ -25,7 +27,7 @@
         </div>
     </header>
 
-    <main class="flex w-full h-full select-none">
+    <main class="flex w-full h-full select-none overflow-hidden">
 
         <!-- parte esquerda da tela, onde possui as imagens e o logo------------------------------------------------------------------>
         <div id="carrossel" class="w-3/5 h-full bg-cover bg-center">
@@ -125,7 +127,7 @@
                     <div class="h-9 bg-gray-300 p-2 flex items-center justify-center rounded-s-lg">
                         <img src="assets/user.webp" alt="" class="w-6 h-6 bg-gray-300">
                     </div>
-                    <input type="text" id="createUser"
+                    <input type="text" id="createUsername"
                         class="w-64 h-9 bg-gray-300 rounded-e-lg outline-none font-osvaldo font-light" placeholder="">
                 </span>
             </div>
@@ -168,13 +170,23 @@
 
             <!-- <!-- Criar user---------------------------------------------------------------------------------------------------->
             <button
-                class="bg-pink-500 text-white p-2 font-osvaldo font-normal my-3 w-56 rounded-md transition-all duration-100 hover:scale-110 hover:bg-pink-600">REGISTER</button>
+                class="bg-pink-500 text-white p-2 font-osvaldo font-normal my-3 w-56 rounded-md transition-all duration-100 hover:scale-110 hover:bg-pink-600"
+                onclick="cadastrar()">REGISTER</button>
             <p class="font-osvaldo font-light">Already have an account? <span
                     class="text-pink-500 cursor-pointer hover:text-yellow-300 transition-all duration-100"
                     onclick="backToLogin()">Log
                     In</span>
             </p>
 
+        </div>
+        <div
+            class="absolute w-80 h-32 bg-white rounded-lg bottom-0 m-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex">
+            <div class="h-full w-1/4 flex items-center justify-center">
+                <img src="assets/error.png" alt="" class="w-14 h-14 ">
+            </div>
+            <div class="h-full w-3/4 flex items-center justify-center">
+                <p class="text-lg font-osvaldo font-light">Senha incorreta</p>
+            </div>
         </div>
     </main>
 </body>

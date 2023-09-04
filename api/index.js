@@ -1,12 +1,14 @@
 const express = require('express');
 const cors = require('cors');
 
-// require('dotenv').config();
-// const PORT = process.env.PORT || 3000
+const routeUsers = require('./src/routes/user');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+app.use(routeUsers);
+
 
 app.listen(3000, () => {
     console.log("POSITIVO E OPERANTE");
