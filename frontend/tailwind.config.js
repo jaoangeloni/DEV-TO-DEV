@@ -19,6 +19,9 @@ module.exports = {
           '0px 2px 0 rgb(236, 72, 153)',
           '0px 2.5px 0 rgb(236, 72, 153)',
           '0px 3px 0 rgb(236, 72, 153)',
+        ],
+        'sombra': [
+          '0px 5px 5px rgb(0,0,0)'
         ]
       }
     },

@@ -179,13 +179,13 @@
             </p>
 
         </div>
-        <div
-            class="absolute w-80 h-32 bg-white rounded-lg bottom-0 m-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex">
+        <div id="modalError"
+            class="absolute w-80 h-32 bg-white rounded-lg bottom-0 m-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex drop-shadow-sombra transition-opacity duration-200 opacity-0">
             <div class="h-full w-1/4 flex items-center justify-center">
-                <img src="assets/error.png" alt="" class="w-14 h-14 ">
+                <img src="assets/error.png" alt="" class="w-14 h-14" id="modalIcon">
             </div>
             <div class="h-full w-3/4 flex items-center justify-center">
-                <p class="text-lg font-osvaldo font-light">Senha incorreta</p>
+                <p id="warning" class="text-lg font-osvaldo font-light"></p>
             </div>
         </div>
     </main>
