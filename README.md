@@ -13,4 +13,4 @@
 <h2>PRA RODAR EM QUALQUER MICROONDAS</h2>
 <li>cd frontend</li>
 <li>yarn add -D electron</li>
-<li>yarnd add -D tailwindcss</li>
+<li>yarn add -D tailwindcss</li>
