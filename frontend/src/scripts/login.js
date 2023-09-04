@@ -2,6 +2,9 @@ const iUsername = document.getElementById("createUsername");
 const iEmail = document.getElementById("email");
 const iPassword = document.getElementById("createPassword");
 const iConfirmPassword = document.getElementById("confirmPassword");
+const modalError = document.getElementById("modalError");
+const modalIcon = document.getElementById("modalIcon");
+const warning = document.getElementById("warning");
 
 // function autenticar() {
 //     let data = {
@@ -31,7 +34,26 @@ const iConfirmPassword = document.getElementById("confirmPassword");
 // }
 
 function cadastrar() {
-    if (iPassword.value == iConfirmPassword.value) {
+
+
+    if (iUsername.value == "" || iEmail.value == "") {
+        warning.innerHTML = "Preencha os campos corretamente";
+        modalError.classList.remove("opacity-0");
+        modalError.classList.add("opacity-100");
+    } else if (iPassword.value != iConfirmPassword.value) {
+        warning.innerHTML = "Senhas não conferem";
+        modalError.classList.remove("opacity-0");
+        modalError.classList.add("opacity-100");
+    }
+    else if (iPassword.value == iConfirmPassword.value && iPassword.value > 6) {
+        warning.innerHTML = "Cadastrado com sucesso";
+        modalIcon.src = './assets/right.png';
+        modalError.classList.remove("opacity-0");
+        modalError.classList.add("opacity-100");
+        setTimeout(() => {
+            modalError.classList.remove("opacity-100");
+            modalError.classList.add("opacity-0");
+        }, 3000)
         let user = {
             "username": iUsername.value,
             "email": iEmail.value,
@@ -40,14 +62,12 @@ function cadastrar() {
         }
         api.post("/user", user)
             .then(resp => {
-                alert("Cadastrado com sucesso")
                 iUsername.value = ""
                 iEmail.value = ""
                 iPassword.value = ""
                 iConfirmPassword.value = ""
             })
-    } else {
-        console.log("errou")
     }
 
-} 
+}
+
