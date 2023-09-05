@@ -81,8 +81,10 @@ function autenticar(){
         if(resp.status == 200) {
             localStorage.setItem("user", JSON.stringify(resp.data));
             window.location.href="../pages/feed.html";
+            ipc.send('maximizeRestoreApp')
         }else if(resp.status == 206){
             let string = resp.data.error;
+            modalIcon.src = './assets/error.png';
             showModal(string);
         }
     })

@@ -939,10 +939,6 @@ video {
   transition-duration: 200ms;
 }
 
-.duration-500 {
-  transition-duration: 500ms;
-}
-
 .hover\:scale-110:hover {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;

@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>FEED</title>
+    <link rel="stylesheet" href="../../dist/output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../scripts/api.js"></script>
 </head>
-<body>
+<body class="h-screen w-screen">
+    <header class="fixed flex top-0 justify-end items-center w-full p-5 gap-3">
+        <div id="minimizeBtn" title="Minimize"
+            class="topBtn minimizeBtn w-5 h-5 bg-green-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+        </div>
+        <div id="maxResBtn" title="Maximize"
+            class="maxResBtn w-5 h-5 bg-yellow-300 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+        </div>
+        <div id="closeBtn" title="Close"
+            class="topBtn closeBtn w-5 h-5 bg-red-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+        </div>
+    </header>
     <h1>FEED</h1>
 </body>
+<script defer src="../scripts/winButtons.js"></script>
 </html>
