@@ -15,6 +15,4 @@
 <li>npm i -g yarn</li>
 <h2>PRA RODAR EM QUALQUER MICROONDAS</h2>
 <li>cd frontend</li>
-<li>yarn add -D electron</li>
-<li>yarn add -D tailwindcss</li>
-<li>npm i axios</li>
+<li>yarn add -D electron tailwindcss axios</li>
