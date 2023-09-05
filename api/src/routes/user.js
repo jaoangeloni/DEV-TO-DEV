@@ -5,5 +5,6 @@ const user = require('../controllers/user');
 routeUsers.get('/', (req, res) => { return res.json("Back Funciona") });
 
 routeUsers.post('/user', user.create);
+routeUsers.post('/login', user.login);
 
 module.exports = routeUsers;
