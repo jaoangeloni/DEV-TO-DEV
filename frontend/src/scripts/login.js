@@ -9,20 +9,16 @@ const modalError = document.getElementById("modalError");
 const modalIcon = document.getElementById("modalIcon");
 const warning = document.getElementById("warning");
 
+//função para mostrar modal
+function showModal(string){
+    warning.innerHTML = string;
+    modalError.classList.remove("opacity-0");
+    modalError.classList.add("opacity-100");
+}
+
 //função de cadastrar
 function cadastrar() {
 
-    //função para mostrar modal
-    function showModal(string){
-        warning.innerHTML = string;
-        modalError.classList.remove("opacity-0");
-        modalError.classList.add("opacity-100");
-        
-        setTimeout(() => {
-            modalError.classList.remove("opacity-100");
-            modalError.classList.add("opacity-0");
-        }, 5000);
-    }
 
     if (iUsername.value == "" || iEmail.value == "") {
         let string = "Preencha todos os campos";
@@ -54,6 +50,11 @@ function cadastrar() {
                     showModal(string);
                     modalIcon.src = './assets/right.png';
 
+                    setTimeout(() => {
+                        modalError.classList.remove("opacity-100");
+                        modalError.classList.add("opacity-0");
+                    }, 5000);
+
                     iUsername.value = "";
                     iEmail.value = "";
                     iPassword.value = "";
@@ -66,5 +67,25 @@ function cadastrar() {
 
 }
 
+const username = document.getElementById("user")
+const password = document.getElementById("senha")
+//funçao de login
+function autenticar(){
+    let data = {
+        "username": username.value,
+        "password": password.value
+    }
 
+    api.post("/login", data)
+    .then(resp => {
+        if(resp.status == 200) {
+            localStorage.setItem("user", JSON.stringify(resp.data));
+            window.location.href="../pages/feed.html";
+        }else if(resp.status == 206){
+            let string = resp.data.error;
+            showModal(string);
+        }
+    })
+
+}
 
