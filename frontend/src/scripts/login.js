@@ -18,8 +18,6 @@ function showModal(string) {
 
 //função de cadastrar
 function cadastrar() {
-
-
     if (iUsername.value == "" || iEmail.value == "") {
         let string = "Preencha todos os campos";
         showModal(string);
@@ -33,11 +31,13 @@ function cadastrar() {
         let string = "A senha deve conter pelo menos 6 caractéres";
         showModal(string);
     } else if (iPassword.value == iConfirmPassword.value && iPassword.value) {
+        let userPicture = '../pages/login/assets/pfp.png';
         let user = {
             "username": iUsername.value,
             "email": iEmail.value,
             "name": iUsername.value,
-            "password": iPassword.value
+            "password": iPassword.value,
+            "picture": `LOAD_FILE('${userPicture}')`
         }
         api.post("/user", user)
             .then(resp => {
