@@ -27,11 +27,13 @@ model User {
 // Define o modelo de dados para a tabela "post"
 model Post {
   id          Int       @id @default(autoincrement())
-  idPage      Int?
+  userId      Int
+  pageId      Int?
   description String?
-  postContent String?
+  postContent Bytes?
   date        DateTime  @default(now())
-  user        User?     @relation(fields: [idPage], references: [id])
+  user        User?     @relation(fields: [userId], references: [id])
+  page        GamePage? @relation(fields: [pageId], references: [id])
   comments    Comment[] // Relacionamento com os comentários no post
   likes       Like[] // Relacionamento com os likes no post
 }
@@ -65,4 +67,5 @@ model GamePage {
   gamePicture Bytes? // Coluna de imagem como um array de bytes (BLOB)
   gameBanner  Bytes? // Coluna de imagem como um array de bytes (BLOB)
   user        User   @relation(fields: [idUser], references: [id])
+  Post        Post[]
 }

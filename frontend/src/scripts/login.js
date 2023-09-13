@@ -10,7 +10,7 @@ const modalIcon = document.getElementById("modalIcon");
 const warning = document.getElementById("warning");
 
 //função para mostrar modal
-function showModal(string){
+function showModal(string) {
     warning.innerHTML = string;
     modalError.classList.remove("opacity-0");
     modalError.classList.add("opacity-100");
@@ -26,10 +26,10 @@ function cadastrar() {
     } else if (iPassword.value != iConfirmPassword.value) {
         let string = "Senhas não conferem";
         showModal(string);
-    } else if(iUsername.value.length < 4){
+    } else if (iUsername.value.length < 4) {
         let string = "O nome deve conter pelo menos 4 caractéres";
         showModal(string);
-    } else if(iPassword.value.length < 6){
+    } else if (iPassword.value.length < 6) {
         let string = "A senha deve conter pelo menos 6 caractéres";
         showModal(string);
     } else if (iPassword.value == iConfirmPassword.value && iPassword.value) {
@@ -70,24 +70,24 @@ function cadastrar() {
 const username = document.getElementById("user")
 const password = document.getElementById("senha")
 //funçao de login
-function autenticar(){
+function autenticar() {
     let data = {
         "username": username.value,
         "password": password.value
     }
 
     api.post("/login", data)
-    .then(resp => {
-        if(resp.status == 200) {
-            localStorage.setItem("user", JSON.stringify(resp.data));
-            window.location.href="../pages/feed.html";
-            ipc.send('maximizeRestoreApp')
-        }else if(resp.status == 206){
-            let string = resp.data.error;
-            modalIcon.src = './assets/error.png';
-            showModal(string);
-        }
-    })
+        .then(resp => {
+            if (resp.status == 200) {
+                localStorage.setItem("user", JSON.stringify(resp.data));
+                window.location.href = "../feed/feed.html";
+                ipc.send('maximizeRestoreApp')
+            } else if (resp.status == 206) {
+                let string = resp.data.error;
+                modalIcon.src = './assets/error.png';
+                showModal(string);
+            }
+        })
 
 }
 
