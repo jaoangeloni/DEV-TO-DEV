@@ -4,8 +4,9 @@ const user = require('../controllers/user');
 
 routeUsers.get('/', (req, res) => { return res.json("Back Funciona") });
 
-routeUsers.post('/user', user.create);
-routeUsers.post('/login', user.login);
-routeUsers.post('/create', user.post);
+routeUsers.post('/user/cadastrar', user.criar);
+routeUsers.get('/user/listar/:id', user.listar);
+routeUsers.put('/user/alterar', user.alterar);
+routeUsers.delete('/user/deletar', user.excluir);
 
 module.exports = routeUsers;
