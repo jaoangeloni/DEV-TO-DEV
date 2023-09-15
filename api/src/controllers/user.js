@@ -39,9 +39,27 @@ const excluir = (req, res) => {
     })
 }
 
+const login = (req, res) => {
+    let user = new User(req.body)
+    con.query(user.login(), (err, result) => {
+        if (err == undefined) {
+            if (result.length == 0) {
+                res.status(401).json({ "msg": "Login ou Senha Invalidos" }).end();
+            } else {
+                let user = result[0];
+                delete user.password;
+                res.status(200).json(user).end();
+            }
+        } else {
+            res.status(401).json(err).end();
+        }
+    })
+}
+
 module.exports = {
     criar,
     listar,
     alterar,
-    excluir
+    excluir,
+    login
 }
