@@ -1,9 +1,9 @@
 const con = require('../db/connect');
-const Suco = require('../models/user');
+const User = require('../models/user');
 
 const criar = (req, res) => {
-    let suco = new Suco(req.body)
-    con.query(suco.create(), (err, result) => {
+    let user = new User(req.body)
+    con.query(user.create(), (err, result) => {
         if (err == null)
             res.status(201).end()
         else
@@ -12,16 +12,16 @@ const criar = (req, res) => {
 }
 
 const listar = (req, res) => {
-    let suco = new Suco(req.params)
-    con.query(suco.read(), (err, result) => {
+    let user = new User(req.params)
+    con.query(user.read(), (err, result) => {
         if (err == null)
             res.json(result).end()
     })
 }
 
 const alterar = (req, res) => {
-    let suco = new Suco(req.body);
-    con.query(suco.update(), (err, result) => {
+    let user = new User(req.body);
+    con.query(user.update(), (err, result) => {
         if (result.affectedRows > 0)
             res.status(202).end()
         else
@@ -30,8 +30,8 @@ const alterar = (req, res) => {
 }
 
 const excluir = (req, res) => {
-    let suco = new Suco(req.params)
-    con.query(suco.delete(), (err, result) => {
+    let user = new User(req.params)
+    con.query(user.delete(), (err, result) => {
         if (result.affectedRows > 0)
             res.status(204).end()
         else
