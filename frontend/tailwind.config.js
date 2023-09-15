@@ -1,13 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/pages/*.html"],
+  content: ["./src/pages/login/*.html", "./src/pages/feed/*.html"],
   theme: {
     extend: {
       fontFamily: {
         custom: ['Tulpen One', 'sans'],
         dev: ['Passero One', 'cursive'],
         osvaldo: ['Oswald', 'sans-serif'],
-        concert: ['Concert One', 'cursive']
+        concert: ['Concert One', 'cursive'],
+        fontefoda: ['Amatic SC', 'cursive'],
+        fontefod2: ['Amatic SC', 'cursive']
       },
       dropShadow: {
         'sombrinha': [
@@ -23,6 +25,9 @@ module.exports = {
         'sombra': [
           '0px 5px 5px rgb(0,0,0)'
         ]
+      },
+      backgroundImage: {
+        'bannerfoda': "url('/src/pages/assets/backgrounds/bannerfoda.jpg')"
       }
     },
     plugins: [],
