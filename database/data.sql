@@ -22,10 +22,7 @@ CREATE TABLE post(
 );
 
 CREATE TABLE comments(
-<<<<<<< HEAD
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-
->>>>>>> b1c7d73e694ce8db059ac6e486620b889bfde5e1
     userId INT NOT NULL,
     postId INT NOT NULL,
     commentDescription varchar(255) NOT NULL,
@@ -34,10 +31,7 @@ CREATE TABLE comments(
     FOREIGN KEY(postId) REFERENCES post(id)
 );
 CREATE TABLE likes(
-<<<<<<< HEAD
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-=======
->>>>>>> b1c7d73e694ce8db059ac6e486620b889bfde5e1
     userId INT NOT NULL,
     postId INT NOT NULL,
     date DATE NOT NULL,
