@@ -42,6 +42,11 @@ class User {
     delete() {
         return `DELETE FROM users WHERE id = '${this.id}'`
     }
+
+    login() {
+        return `SELECT * FROM users WHERE username = '${this.username}' AND password = '${this.password}'`;
+    }
 }
+
 
 module.exports = User
