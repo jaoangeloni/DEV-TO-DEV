@@ -9,7 +9,11 @@ class Comments {
     }
 
     create() {
-        return `INSERT INTO comments VALUE('DEFAULT','${this.userId}','${this.postId}','${this.commentDescription}', ${this.date})`
+        return `INSERT INTO comments VALUE('DEFAULT',
+        '${this.userId}',
+        '${this.postId}',
+        '${this.commentDescription}',
+        '${this.date}')`
     }
 
     read() {
@@ -20,11 +24,14 @@ class Comments {
     }
 
     update() {
-        return `UPDATE comments SET commentDescription = '${this.commentDescription}', ${} WHERE id = '${this.id}'`
+        return `UPDATE comments SET 
+        commentDescription = '${this.commentDescription}',
+        date=CURDATE(),
+        WHERE id = '${this.id}'`
     }
 
     delete() {
-        return `DELETE FROM comments WHERE id = '${this.id}'`
+        return `DELETE FROM comments WHERE id ='${this.id}'`
     }
 }
 
