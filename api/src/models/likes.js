@@ -8,12 +8,14 @@ class Likes {
   }
 
   create() {
-    return `INSERT INTO likes VALUE ('DEFAULT', ${this.idUser}, ${this.idPost}, '${this.commentDescription}', '${this.date}') `;
+    return `INSERT INTO likes VALUE ('DEFAULT', ${this.idUser}, ${this.idPost}, '${this.commentDescription}', CURDATE()') `;
   }
 
   read() {
-    if (this.id == undefined) return `SELECT * FROM likes`;
-    else return `SELECT * FROM likes WHERE id = ${this.id}`;
+    if (this.id == undefined)
+      return `SELECT * FROM likes`;
+    else
+      return `SELECT * FROM likes WHERE id = ${this.id}`;
   }
 
   delete() {
