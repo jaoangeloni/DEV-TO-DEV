@@ -1,58 +1,47 @@
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+const con = require('../db/connect');
+const Suco = require('../models/user');
 
-const create = async (req, res) => {
-    try {
-        const data = req.body;
-        const user = await prisma.user.create({
-            data: data
-        });
-
-        // const findUser = await prisma.user.findUnique({
-        //     where: { username }
-        // });
-
-        // const findEmail = await prisma.user.findUnique({
-        //     where: { email }
-        // });
-
-        // if(findUser){
-        //     return res.status(400).json({ error: 'Username já está sendo utilizado' });
-        // }else if(findEmail){
-        //     return res.status(400).json({ error: 'Email já está sendo utilizado' });
-        // }else
-
-        return res.status(201).json(user).end();
-    
-
-    } catch (error) {
-        return res.status(206).json({ "msg": "Username ou Email já sendo utilizados" }).end();
-    }
+const criar = (req, res) => {
+    let suco = new Suco(req.body)
+    con.query(suco.create(), (err, result) => {
+        if (err == null)
+            res.status(201).end()
+        else
+            res.status(500).json(err).end();
+    })
 }
 
+const listar = (req, res) => {
+    let suco = new Suco(req.params)
+    con.query(suco.read(), (err, result) => {
+        if (err == null)
+            res.json(result).end()
+    })
+}
 
-const login = async (req, res) => {
-    try {
-        const { username, password } = req.body;
-        const user = await prisma.user.findUnique({
-            where: { username }
-        });
+const alterar = (req, res) => {
+    let suco = new Suco(req.body);
+    con.query(suco.update(), (err, result) => {
+        if (result.affectedRows > 0)
+            res.status(202).end()
+        else
+            res.status(404).end()
+    })
+}
 
-        if (!user) {
-            return res.status(206).json({ error: 'Usuário não encontrado' });
-        }else if (user.password !== password) {
-            return res.status(206).json({ error: 'Senha incorreta' });
-        }else{
-            return res.status(200).json(user);
-        }
-
-    } catch (error) {
-        console.error('Erro durante o login:', error);
-        return res.status(500).json({ error: 'Erro interno do servidor' }).end();
-    }
+const excluir = (req, res) => {
+    let suco = new Suco(req.params)
+    con.query(suco.delete(), (err, result) => {
+        if (result.affectedRows > 0)
+            res.status(204).end()
+        else
+            res.status(404).end()
+    })
 }
 
 module.exports = {
-    create,
-    login
-};
+    criar,
+    listar,
+    alterar,
+    excluir
+}
