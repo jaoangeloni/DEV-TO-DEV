@@ -16,8 +16,10 @@ class gamePage {
         LOAD_FILE('D:/JAO/PROJETO-ULTRA-SECRETO/api/default/default.jpg'));`;
   }
   read() {
-    if (this.id == undefined) return `SELECT * FROM gamePage`;
-    else return `SELECT * FROM gamePage WHERE id = '${this.id}'`;
+    if (this.id == undefined)
+      return `SELECT * FROM gamePage`;
+    else
+      return `SELECT * FROM gamePage WHERE id = '${this.id}'`;
   }
 
   update() {
@@ -27,6 +29,7 @@ class gamePage {
     this.gameBanner = '${this.gameBanner}'
     WHERE id = ${this.id}`;
   }
+
   delete() {
     return `DELETE FROM gamePage WHERE id = '${this.id}'`;
   }

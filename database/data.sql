@@ -30,6 +30,7 @@ CREATE TABLE comments(
     FOREIGN KEY(userId) REFERENCES users(id),
     FOREIGN KEY(postId) REFERENCES post(id)
 );
+
 CREATE TABLE likes(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     userId INT NOT NULL,

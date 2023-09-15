@@ -26,7 +26,7 @@ class Comments {
     update() {
         return `UPDATE comments SET 
         commentDescription = '${this.commentDescription}',
-        date=CURDATE(),
+        date = CURDATE(),
         WHERE id = '${this.id}'`
     }
 
