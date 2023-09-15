@@ -13,8 +13,9 @@
     <script src="../../scripts/api.js"></script>
 </head>
 
-<body class="h-screen w-screen">
-    <header class="fixed flex top-0 justify-end items-center w-full p-5 gap-3">
+<body class="h-screen w-screen bg-gray-950">
+    <!-- header com botoes customizados para fechar e minimizar ---------------------------------------------------------------------->
+    <header class="flex top-0 justify-end items-center w-full p-5 gap-3">
         <div id="minimizeBtn" title="Minimize"
             class="topBtn minimizeBtn w-5 h-5 bg-green-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
         </div>
@@ -25,7 +26,39 @@
             class="topBtn closeBtn w-5 h-5 bg-red-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
         </div>
     </header>
-    <h1>FEED</h1>
+
+    <header class="w-full h-28 bg-bannerfoda bg-cover flex items-center justify-around gap-56">
+        <img src="../feed/assets/logo.png" alt="logo da empresa dev to dev" class="w-36">
+        <span class="flex items-center justify-center">
+            <div class="h-9 bg-gray-900 p-2 flex items-center justify-center rounded-s-lg">
+                <img src="../feed/assets/lupa.png" alt="" class="w-6 h-6 bg-gray-900 hover:cursor-pointer">
+            </div>
+            <input type="search" placeholder="Pesquisa ai porra"
+                class="h-9 text-center bg-gray-300 rounded-e-lg outline-none">
+        </span>
+        <img src="../feed/assets/icon.webp" alt="" class="w-14">
+    </header>
+    <!--Linha para dividir o head do main-->
+    :
+    <!------------------------------------->
+
+    <main>
+        <footer class="flex justify-center items-center justify-evenly w-full h-10 bg-gray-900">
+            <ul
+                class="font-osvaldo hover:cursor-pointer text-white hover:text-yellow-300 transition-all duration-200 hover:scale-125">
+                Community</ul>
+            <ul
+                class="font-osvaldo hover:cursor-pointer text-white hover:text-yellow-300 transition-all duration-200 hover:scale-125">
+                Games</ul>
+            <ul
+                class="font-osvaldo hover:cursor-pointer text-white hover:text-yellow-300 transition-all duration-200 hover:scale-125">
+                Jams
+            </ul>
+        </footer>
+        <div class="bg-slate-700 w-44 h-28">
+
+        </div>
+    </main>
 </body>
 <script defer src="../../scripts/winButtons.js"></script>
 
