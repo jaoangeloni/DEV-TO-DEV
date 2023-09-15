@@ -15,7 +15,7 @@ const listar = (req, res) => {
     let user = new User(req.params)
     con.query(user.read(), (err, result) => {
         if (err == null)
-            res.json(result).end()
+            res.json(result).end();
     })
 }
 
