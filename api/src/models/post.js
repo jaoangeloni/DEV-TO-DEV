@@ -27,7 +27,9 @@ class Post {
     }
 
     update() {
-        return 0
+        return `UPDATE post SET 
+        description = '${this.description}'
+        WHERE id = ${this.id}`
     }
 
     delete() {
