@@ -12,13 +12,33 @@ CREATE TABLE users(
     profileBanner BLOB
 );
 
-
-CREATE TABLE post(
+CREATE TABLE gamePage(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userId INT NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    gamePicture BLOB,
+    gameBanner BLOB,
+    FOREIGN KEY(userId) REFERENCES users(id)
+);
+
+CREATE TABLE followers (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    followerId INT NOT NULL,  
+    userId INT NOT NULL, 
+    FOREIGN KEY (followerId) REFERENCES users (id),
+    FOREIGN KEY (userId) REFERENCES users (id),
+    UNIQUE (followerId, userId)
+   );
+
+   CREATE TABLE post(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    userId INT NOT NULL,
     pageId INT,
     description VARCHAR(255),
     postContent BLOB,
-    date DATE NOT NULL
+    date DATE NOT NULL,
+    FOREIGN KEY(userId) REFERENCES users(id),
+    FOREIGN KEY(pageId) REFERENCES gamePage(id)
 );
 
 CREATE TABLE comments(
@@ -39,21 +59,3 @@ CREATE TABLE likes(
     FOREIGN KEY(userId) REFERENCES users(id),
     FOREIGN KEY(postId) REFERENCES post(id)
 );
-
-CREATE TABLE gamePage(
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    userId INT NOT NULL,
-    name VARCHAR(255) NOT NULL,
-    gamePicture BLOB,
-    gameBanner BLOB,
-    FOREIGN KEY(userId) REFERENCES users(id)
-);
-
-CREATE TABLE followers (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    followerId INT NOT NULL,  
-    userId INT NOT NULL, 
-    FOREIGN KEY (followerId) REFERENCES users (id),
-    FOREIGN KEY (userId) REFERENCES users (id),
-    UNIQUE (followerId, userId)
-   );

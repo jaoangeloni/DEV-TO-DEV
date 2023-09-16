@@ -19,13 +19,13 @@ class Post {
 
     read() {
         if (this.id == undefined)
-            return `SELECT * FROM users`
+            return `SELECT * FROM post`
         else
-            return `SELECT * FROM users WHERE id = '${this.id}'`
+            return `SELECT * FROM post WHERE id = '${this.id}'`
     }
 
     update() {
-        return `UPDATE users SET 
+        return `UPDATE post SET 
             username = '${this.username}', 
             name = '${this.name}', 
             email = '${this.email}' , 
@@ -36,11 +36,11 @@ class Post {
     }
 
     delete() {
-        return `DELETE FROM users WHERE id = '${this.id}'`
+        return `DELETE FROM post WHERE id = '${this.id}'`
     }
 
     login() {
-        return `SELECT * FROM users WHERE username = '${this.username}' AND password = '${this.password}'`;
+        return `SELECT * FROM post WHERE username = '${this.username}' AND password = '${this.password}'`;
     }
 }
 
