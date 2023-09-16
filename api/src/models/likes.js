@@ -1,14 +1,13 @@
 class Likes {
   constructor(i) {
-    this.id = id;
-    this.idUser = i.idUser;
-    this.idPost = i.idPost;
-    this.commentDescription = i.commentDescription;
+    this.id = i.id;
+    this.userId = i.userId;
+    this.postId = i.postId;
     this.date = i.date;
   }
 
   create() {
-    return `INSERT INTO likes VALUE ('DEFAULT', ${this.idUser}, ${this.idPost}, '${this.commentDescription}', CURDATE()') `;
+    return `INSERT INTO likes VALUE ('DEFAULT', ${this.userId}, ${this.postId}', CURDATE()') `;
   }
 
   read() {
