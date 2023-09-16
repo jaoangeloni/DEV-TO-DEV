@@ -44,7 +44,7 @@ class User {
     }
 
     login() {
-        return `SELECT * FROM users WHERE username = '${this.username}' AND password = PASSAWORD('${this.password}')`;
+        return `SELECT * FROM users WHERE username = '${this.username}' AND password = PASSWORD('${this.password}')`;
     }
 }
 
