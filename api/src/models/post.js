@@ -11,12 +11,10 @@ class Post {
     create() {
         return `INSERT INTO post VALUE(
             DEFAULT,
-            '${this.username}',
-            '${this.name}',
-            '${this.email}',
-            '${this.password}', 
-            LOAD_FILE('D:/JAO/PROJETO-ULTRA-SECRETO/api/default/default.png'),
-            LOAD_FILE('D:/JAO/PROJETO-ULTRA-SECRETO/api/default/default.jpg'));`
+            ${this.pageId},
+            '${this.description}',
+            ${this.postContent},
+            CURDATE())`
     }
 
     read() {

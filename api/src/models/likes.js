@@ -7,7 +7,11 @@ class Likes {
   }
 
   create() {
-    return `INSERT INTO likes VALUE ('DEFAULT', ${this.userId}, ${this.postId}', CURDATE()') `;
+    return `INSERT INTO likes VALUE (
+      'DEFAULT',
+      ${this.userId},
+      ${this.postId},
+      CURDATE()) `;
   }
 
   read() {

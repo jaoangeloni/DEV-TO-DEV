@@ -1,6 +1,6 @@
 const express = require('express');
 const routePage = express.Router();
-const gamepage = require('../controllers/comments');
+const gamepage = require('../controllers/gamePage');
 
 routePage.get('/', (req, res) => { return res.json("Back Funciona") });
 

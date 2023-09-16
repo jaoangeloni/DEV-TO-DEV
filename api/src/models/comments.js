@@ -10,10 +10,10 @@ class Comments {
 
     create() {
         return `INSERT INTO comments VALUE('DEFAULT',
-        '${this.userId}',
-        '${this.postId}',
+        ${this.userId},
+        ${this.postId},
         '${this.commentDescription}',
-        '${this.date}')`
+        CURDATE())`
     }
 
     read() {
@@ -26,7 +26,7 @@ class Comments {
     update() {
         return `UPDATE comments SET 
         commentDescription = '${this.commentDescription}'
-        WHERE id = '${this.id}'`
+        WHERE id = ${this.id}`
     }
 
     delete() {

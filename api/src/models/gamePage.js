@@ -1,7 +1,7 @@
 class gamePage {
   constructor(i) {
     this.id = i.id;
-    this.idUser = i.idUser;
+    this.userId = i.userId;
     this.name = i.name;
     this.gamePicture = i.gamePicture;
     this.gameBanner = i.gameBanner;
@@ -10,7 +10,7 @@ class gamePage {
   create() {
     return `INSERT INTO gamePage VALUE(
         DEFAULT,
-        ${this.idUser},
+        ${this.userId},
         '${this.name}',
         LOAD_FILE('D:/JAO/PROJETO-ULTRA-SECRETO/api/default/default.png'),
         LOAD_FILE('D:/JAO/PROJETO-ULTRA-SECRETO/api/default/default.jpg'));`;
@@ -24,9 +24,9 @@ class gamePage {
 
   update() {
     return `UPDATE gamePage SET
-    this.name = '${this.name}',
-    this.gamePicture = '${this.gamePicture}',
-    this.gameBanner = '${this.gameBanner}'
+    name = '${this.name}',
+    gamePicture = '${this.gamePicture}',
+    gameBanner = '${this.gameBanner}'
     WHERE id = ${this.id}`;
   }
 
