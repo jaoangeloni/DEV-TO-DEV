@@ -17,7 +17,7 @@ CREATE TABLE post(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     pageId INT,
     description VARCHAR(255),
-    postContent VARCHAR(255),
+    postContent BLOB,
     date DATE NOT NULL
 );
 
