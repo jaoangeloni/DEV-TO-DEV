@@ -2,6 +2,7 @@ class Post {
 
     constructor(i) {
         this.id = i.id;
+        this.userId = i.userId;
         this.pageId = i.pageId;
         this.description = i.description
         this.postContent = i.postContent
@@ -11,6 +12,7 @@ class Post {
     create() {
         return `INSERT INTO post VALUE(
             DEFAULT,
+            ${this.userId},
             ${this.pageId},
             '${this.description}',
             ${this.postContent},
@@ -25,26 +27,12 @@ class Post {
     }
 
     update() {
-        return `UPDATE post SET 
-            username = '${this.username}', 
-            name = '${this.name}', 
-            email = '${this.email}' , 
-            password = '${this.password}', 
-            profilePicture = '${this.profilePicture}',
-            profileBanner = '${this.profileBanner}' 
-            WHERE id = '${this.id}'`
+        return 0
     }
 
     delete() {
         return `DELETE FROM post WHERE id = '${this.id}'`
     }
-
-    login() {
-        return `SELECT * FROM post WHERE username = '${this.username}' AND password = '${this.password}'`;
-    }
 }
-
-
-module.exports = User
 
 module.exports = Post
