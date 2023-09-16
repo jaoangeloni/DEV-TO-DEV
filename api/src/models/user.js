@@ -16,7 +16,7 @@ class User {
         '${this.username}',
         '${this.name}',
         '${this.email}',
-        '${this.password}', 
+        PASSWORD('${this.password}'), 
         LOAD_FILE('D:/JAO/PROJETO-ULTRA-SECRETO/api/default/default.png'),
         LOAD_FILE('D:/JAO/PROJETO-ULTRA-SECRETO/api/default/default.jpg'));`
     }
@@ -33,7 +33,7 @@ class User {
         username = '${this.username}', 
         name = '${this.name}', 
         email = '${this.email}' , 
-        password = '${this.password}', 
+        password = PASSWORD('${this.password}'), 
         profilePicture = '${this.profilePicture}',
         profileBanner = '${this.profileBanner}' 
         WHERE id = '${this.id}'`
@@ -44,7 +44,7 @@ class User {
     }
 
     login() {
-        return `SELECT * FROM users WHERE username = '${this.username}' AND password = '${this.password}'`;
+        return `SELECT * FROM users WHERE username = '${this.username}' AND password = PASSAWORD('${this.password}')`;
     }
 }
 
