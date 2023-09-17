@@ -4,9 +4,9 @@ Primeiramente clone o repositório e abra a pasta no VS code
 
 <h1>BANCO DE DADOS</h1>
 <li>XAMPP é necessário</li>
-<li>Inicie o módulo APACHE e MYSQL no XAMPP</li>
-<li>Crie o banco de dados de acordo com o script database na pasta database</li>
-<li>Popule o banco de dados de acordo com o script data na pasta database</li>
+<li>Inicie o módulo Apache e MySQL no XAMPP</li>
+<li>Crie o banco de dados de acordo com o script 'database' na pasta 'database'</li>
+<li>Popule o banco de dados de acordo com o script 'data' na pasta 'database'</li>
 
 <h1>BACKEND</h1>
 <h2>Instale o nodemon e yarn globalmente caso nao tenha</h2>
