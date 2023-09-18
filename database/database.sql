@@ -33,9 +33,9 @@ CREATE TABLE followers (
    CREATE TABLE post(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     userId INT NOT NULL,
-    pageId INT,
-    description VARCHAR(255),
-    postContent BLOB,
+    pageId INT NULL,
+    descImage VARCHAR(255),
+    postImage BLOB,
     date DATE NOT NULL,
     FOREIGN KEY(userId) REFERENCES users(id),
     FOREIGN KEY(pageId) REFERENCES gamePage(id)

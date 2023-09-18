@@ -6,6 +6,8 @@ const upload = multer();
 exports.renderUploadForm = (req, res) => {
     res.send(`
     <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="number" name="userId" />
+    <input type="text" name="descImage" placeholder="Digite a descrição" />
     <input type="file" name="imagem" />
     <input type="submit" value="Enviar" />
     </form>
@@ -13,12 +15,17 @@ exports.renderUploadForm = (req, res) => {
 };
 
 exports.uploadImage = (req, res) => {
-    const nomeImagem = req.file.originalname;
-    const dadosImagem = req.file.buffer;
+    const Post = require('../models/model');
 
-    // Insira os dados da imagem na tabela do banco de dados
-    const sql = 'INSERT INTO imagens (nome, imagem) VALUES (?, ?)';
-    db.query(sql, [nomeImagem, dadosImagem], (err, result) => {
+    const userId = req.body.userId;
+    const dadosImagem = req.file.buffer;
+    const descImage = req.body.descImage;
+
+    // Crie uma instância do modelo Post com os dados recebidos
+
+    const sql = 'INSERT INTO post (userId, descImage, postImage, date) VALUES (?, ?, ?, CURDATE())';
+
+    db.query(sql, [userId, descImage, dadosImagem], (err, result) => {
         if (err) {
             console.error('Erro ao inserir imagem no banco de dados: ' + err.message);
             res.status(500).send('Erro ao fazer o upload da imagem.');
@@ -26,6 +33,6 @@ exports.uploadImage = (req, res) => {
             console.log('Imagem inserida com sucesso.');
             res.status(200).send('Imagem enviada com sucesso.');
         }
+        db.end(); // Feche a conexão com 
     });
 };
-
