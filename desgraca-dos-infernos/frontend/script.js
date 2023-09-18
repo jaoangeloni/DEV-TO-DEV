@@ -6,24 +6,22 @@ api.get('/imagem/4')
 
 document.querySelector('form').addEventListener('submit', async (e) => {
     e.preventDefault();
+
     const userId = document.querySelector('#userId');
     const descImage = document.querySelector('#descImage');
     const imagemInput = document.querySelector('#imagem');
     const imagem = imagemInput.files[0];
 
-    let post = {
-        "userId": userId.value,
-        "descImage": descImage.value,
-        "postImage": imagem
-    }
+    const formData = new FormData();
+    formData.append('userId', userId.value);
+    formData.append('descImage', descImage.value);
+    formData.append('postImage', imagem);
 
-    console.log(post)
-    api.post('/upload', post)
+    api.post('/upload', formData)
         .then(resp => {
             try {
                 if (resp.ok) {
                     console.log('Imagem enviada com sucesso.');
-                    // Redirecione ou faça alguma ação após o envio bem-sucedido.
                 } else {
                     console.error('Erro ao enviar imagem: ' + resp.statusText);
                 }
