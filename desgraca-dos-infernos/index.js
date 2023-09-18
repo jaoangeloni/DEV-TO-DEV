@@ -4,10 +4,9 @@ const app = express();
 const uploadRoutes = require('./src/routes/uploadRoutes.js');
 const imagemRoutes = require('./src/routes/imagemRoutes.js');
 
-// Configure o banco de dados aqui, se necessário
 
-app.use('/upload', uploadRoutes);
-app.use('/imagem', imagemRoutes);
+app.use(uploadRoutes);
+app.use(imagemRoutes);
 
 const port = process.env.PORT || 3000;
 
