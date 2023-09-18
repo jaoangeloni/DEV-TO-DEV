@@ -1,9 +1,3 @@
-
-api.get('/imagem/4')
-    .then(resp => {
-        console.log(resp)
-    })
-
 document.querySelector('form').addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -19,8 +13,9 @@ document.querySelector('form').addEventListener('submit', async (e) => {
 
     api.post('/upload', formData)
         .then(resp => {
+            console.log(resp)
             try {
-                if (resp.ok) {
+                if (resp.status == 200) {
                     console.log('Imagem enviada com sucesso.');
                 } else {
                     console.error('Erro ao enviar imagem: ' + resp.statusText);

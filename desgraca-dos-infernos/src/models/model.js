@@ -15,7 +15,7 @@ class Post {
             ${this.userId},
             DEFAULT,
             '${this.descImage}',
-            ${this.postImage},
+            '${this.postImage}',
             CURDATE())`
     }
 

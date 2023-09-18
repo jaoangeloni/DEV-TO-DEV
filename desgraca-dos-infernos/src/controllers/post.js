@@ -1,25 +1,11 @@
-// controllers/uploadController.js
-const db = require('../db/connect'); // Importe o arquivo de configuração do banco de dados
+const db = require('../db/connect'); 
 const Post = require('../models/model.js')
 
-
-exports.renderUploadForm = (req, res) => {
-    res.send(`
-    <form action="/upload" method="post" enctype="multipart/form-data">
-    <input type="number" name="userId" />
-    <input type="text" name="descImage" placeholder="Digite a descrição" />
-    <input type="file" name="imagem" />
-    <input type="submit" value="Enviar" />
-    </form>
-    `);
-};
-
-exports.uploadImage = (req, res) => {
-    console.log(req.body)
+const criar = (req, res) => {
     const userId = req.body.userId;
     const descImage = req.body.descImage;
     const postImage = req.file.buffer;
-    
+
     const sql = 'INSERT INTO post (userId, descImage, postImage, date) VALUES (?, ?, ?, CURDATE());';
 
     db.query(sql, [userId, descImage, postImage], (err, result) => {
@@ -33,3 +19,16 @@ exports.uploadImage = (req, res) => {
         db.end();
     });
 };
+
+const listar = (req, res) => {
+    let post = new Post(req.params)
+    db.query(post.read(), (err, result) => {
+        if (err == null)
+            res.json(result).end()
+    })
+}
+
+module.exports = {
+    criar,
+    listar
+}
