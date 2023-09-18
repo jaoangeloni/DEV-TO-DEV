@@ -6,6 +6,7 @@ const app = express();
 const uploadRoutes = require('./src/routes/uploadRoutes.js');
 const imagemRoutes = require('./src/routes/imagemRoutes.js');
 
+app.use(express.json())
 app.use(cors());
 app.use(uploadRoutes);
 app.use(imagemRoutes);
