@@ -15,13 +15,9 @@ exports.renderUploadForm = (req, res) => {
 };
 
 exports.uploadImage = (req, res) => {
-    const Post = require('../models/model');
-
     const userId = req.body.userId;
     const dadosImagem = req.file.buffer;
     const descImage = req.body.descImage;
-
-    // Crie uma instância do modelo Post com os dados recebidos
 
     const sql = 'INSERT INTO post (userId, descImage, postImage, date) VALUES (?, ?, ?, CURDATE())';
 
@@ -33,6 +29,6 @@ exports.uploadImage = (req, res) => {
             console.log('Imagem inserida com sucesso.');
             res.status(200).send('Imagem enviada com sucesso.');
         }
-        db.end(); // Feche a conexão com 
+        db.end();
     });
 };
