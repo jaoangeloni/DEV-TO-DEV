@@ -14,7 +14,7 @@ Primeiramente clone o repositório e abra a pasta no VS code
 <li>npm i -g yarn</li>
 <h2>Adicione as dependências na api</h2>
 <li>cd api</li>
-<li>yarn add express cors mysql</li>
+<li>yarn add express cors mysql multer</li>
 <li>nodemon</li>
 
 <h1>FRONTEND</h1>
