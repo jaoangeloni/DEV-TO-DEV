@@ -11,13 +11,13 @@ document.querySelector('form').addEventListener('submit', async (e) => {
     formData.append('descImage', descImage.value);
     formData.append('postImage', imagem);
 
-    api.post('/upload', formData)
+    api.post('/post/criar', formData)
         .then(resp => {
             console.log(resp)
             try {
                 if (resp.status == 200) {
                     console.log('Imagem enviada com sucesso.');
-                    window.location.reload();
+
                 } else {
                     console.error('Erro ao enviar imagem: ' + resp.statusText);
                 }
@@ -27,3 +27,15 @@ document.querySelector('form').addEventListener('submit', async (e) => {
         });
 
 });
+api.get('/post/listar/4')
+    .then(resp => {
+        const imageBuffer = resp.data[0].postImage;
+        console.log(imageBuffer)
+        const imageBlob = new Blob([imageBuffer]); // Substitua 'image/jpeg' pelo tipo MIME correto da sua imagem
+        console.log(imageBlob)
+        const imageUrl = URL.createObjectURL(imageBlob);
+        console.log(imageUrl)
+
+        const teste = document.getElementById('imageTeste');
+        teste.src = imageUrl;
+    });

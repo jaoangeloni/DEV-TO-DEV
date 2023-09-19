@@ -14,7 +14,9 @@ const criar = (req, res) => {
             res.status(500).send('Erro ao fazer o upload da imagem.').end();
         } else {
             console.log('Imagem inserida com sucesso.');
-            res.status(200).send('Imagem enviada com sucesso.').end();
+
+            let post = result[0];
+            res.status(200).json(post).end();
         }
     });
 };

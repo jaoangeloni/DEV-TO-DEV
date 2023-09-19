@@ -13,7 +13,7 @@ class Post {
         if (this.id == undefined)
             return `SELECT * FROM post`
         else
-            return `SELECT * FROM post WHERE userId = '${this.id}'`
+            return `SELECT * FROM post WHERE id = '${this.id}'`
     }
 
     update() {
