@@ -2,6 +2,8 @@ DROP DATABASE IF EXISTS devtodev;
 CREATE DATABASE devtodev;
 USE devtodev;
 
+SET GLOBAL max_allowed_packet = 67108864;
+
 CREATE TABLE users(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL UNIQUE,
@@ -36,6 +38,7 @@ CREATE TABLE followers (
     pageId INT NULL,
     descImage VARCHAR(255),
     postImage BLOB,
+    mime_type VARCHAR(255),
     date DATE NOT NULL,
     FOREIGN KEY(userId) REFERENCES users(id),
     FOREIGN KEY(pageId) REFERENCES gamePage(id)

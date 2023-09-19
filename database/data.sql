@@ -20,11 +20,11 @@ VALUES
     (2, 3);
 
 -- Inserir dados na tabela 'post'
-INSERT INTO post (userId, pageId, descImage, postImage, date)
-VALUES
-    (1, NULL, 'Post 1 na Página do Jogo 1', NULL, CURDATE()),
-    (2, NULL, 'Post 2 na Página do Jogo 2', NULL, CURDATE()),
-    (3, 3, 'Post 3 na Página do Jogo 3', NULL, CURDATE());
+-- INSERT INTO post (userId, pageId, descImage, postImage, date)
+-- VALUES
+--     (1, NULL, 'Post 1 na Página do Jogo 1', NULL, CURDATE()),
+--     (2, NULL, 'Post 2 na Página do Jogo 2', NULL, CURDATE()),
+--     (3, 3, 'Post 3 na Página do Jogo 3', NULL, CURDATE());
 
 -- Inserir dados na tabela 'comments'
 INSERT INTO comments (userId, postId, commentDescription, date)

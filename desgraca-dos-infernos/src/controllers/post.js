@@ -4,19 +4,24 @@ const Post = require('../models/model.js')
 const criar = (req, res) => {
     const userId = req.body.userId;
     const descImage = req.body.descImage;
-    const postImage = req.file.buffer;
+    let postImage = null;
+    let mimeType = null;
 
-    const sql = 'INSERT INTO post (userId, descImage, postImage, date) VALUES (?, ?, ?, CURDATE());';
+    if (req.file) {
+        postImage = req.file.buffer;
+        mimeType = req.file.mimetype;
+    }
 
-    db.query(sql, [userId, descImage, postImage], (err, result) => {
+    const sql = 'INSERT INTO post (userId, descImage, postImage, mime_type, date) VALUES (?, ?, ?, ?, CURDATE());';
+
+    db.query(sql, [userId, descImage, postImage, mimeType], (err, result) => {
         if (err) {
             console.error('Erro ao inserir imagem no banco de dados: ' + err.message);
             res.status(500).send('Erro ao fazer o upload da imagem.').end();
         } else {
             console.log('Imagem inserida com sucesso.');
 
-            let post = result[0];
-            res.status(200).json(post).end();
+            res.status(200).json(result.insertId).end();
         }
     });
 };
@@ -25,6 +30,7 @@ const listar = (req, res) => {
     let post = new Post(req.params)
     db.query(post.read(), (err, result) => {
         if (err == null)
+
             res.json(result).end()
     })
 }
