@@ -9,21 +9,11 @@ class Post {
         this.date = i.date;
     }
 
-    create() {
-        return `INSERT INTO post VALUE(
-            DEFAULT,
-            ${this.userId},
-            DEFAULT,
-            '${this.descImage}',
-            '${this.postImage}',
-            CURDATE())`
-    }
-
     read() {
         if (this.id == undefined)
             return `SELECT * FROM post`
         else
-            return `SELECT * FROM post WHERE id = '${this.id}'`
+            return `SELECT * FROM post WHERE userId = '${this.id}'`
     }
 
     update() {

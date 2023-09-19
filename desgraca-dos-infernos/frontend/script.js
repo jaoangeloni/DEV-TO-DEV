@@ -17,6 +17,7 @@ document.querySelector('form').addEventListener('submit', async (e) => {
             try {
                 if (resp.status == 200) {
                     console.log('Imagem enviada com sucesso.');
+                    window.location.reload();
                 } else {
                     console.error('Erro ao enviar imagem: ' + resp.statusText);
                 }
