@@ -1,3 +1,4 @@
+
 DROP DATABASE IF EXISTS devtodev;
 CREATE DATABASE devtodev;
 USE devtodev;
@@ -37,7 +38,7 @@ CREATE TABLE followers (
     userId INT NOT NULL,
     pageId INT NULL,
     descImage VARCHAR(255),
-    postImage BLOB,
+    postImage LONGBLOB,
     mime_type VARCHAR(255),
     date DATE NOT NULL,
     FOREIGN KEY(userId) REFERENCES users(id),
