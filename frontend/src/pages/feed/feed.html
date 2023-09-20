@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../scripts/api.js"></script>
+    <script src="./barrapesquisa.js"></script>
 </head>
 
 <body class="overflow-x-hidden w-screen bg-gray-950">
@@ -34,31 +35,29 @@
         <span class="flex items-center justify-center">
             <div class="h-9 bg-gray-900 p-2 flex items-center justify-center rounded-s-lg">
                 <img src="../feed/assets/lupa.png" alt="" class="w-6 h-6 bg-gray-900 hover:cursor-pointer">
+                <div class="divSearch">
+                    <label for="search"></label>
+                    <input type="search" class="h-9 text-center bg-gray-300 rounded-e-lg outline-none">
+                </div>
+                <div class="content">
+
+                </div>
             </div>
-            <input type="search" placeholder="Pesquisa ai porra"
-                class="h-9 text-center bg-gray-300 rounded-e-lg outline-none">
+
         </span>
         <img src="../feed/assets/perfilfoda.jpg" alt=""
-            class="w-14 transition-all duration-200 hover:scale-125 hover:cursor-pointer">
+            class="w-14  transition-all rounded-xl duration-200 hover:scale-125 hover:cursor-pointer hover:rounded-none">
     </header>
-    <!--Linha para dividir o head do main-->
-    :
-    <!------------------------------------->
 
 
-    <footer class="flex justify-center items-center justify-evenly w-full h-10 bg-gray-900">
+    <nav class="flex justify-center items-center justify-evenly w-full h-10 bg-gray-900">
         <ul
             class="font-osvaldo hover:cursor-pointer text-white hover:text-yellow-300 transition-all duration-200 hover:scale-125">
             Community</ul>
         <ul
             class="font-osvaldo hover:cursor-pointer text-white hover:text-yellow-300 transition-all duration-200 hover:scale-125">
             Games</ul>
-        <ul
-            class="font-osvaldo hover:cursor-pointer text-white hover:text-yellow-300 transition-all duration-200 hover:scale-125">
-            Jams
-        </ul>
-    </footer>
-
+    </nav>
 
     <main class="flex justify-center w-full h-screen">
         <div id="localposts" class="justify-center bg-slate-600 w-5/12 h-full">
@@ -71,13 +70,15 @@
                             <p>#JoseRuelaDaSilva24032</p>
                         </div>
                         <div id="descimagem" class="">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio porro exercitationem
-                                voluptatibus, quod facilis dolorum nostrum provident atque odit, necessitatibus dolor
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio porro
+                                exercitationem
+                                voluptatibus, quod facilis dolorum nostrum provident atque odit, necessitatibus
+                                dolor
                                 vel ducimus totam nulla cupiditate dignissimos vitae harum itaque?</p>
                         </div>
                     </div>
                 </div>
-                <div id="post" class=" flex justify-center w-96">
+                <div id="imgpost" class=" flex justify-center w-96">
                     <img src="./assets/postgamedev.png" alt="">
                 </div>
             </div>

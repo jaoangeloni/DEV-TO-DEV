@@ -6,7 +6,7 @@ app.on('ready', () => {
     const win = new BrowserWindow({
         width: 1200,
         height: 600,
-        resizable: false,
+        resizable: true,
         frame: false,
         icon: __dirname + '/pages/assets/right.png',
         webPreferences: {
