@@ -4,7 +4,6 @@ const localPosts = document.getElementById("localPosts")
 function loadPosts() {
     api.get('/post/listar')
         .then(resp => {
-            console.log(resp.data)
             const dados = resp.data;
 
             dados.forEach(e => {
@@ -12,7 +11,7 @@ function loadPosts() {
 
                 //card post
                 const post = document.createElement('div');
-                post.className = 'w-full rounded-t-md';
+                post.className = 'w-full rounded-md';
 
                 //header
                 const postHeader = document.createElement('div');
@@ -57,7 +56,7 @@ function loadPosts() {
 
                 //footer com elementos de curtida e comentário
                 const postFooter = document.createElement('div');
-                postFooter.className = 'w-full items-start justify-start p-2 flex gap-4';
+                postFooter.className = 'w-full items-start justify-start p-2 flex gap-4 bg-gray-200 rounded-b-md';
 
                 const footer_child1 = document.createElement('div');
                 footer_child1.className = 'bg-gray-50 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
@@ -104,7 +103,6 @@ function loadPosts() {
                     const imageBlob = new Blob([imageBuffer], { type: e.mime_type });
 
                     const imageUrl = URL.createObjectURL(imageBlob);
-                    console.log(imageUrl)
 
                     postImage.src = imageUrl
 
@@ -123,7 +121,9 @@ function loadPosts() {
 
 
 //PUBLICAR POSTS--------------------------------------------------------------------------
-document.querySelector('form').addEventListener('submit', async (e) => {
+const toPost = document.getElementById('uploadForm');
+
+toPost.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const userId = document.querySelector('#userId');
@@ -138,20 +138,9 @@ document.querySelector('form').addEventListener('submit', async (e) => {
 
     api.post('/post/criar', formData)
         .then(resp => {
-            console.log(resp)
             try {
                 if (resp.status == 200) {
-                    const id = resp.data
-                    api.get('/post/listar/' + id)
-                        .then(resp => {
-                            try {
-                                window.location.reload();
-
-                            } catch (error) {
-                                console.log(error)
-                            }
-                        });
-
+                    window.location.reload();
                 } else {
                     console.error('Erro ao enviar imagem: ' + resp.statusText);
                 }
