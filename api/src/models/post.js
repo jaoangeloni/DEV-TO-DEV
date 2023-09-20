@@ -4,19 +4,9 @@ class Post {
         this.id = i.id;
         this.userId = i.userId;
         this.pageId = i.pageId;
-        this.description = i.description
-        this.postContent = i.postContent
-        this.date = i.date
-    }
-
-    create() {
-        return `INSERT INTO post VALUE(
-            DEFAULT,
-            ${this.userId},
-            ${this.pageId},
-            '${this.description}',
-            ${this.postContent},
-            CURDATE())`
+        this.descImage = i.descImage;
+        this.postImage = i.postImage;
+        this.date = i.date;
     }
 
     read() {
@@ -28,7 +18,7 @@ class Post {
 
     update() {
         return `UPDATE post SET 
-        description = '${this.description}'
+        descImage = '${this.descImage}'
         WHERE id = ${this.id}`
     }
 
