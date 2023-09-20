@@ -13,7 +13,8 @@
     <script src="../../scripts/api.js"></script>
 </head>
 
-<body class="overflow-x-hidden w-screen bg-gray-950">
+<body class="w-full bg-gray-50">
+
     <!-- header com botoes customizados para fechar e minimizar ---------------------------------------------------------------------->
     <header class="flex top-0 justify-end items-center w-full p-5 gap-3">
         <div id="minimizeBtn" title="Minimize"
@@ -27,26 +28,27 @@
         </div>
     </header>
 
+    <!-- header logo pesquisa e perfil -->
+    <header class="w-full h-28 bg-bannerfoda bg-cover flex items-center justify-around">
 
-    <header class="w-full h-28 bg-bannerfoda bg-cover flex items-center justify-around gap-56">
         <img src="../feed/assets/logo.png" alt="logo da empresa dev to dev"
-            class="w-36 transition-all duration-200 hover:scale-125 hover:cursor-pointer">
-        <span class="flex items-center justify-center">
-            <div class="h-9 bg-gray-900 p-2 flex items-center justify-center rounded-s-lg">
-                <img src="../feed/assets/lupa.png" alt="" class="w-6 h-6 bg-gray-900 hover:cursor-pointer">
+            class="w-36 transition-all duration-200 hover:scale-110 hover:cursor-pointer">
+
+        <!-- pesquisa -->
+        <span class="flex items-center justify-center w-2/6">
+            <div class="h-9 bg-gray-300  p-2 flex items-center justify-center rounded-s-lg">
+                <img src="../feed/assets/lupa.png" alt="" class="w-6 h-6 bg-gray-300  hover:cursor-pointer">
             </div>
-            <input type="search" placeholder="Pesquisa ai porra"
-                class="h-9 text-center bg-gray-300 rounded-e-lg outline-none">
+            <input type="search" placeholder="Pesquisa" class="h-9 w-full bg-gray-300 rounded-e-lg outline-none">
         </span>
-        <img src="../feed/assets/icon.webp" alt=""
-            class="w-14 transition-all duration-200 hover:scale-125 hover:cursor-pointer">
+
+        <img src="../feed/assets/icon.webp" alt="usericon"
+            class="w-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer">
     </header>
-    <!--Linha para dividir o head do main-->
-    :
-    <!------------------------------------->
 
 
-    <footer class="flex justify-center items-center justify-evenly w-full h-10 bg-gray-900">
+    <!-- navigation bar para navegar entre as páginas
+    <nav class="flex items-center justify-evenly w-full h-10 bg-gray-900">
         <ul
             class="font-osvaldo hover:cursor-pointer text-white hover:text-yellow-300 transition-all duration-200 hover:scale-125">
             Community</ul>
@@ -57,28 +59,50 @@
             class="font-osvaldo hover:cursor-pointer text-white hover:text-yellow-300 transition-all duration-200 hover:scale-125">
             Jams
         </ul>
-    </footer>
+    </nav> -->
 
 
-    <main class="flex justify-center w-full h-screen">
-        <div id="localposts" class="justify-center bg-slate-600 w-5/12 h-full">
-            <div id="posts" class="w-full h-1/2 bg-slate-500">
-                <div id="userdata" class="bg-slate-400 w-full h-auto p-4 flex items-center gap-9">
-                    <img src="./assets/perfilfoda.jpg" alt="imagmedousuario" class="w-28 ml-7">
-                    <div id="nomeusuario" class="font-osvaldo flex flex-col gap-6">
-                        <div id="divparaosnomes">
-                            <p>Jose Ruela da Silva</p>
-                            <p>#JoseRuelaDaSilva24032</p>
+    <main class="flex items-center justify-around w h-screen">
+        <!-- FAIXA DA ESQUERDA -->
+        <div id="navLeft" class="flex items-start justify-center bg-gray-200 w-1/5 h-full rounded-t-md"></div>
+
+        <!-- FAIXA DE POSTS DO MEIO -->
+        <div id="postMain" class="flex flex-col items-start justify-start w-5/12 h-full gap-10">
+
+            <div id="createPost" class="flex bg-gray-200 w-full h-96 rounded"></div>
+
+            <div id="localPosts" class="flex items-start justify-start bg-gray-200 w-full h-full rounded-t-md">
+
+                <div id="post" class="w-full rounded-t-md">
+
+                    <div id="postHeader"
+                        class="bg-gray-200 w-full h-auto p-4 flex flex-col items-start justify-start gap-4 rounded-t-md">
+
+                        <div class="flex gap-2">
+                            <img src="./assets/perfilfoda.jpg" alt="imagmedousuario" class="w-16 rounded-full">
+                            <div class="font-osvaldo font-thin flex flex-col items-center justify-center">
+                                <p class="font-light text-2xl">Jose Ruela da Silva</p>
+                                <p class="font-extralight text-lg">#JoseRuelaDaSilva24032</p>
+                            </div>
                         </div>
-                        <div id="descimagem" class="">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio porro exercitationem
-                                voluptatibus, quod facilis dolorum nostrum provident atque odit, necessitatibus dolor
-                                vel ducimus totam nulla cupiditate dignissimos vitae harum itaque?</p>
-                        </div>
+                        <p id="descImage" class="font-osvaldo font-light text-lg">
+                            Zonta gay</p>
+                    </div>
+
+                    <div class="w-full h-96 bg-black"></div>
+
+                    <div class="w-full items-start justify-start p-2 flex">
+                        <div class="bg-white w-12 h-12 rounded-full"></div>
+                        <div class="bg-white w-12 h-12 rounded-full"></div>
                     </div>
                 </div>
             </div>
+
         </div>
+
+        <!-- FAIXA DA DIREITA -->
+        <div id="navRight" class="flex items-start justify-center bg-gray-200 w-1/5 h-full rounded-md"></div>
+
     </main>
 
 
