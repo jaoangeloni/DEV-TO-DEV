@@ -24,16 +24,12 @@ document.querySelector('form').addEventListener('submit', async (e) => {
                                 const imagem = document.querySelector('#imageTeste');
                                 const descricao = document.querySelector('#descricao');
 
-                                // Acesse a imagem no objeto de resposta.
                                 const imageBuffer = new Uint8Array(responseData[0].postImage.data);
 
-                                // Crie um Blob a partir dos dados da imagem.
                                 const imageBlob = new Blob([imageBuffer], { type: responseData[0].mime_type });
 
-                                // Crie uma URL do Blob.
                                 const imageUrl = URL.createObjectURL(imageBlob);
 
-                                // Defina a URL como o atributo src da sua tag <img>.
                                 imagem.src = imageUrl;
                                 descricao.innerHTML = responseData[0].descImage
 
