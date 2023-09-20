@@ -11,9 +11,15 @@ class Post {
 
     read() {
         if (this.id == undefined)
-            return `SELECT * FROM post`
+            return `SELECT u.name, u.username, p.*
+            FROM users u
+            JOIN post p ON u.id = p.userId
+            ORDER BY p.id DESC;`
         else
-            return `SELECT * FROM post WHERE id = '${this.id}'`
+            return `SELECT u.name, u.username, p.*
+            FROM users u
+            JOIN post p ON u.id = p.userId
+            WHERE id = '${this.id}'`
     }
 
     update() {
