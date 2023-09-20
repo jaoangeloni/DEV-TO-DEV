@@ -14,9 +14,7 @@
 </head>
 
 <body class="w-full bg-gray-50">
-
-    <!-- header com botoes customizados para fechar e minimizar ---------------------------------------------------------------------->
-    <header class="flex top-0 justify-end items-center w-full p-5 gap-3">
+    <header class="flex top-0 sticky justify-end items-center w-full p-5 gap-3 bg-white">
         <div id="minimizeBtn" title="Minimize"
             class="topBtn minimizeBtn w-5 h-5 bg-green-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
         </div>
@@ -27,6 +25,8 @@
             class="topBtn closeBtn w-5 h-5 bg-red-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
         </div>
     </header>
+
+    <!-- header com botoes customizados para fechar e minimizar ---------------------------------------------------------------------->
 
     <!-- header logo pesquisa e perfil -->
     <header class="w-full h-28 bg-bannerfoda bg-cover flex items-center justify-around">
@@ -89,12 +89,14 @@
                             Zonta gay</p>
                     </div>
 
-                    <div class="w-full h-96 bg-black"></div>
+                    <div class="w-full h-96 bg-gray-50"></div>
 
-                    <div class="w-full items-start justify-start p-2 flex">
+                    <div class="w-full items-start justify-start p-2 flex gap-4">
                         <div class="bg-white w-12 h-12 rounded-full"></div>
                         <div class="bg-white w-12 h-12 rounded-full"></div>
                     </div>
+
+                    <div id="commentSection"></div>
                 </div>
             </div>
 
