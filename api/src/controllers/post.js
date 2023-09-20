@@ -1,27 +1,43 @@
-const con = require('../db/connect');
-const Post = require('../models/post');
+const db = require('../db/connect');
+const Post = require('../models/post')
 
 const criar = (req, res) => {
-    let post = new Post(req.body)
-    con.query(post.create(), (err, result) => {
-        if (err == null)
-            res.status(201).end()
-        else
-            res.status(500).json(err).end();
-    })
-}
+    const userId = req.body.userId;
+    const descImage = req.body.descImage;
+    let postImage = null;
+    let mimeType = null;
+
+    if (req.file) {
+        postImage = req.file.buffer;
+        mimeType = req.file.mimetype;
+    }
+
+    const sql = 'INSERT INTO post (userId, descImage, postImage, mime_type, date) VALUES (?, ?, ?, ?, CURDATE());';
+
+    db.query(sql, [userId, descImage, postImage, mimeType], (err, result) => {
+        if (err) {
+            console.error('Erro ao inserir imagem no banco de dados: ' + err.message);
+            res.status(500).send('Erro ao fazer o upload da imagem.').end();
+        } else {
+            console.log('Imagem inserida com sucesso.');
+
+            res.status(200).json(result.insertId).end();
+        }
+    });
+};
 
 const listar = (req, res) => {
     let post = new Post(req.params)
-    con.query(post.read(), (err, result) => {
+    db.query(post.read(), (err, result) => {
         if (err == null)
+
             res.json(result).end()
     })
 }
 
 const alterar = (req, res) => {
     let post = new Post(req.body);
-    con.query(post.update(), (err, result) => {
+    db.query(post.update(), (err, result) => {
         if (result.affectedRows > 0)
             res.status(202).end()
         else
@@ -31,7 +47,7 @@ const alterar = (req, res) => {
 
 const excluir = (req, res) => {
     let post = new Post(req.params)
-    con.query(post.delete(), (err, result) => {
+    db.query(post.delete(), (err, result) => {
         if (result.affectedRows > 0)
             res.status(204).end()
         else
