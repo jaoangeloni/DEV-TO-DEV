@@ -13,7 +13,7 @@
     <script src="../../scripts/api.js"></script>
 </head>
 
-<body class="w-full bg-gray-50">
+<body class="w-full bg-gray-50" onload="loadPosts()">
     <header class="flex top-0 sticky justify-end items-center w-full p-5 gap-3 bg-white">
         <div id="minimizeBtn" title="Minimize"
             class="topBtn minimizeBtn w-5 h-5 bg-green-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
@@ -82,19 +82,30 @@
                         <div class="flex gap-2">
                             <img src="./assets/perfilfoda.jpg" alt="imagmedousuario" class="w-16 rounded-full">
                             <div class="font-osvaldo font-thin flex flex-col items-center justify-center">
-                                <p class="font-light text-2xl">Jose Ruela da Silva</p>
-                                <p class="font-extralight text-lg">#JoseRuelaDaSilva24032</p>
+
+                                <p id="name" class="font-light text-2xl">Jose Ruela da Silva</p>
+                                <p id="username" class="font-extralight text-lg">#JoseRuelaDaSilva24032</p>
                             </div>
                         </div>
                         <p id="descImage" class="font-osvaldo font-light text-lg">
                             Zonta gay</p>
                     </div>
 
-                    <div class="w-full h-96 bg-gray-50"></div>
+                    <div id="postImage" class="w-full h-96 bg-gray-50"></div>
 
-                    <div class="w-full items-start justify-start p-2 flex gap-4">
-                        <div class="bg-white w-12 h-12 rounded-full"></div>
-                        <div class="bg-white w-12 h-12 rounded-full"></div>
+                    <div id="postFooter" class="w-full items-start justify-start p-2 flex gap-4">
+                        <div class="bg-gray-50 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100"
+                            onclick="like()">
+
+                            <img id="likeIcon" src="./assets/like.png" alt="like" class="w-6 h-6">
+                            <p id="likeCount">123</p>
+
+                        </div>
+                        <div
+                            class="bg-gray-50 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100">
+                            <img src="./assets/comentario.png" alt="like" class="w-6 h-6">
+                            <p id="likeCount">123</p>
+                        </div>
                     </div>
 
                     <div id="commentSection"></div>
