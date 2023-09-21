@@ -96,7 +96,7 @@ function loadPosts() {
                 } else {
                     //imagem do post
                     const postImage = document.createElement('img');
-                    postImage.className = 'w-full h-auto bg-cover cursor-zoom-in';
+                    postImage.className = 'w-full h-auto cursor-zoom-in'
 
                     const imageBuffer = new Uint8Array(imageData.data);
 
