@@ -54,7 +54,6 @@ function loadPosts() {
                 postHeader.appendChild(generic)
                 postHeader.appendChild(descImage)
 
-
                 //footer com elementos de curtida e comentário
                 const postFooter = document.createElement('div');
                 postFooter.className = 'w-full items-start justify-start p-2 flex gap-4 bg-gray-200 rounded-b-md';
@@ -97,8 +96,7 @@ function loadPosts() {
                 } else {
                     //imagem do post
                     const postImage = document.createElement('img');
-                    postImage.className = 'w-full h-auto bg-cover';
-                    postImage.id = 'postImage';
+                    postImage.className = 'w-full h-auto bg-cover cursor-zoom-in';
 
                     const imageBuffer = new Uint8Array(imageData.data);
 
@@ -108,7 +106,16 @@ function loadPosts() {
 
                     postImage.src = imageUrl
 
-                    postImage.onclick = modalImage();
+                    postImage.onclick = () => {
+                        console.log('a')
+                        const modalImage = document.getElementById('modalImage');
+
+                        modalImage.classList.remove('hidden')
+                        modalImage.classList.add('flex')
+                        const fullscreen = document.getElementById('bigImage');
+                        fullscreen.style.backgroundImage = `url(${imageUrl})`
+                    };
+
 
                     //apendando o header e o footer no post
                     post.appendChild(postHeader);
@@ -156,8 +163,9 @@ toPost.addEventListener('submit', async (e) => {
 });
 
 //ABRIR MODAL DE IMAGEM---------------------------------------------------
+function hiddeModal() {
+    const modalImage = document.getElementById('modalImage');
 
-function modalImage() {
-    const imagem = document.getElementById('#postImage');
-    imagem.classList.toggle('hidden');
+    modalImage.classList.remove('flex')
+    modalImage.classList.add('hidden')
 }
