@@ -1,6 +1,7 @@
 const likeImage = document.getElementById("likeIcon");
 const localPosts = document.getElementById("localPosts")
 
+//LOAD POSTS ------------------------------------------------------------------------
 function loadPosts() {
     api.get('/post/listar')
         .then(resp => {
@@ -96,7 +97,8 @@ function loadPosts() {
                 } else {
                     //imagem do post
                     const postImage = document.createElement('img');
-                    postImage.className = 'w-full h-auto bg-cover'
+                    postImage.className = 'w-full h-auto bg-cover';
+                    postImage.id = 'postImage';
 
                     const imageBuffer = new Uint8Array(imageData.data);
 
@@ -105,6 +107,8 @@ function loadPosts() {
                     const imageUrl = URL.createObjectURL(imageBlob);
 
                     postImage.src = imageUrl
+
+                    postImage.onclick = modalImage();
 
                     //apendando o header e o footer no post
                     post.appendChild(postHeader);
@@ -150,3 +154,10 @@ toPost.addEventListener('submit', async (e) => {
         });
 
 });
+
+//ABRIR MODAL DE IMAGEM---------------------------------------------------
+
+function modalImage() {
+    const imagem = document.getElementById('#postImage');
+    imagem.classList.toggle('hidden');
+}
