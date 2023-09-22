@@ -647,9 +647,8 @@ video {
   height: 100vh;
 }
 
-.h-fit {
-  height: -moz-fit-content;
-  height: fit-content;
+.h-4 {
+  height: 1rem;
 }
 
 .w-1\/4 {
@@ -740,13 +739,8 @@ video {
   width: 100vw;
 }
 
-.w-auto {
-  width: auto;
-}
-
-.w-fit {
-  width: -moz-fit-content;
-  width: fit-content;
+.w-4 {
+  width: 1rem;
 }
 
 .-translate-x-1\/2 {
@@ -765,10 +759,6 @@ video {
 
 .cursor-pointer {
   cursor: pointer;
-}
-
-.cursor-zoom-in {
-  cursor: zoom-in;
 }
 
 .cursor-zoom-out {
@@ -861,10 +851,6 @@ video {
   border-radius: 0.375rem;
 }
 
-.rounded-sm {
-  border-radius: 0.125rem;
-}
-
 .rounded-e-lg {
   border-start-end-radius: 0.5rem;
   border-end-end-radius: 0.5rem;
@@ -942,12 +928,12 @@ video {
   background-image: url('/src/pages/assets/backgrounds/bannerfoda.jpg');
 }
 
-.bg-cover {
-  background-size: cover;
-}
-
 .bg-contain {
   background-size: contain;
+}
+
+.bg-cover {
+  background-size: cover;
 }
 
 .bg-center {
@@ -1101,10 +1087,6 @@ video {
 
 .hover\:cursor-pointer:hover {
   cursor: pointer;
-}
-
-.hover\:cursor-zoom-in:hover {
-  cursor: zoom-in;
 }
 
 .hover\:bg-gray-200:hover {
