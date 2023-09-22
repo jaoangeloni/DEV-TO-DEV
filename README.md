@@ -3,7 +3,7 @@
 Primeiramente clone o repositório e abra a pasta no VS code
 
 <h1>BANCO DE DADOS</h1>
-<li>XAMPP é necessário</li>
+<h2>XAMPP é necessário</h2>
 <li>Inicie o módulo Apache e MySQL no XAMPP</li>
 <li>Crie o banco de dados de acordo com o script 'database' na pasta 'database'</li>
 <li>Popule o banco de dados de acordo com o script 'data' na pasta 'database'</li>
@@ -18,7 +18,7 @@ Primeiramente clone o repositório e abra a pasta no VS code
 <li>nodemon</li>
 
 <h1>FRONTEND</h1>
-<h2>Pra rodar em qualquer microondas</h2>
+<h2>Instale as dependências</h2>
 <li>cd frontend</li>
 <li>yarn add -D electron tailwindcss axios</li>
 <li>yarn run dev</li>
