@@ -103,19 +103,22 @@
 
                             <div id="modalSettings"
                                 class="bg-white w-36 h-20 absolute top-12 right-0 rounded-lg hidden flex-col items-start justify-between p-2">
+
                                 <div id="alterarPost" class="flex gap-4 hover:bg-gray-100 cursor-pointer"
                                     onclick="excluirPost()">
                                     <img id="alterarIcon" src="./assets/edit.webp" alt="" class="w-6 h-6">
                                     <p id="alterarTitle">Alterar post</p>
                                 </div>
+
                                 <div id="excluirPost" class="flex gap-4 hover:bg-gray-100 cursor-pointer"
                                     onclick="atualizarPost()">
                                     <img id="excluirIcon" src="./assets/delete.webp" alt="" class="w-6 h-6">
                                     <p id="excluirTitle">Excluir post</p>
                                 </div>
+
                             </div>
 
-                            <div id="generic-child" class="flex ">
+                            <div id="generic-child" class="flex">
                                 <img id="userPfp" src="./assets/default.png" alt="imagmedousuario"
                                     class="w-16 rounded-full">
 
@@ -127,7 +130,9 @@
                                 </div>
 
                             </div>
-                            <img src="./assets/menu.png" alt="" class="w-5 h-5 cursor-pointer" onclick="openSettings()">
+
+                            <img id="settingsMenu" src="./assets/menu.png" alt="" class="w-5 h-5 cursor-pointer"
+                                onclick="openSettings()">
 
                         </div>
 
