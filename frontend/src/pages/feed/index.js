@@ -53,20 +53,18 @@ function loadPosts() {
                 const excluirTitle = document.createElement('p');
                 excluirTitle.innerHTML = 'Excluir post';
 
-                if (e.id == userData.id) {
-                    const settingsMenu = document.createElement('img');
-                    settingsMenu.className = 'w-5 h-5 cursor-pointer';
-                    settingsMenu.src = './assets/menu.png';
-                    settingsMenu.onclick = () => {
-                        let modalSettings = getElementById('modalSettings')
-                        modalSettings.classList.toggle('flex');
-                        modalSettings.classList.toggle('hidden');
-                    };
-                    generic.appendChild(modalSettings)
-                }
+                const settingsMenu = document.createElement('img');
+                settingsMenu.className = 'w-5 h-5 cursor-pointer';
+                settingsMenu.src = './assets/menu.png';
+                settingsMenu.onclick = () => {
+                    let modalSettings = getElementById('modalSettings')
+                    modalSettings.classList.toggle('flex');
+                    modalSettings.classList.toggle('hidden');
+                };
 
                 const generic_child = document.createElement('div');
                 generic_child.className = 'flex';
+
 
                 //foto de perfil do user
                 const userPfp = document.createElement('img');
@@ -110,8 +108,11 @@ function loadPosts() {
                 generic_child.appendChild(userPfp)
                 generic_child.appendChild(generic_child_child)
 
+                generic.appendChild(modalSettings)
                 generic.appendChild(generic_child)
-                generic.appendChild(settingsMenu)
+                if (e.id == userData.id) {
+                    generic.appendChild(settingsMenu)
+                }
                 postHeader.appendChild(generic)
                 postHeader.appendChild(descImage)
 
