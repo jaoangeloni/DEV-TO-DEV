@@ -26,9 +26,6 @@ module.exports = {
           '0px 5px 5px rgb(0,0,0)'
         ]
       },
-      backgroundImage: {
-        'bannerfoda': "url('/src/pages/assets/backgrounds/bannerfoda.jpg')"
-      }
     },
     plugins: [],
   }

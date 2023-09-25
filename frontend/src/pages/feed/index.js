@@ -1,5 +1,6 @@
 const likeImage = document.getElementById("likeIcon");
 const localPosts = document.getElementById("localPosts")
+let userData = JSON.parse(localStorage.getItem("user"));
 
 //LOAD POSTS ------------------------------------------------------------------------
 function loadPosts() {
@@ -22,10 +23,9 @@ function loadPosts() {
                 generic.className = 'w-full flex gap-2 justify-between items-center relative';
 
                 //menu para modificar posts
-                const settingsMenu = document.createElement('img');
-                settingsMenu.className = 'w-5 h-5 cursor-pointer';
-                settingsMenu.src = './assets/menu.png';
-                settingsMenu.onclick = openSettings();
+                const modalSettings = document.createElement('div');
+                modalSettings.className = 'bg-white w-36 h-20 absolute top-12 right-0 rounded-lg hidden flex-col items-start justify-between p-2';
+                modalSettings.id = 'modalSettings'
 
                 const alterarPost = document.createElement('div');
                 alterarPost.className = 'flex gap-4 hover:bg-gray-100 cursor-pointer';
@@ -33,19 +33,12 @@ function loadPosts() {
 
                 }
 
-                const modalSettings = document.createElement('div');
-                modalSettings.className = 'bg-white w-36 h-20 absolute top-12 right-0 rounded-lg hidden flex-col items-start justify-between p-2';
-
-
                 const alterarIcon = document.createElement('img');
                 alterarIcon.className = 'w-6 h-6';
                 alterarIcon.src = './assets/edit.webp';
 
                 const alterarTitle = document.createElement('p');
                 alterarTitle.innerHTML = 'Alterar post';
-
-                alterarPost.appendChild(alterarIcon);
-                alterarPost.appendChild(alterarTitle);
 
                 const excluirPost = document.createElement('div');
                 excluirPost.className = 'flex gap-4 hover:bg-gray-100 cursor-pointer';
@@ -60,11 +53,17 @@ function loadPosts() {
                 const excluirTitle = document.createElement('p');
                 excluirTitle.innerHTML = 'Excluir post';
 
-                excluirPost.appendChild(excluirIcon);
-                excluirPost.appendChild(excluirTitle);
-
-                const generic_child_child = document.createElement('div');
-                generic_child_child.className = 'font-osvaldo font-thin flex flex-col items-start justify-center';
+                if (e.id == userData.id) {
+                    const settingsMenu = document.createElement('img');
+                    settingsMenu.className = 'w-5 h-5 cursor-pointer';
+                    settingsMenu.src = './assets/menu.png';
+                    settingsMenu.onclick = () => {
+                        let modalSettings = getElementById('modalSettings')
+                        modalSettings.classList.toggle('flex');
+                        modalSettings.classList.toggle('hidden');
+                    };
+                    generic.appendChild(modalSettings)
+                }
 
                 const generic_child = document.createElement('div');
                 generic_child.className = 'flex';
@@ -75,6 +74,9 @@ function loadPosts() {
                 if (!e.userPfp) {
                     userPfp.src = './assets/default.png';
                 }
+
+                const generic_child_child = document.createElement('div');
+                generic_child_child.className = 'font-osvaldo font-thin flex flex-col items-start justify-center';
 
                 //nome
                 const name = document.createElement('p');
@@ -92,13 +94,22 @@ function loadPosts() {
                 descImage.innerHTML = e.descImage;
 
                 //apendando os bagulho do header
+
+                alterarPost.appendChild(alterarIcon);
+                alterarPost.appendChild(alterarTitle);
+
+                excluirPost.appendChild(excluirIcon);
+                excluirPost.appendChild(excluirTitle);
+
                 modalSettings.appendChild(alterarPost)
                 modalSettings.appendChild(excluirPost)
+
                 generic_child_child.appendChild(name)
                 generic_child_child.appendChild(username)
+
                 generic_child.appendChild(userPfp)
                 generic_child.appendChild(generic_child_child)
-                generic.appendChild(modalSettings)
+
                 generic.appendChild(generic_child)
                 generic.appendChild(settingsMenu)
                 postHeader.appendChild(generic)
@@ -191,9 +202,10 @@ toPost.addEventListener('submit', async (e) => {
     const descImage = document.querySelector('#descImage');
     const imagemInput = document.querySelector('#imagem');
     const imagem = imagemInput.files[0];
+    userId.value = userData.id
 
     const formData = new FormData();
-    formData.append('userId', userId.value);
+    formData.append('userId', userData.id);
     formData.append('descImage', descImage.value);
     formData.append('postImage', imagem);
 
