@@ -169,3 +169,9 @@ function hiddeModal() {
     modalImage.classList.remove('flex')
     modalImage.classList.add('hidden')
 }
+
+function openSettings(){
+    const modalSettings = document.getElementById('modalSettings');
+    modalSettings.classList.toggle('flex');
+    modalSettings.classList.toggle('hidden');
+}
