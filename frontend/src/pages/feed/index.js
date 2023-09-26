@@ -57,14 +57,13 @@ function loadPosts() {
                 settingsMenu.className = 'w-5 h-5 cursor-pointer';
                 settingsMenu.src = './assets/menu.png';
                 settingsMenu.onclick = () => {
-                    let modalSettings = getElementById('modalSettings')
+                    const modalSettings = document.getElementById('modalSettings');
                     modalSettings.classList.toggle('flex');
                     modalSettings.classList.toggle('hidden');
                 };
 
                 const generic_child = document.createElement('div');
                 generic_child.className = 'flex';
-
 
                 //foto de perfil do user
                 const userPfp = document.createElement('img');
@@ -92,7 +91,6 @@ function loadPosts() {
                 descImage.innerHTML = e.descImage;
 
                 //apendando os bagulho do header
-
                 alterarPost.appendChild(alterarIcon);
                 alterarPost.appendChild(alterarTitle);
 
@@ -110,9 +108,11 @@ function loadPosts() {
 
                 generic.appendChild(modalSettings)
                 generic.appendChild(generic_child)
+
                 if (e.id == userData.id) {
                     generic.appendChild(settingsMenu)
                 }
+
                 postHeader.appendChild(generic)
                 postHeader.appendChild(descImage)
 
@@ -149,7 +149,6 @@ function loadPosts() {
                 postFooter.appendChild(footer_child1);
                 postFooter.appendChild(footer_child2);
 
-
                 //apendando o header e o footer no post
                 if (!imageData) {
                     post.appendChild(postHeader);
@@ -178,13 +177,11 @@ function loadPosts() {
                         fullscreen.style.backgroundImage = `url(${imageUrl})`
                     };
 
-
                     //apendando o header e o footer no post
                     post.appendChild(postHeader);
                     post.appendChild(postImage);
                     post.appendChild(postFooter);
                     localPosts.appendChild(post);
-
 
                 }
 
@@ -228,7 +225,6 @@ toPost.addEventListener('submit', async (e) => {
 //ABRIR MODAL DE IMAGEM---------------------------------------------------
 function hiddeModal() {
     const modalImage = document.getElementById('modalImage');
-
     modalImage.classList.remove('flex')
     modalImage.classList.add('hidden')
 }
