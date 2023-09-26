@@ -30,7 +30,10 @@ function loadPosts() {
                 const alterarPost = document.createElement('div');
                 alterarPost.className = 'flex gap-4 hover:bg-gray-100 cursor-pointer';
                 alterarPost.onclick = () => {
-
+                    api.put('/post/alterar/')
+                        .then(resp => {
+                            window.location.reload();
+                        })
                 }
 
                 const alterarIcon = document.createElement('img');
@@ -43,7 +46,10 @@ function loadPosts() {
                 const excluirPost = document.createElement('div');
                 excluirPost.className = 'flex gap-4 hover:bg-gray-100 cursor-pointer';
                 excluirPost.onclick = () => {
-
+                    api.delete('/post/deletar/' + e.id)
+                        .then(resp => {
+                            window.location.reload();
+                        })
                 };
 
                 const excluirIcon = document.createElement('img');
@@ -168,9 +174,7 @@ function loadPosts() {
                     postImage.src = imageUrl
 
                     postImage.onclick = () => {
-                        console.log('a')
                         const modalImage = document.getElementById('modalImage');
-
                         modalImage.classList.remove('hidden')
                         modalImage.classList.add('flex')
                         const fullscreen = document.getElementById('bigImage');
@@ -234,3 +238,4 @@ function openSettings() {
     modalSettings.classList.toggle('flex');
     modalSettings.classList.toggle('hidden');
 }
+
