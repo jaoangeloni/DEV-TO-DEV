@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de perfil</title>
+    <link rel="stylesheet" href="../../../dist/output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../../scripts/api.js"></script>
+</head>
+
+<body class="w-full h-auto bg-gray-50"">
+
+    <header class=" flex top-0 sticky justify-end items-center w-full p-5 gap-3 bg-gray-50">
+    <div id="minimizeBtn" title="Minimize"
+        class="topBtn minimizeBtn w-5 h-5 bg-green-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+    </div>
+    <div id="maxResBtn" title="Maximize"
+        class="maxResBtn w-5 h-5 bg-yellow-300 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+    </div>
+    <div id="closeBtn" title="Close"
+        class="topBtn closeBtn w-5 h-5 bg-red-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+    </div>
+    </header>
+
+    <header class="w-full h-28 bg-bannerfoda bg-cover flex items-center justify-around">
+        <div class="w-40 flex items-center justify-center">
+            <img src="../feed/assets/logo.png" alt="logo da empresa dev to dev"
+                class="w-36 transition-all duration-200 hover:scale-110 hover:cursor-pointer">
+        </div>
+
+        <!-- pesquisa -->
+        <span class="flex items-center justify-center w-2/6">
+            <div class="h-9 bg-gray-200  p-2 flex items-center justify-center rounded-s-lg">
+                <img src="../feed/assets/lupa.png" alt="" class="w-6 h-6 bg-gray-200  hover:cursor-pointer">
+            </div>
+
+            <input type="search" placeholder="Pesquisa" class="h-9 w-full bg-gray-200 rounded-e-lg outline-none">
+        </span>
+
+        <div class="w-40 flex items-center justify-center">
+            <img src="./assets/default.png" alt="usericon"
+                class="w-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer">
+        </div>
+    </header>
+
+    <div id="banner" class="w-full h-2/5 bg-yellow-300 flex justify-center items-center absolute ">
+        <div
+            class="w-48 h-52 bg-white rounded-full mt-48 hover:cursor-pointer hover:scale-110 transition-all duration-100">
+            <img src="./assets/default.png" alt="" class="w-48 rounded-full hover:scale-110">
+        </div>
+        <div class="flex justify-end ">
+            <img src="./assets/camera.png" alt="" class="h-7">
+        </div>
+    </div>
+
+</body>
+<script src="index.js"></script>
+<script defer src="../../scripts/winButtons.js"></script>
+
+</html>
