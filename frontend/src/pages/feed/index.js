@@ -91,15 +91,37 @@ function loadPosts() {
                 const alterarPost = document.createElement('div');
                 alterarPost.className = 'flex gap-4 hover:bg-gray-100 cursor-pointer';
                 alterarPost.onclick = () => {
-                    const inputAlterar = document.createElement('input');
-                    inputAlterar.value = descImage
-                    descImage.classList.add('hidden')
-                    postHeader.appendChild('inputAlterar')
-                    // api.put('/post/alterar/')
-                    //     .then(resp => {
-                    //         window.location.reload();
-                    //     })
+                    const modalAlterar = document.getElementById('modalAlterar');
+                    modalAlterar.classList.toggle('flex')
+                    modalAlterar.classList.toggle('hidden')
+
+                    const alterarBox = document.getElementById('alterarBox');
+
+                    const descAlterada = document.createElement('input');
+                    descAlterada.value = e.descImage
+
+                    const cancelarAlteracao = document.createElement('button');
+                    cancelarAlteracao.onclick = () => {
+                        modalAlterar.classList.toggle('flex')
+                        modalAlterar.classList.toggle('hidden')
+                    }
+                    const alterarDesc = document.createElement('button');
+                    alterarDesc.onclick = () => {
+                        const newDesc = {
+                            descImage: descAlterada.value
+                        }
+
+                        api.put('/post/alterar', newDesc)
+                            .then(resp => {
+                                window.location.reload()
+                            });
+                    }
+
+                    alterarBox.appendChild(descAlterada)
+                    alterarBox.appendChild(cancelarAlteracao)
+                    alterarBox.appendChild(alterarDesc)
                 }
+
 
                 //apendando os bagulho do header
                 alterarPost.appendChild(alterarIcon);
