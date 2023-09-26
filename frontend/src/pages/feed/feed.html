@@ -16,14 +16,14 @@
 <body class="w-full h-auto bg-gray-50" onload="loadPosts()">
 
     <div id="modalImage"
-        class="fixed bg-black w-full h-full bg-opacity-50 items-center justify-center hidden cursor-zoom-out"
+        class="fixed bg-black w-full h-full bg-opacity-50 items-center justify-center hidden cursor-zoom-out z-20"
         onclick="hiddeModal()">
         <div id="bigImageModal" class=" w-4/5 h-4/5 rounded-lg">
             <div id="bigImage" class="w-full h-full bg-contain bg-no-repeat bg-center "></div>
         </div>
     </div>
 
-    <header class="flex top-0 sticky justify-end items-center w-full p-5 gap-3 bg-gray-50">
+    <header class="flex top-0 sticky justify-end items-center w-full p-5 gap-3 bg-gray-50 z-50">
         <div id="minimizeBtn" title="Minimize"
             class="topBtn minimizeBtn w-5 h-5 bg-green-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
         </div>
@@ -59,22 +59,6 @@
         </div>
     </header>
 
-
-    <!-- navigation bar para navegar entre as páginas
-    <nav class="flex items-center justify-evenly w-full h-10 bg-gray-900">
-        <ul
-            class="font-osvaldo hover:cursor-pointer text-white hover:text-yellow-300 transition-all duration-200 hover:scale-125">
-            Community</ul>
-        <ul
-            class="font-osvaldo hover:cursor-pointer text-white hover:text-yellow-300 transition-all duration-200 hover:scale-125">
-            Games</ul>
-        <ul
-            class="font-osvaldo hover:cursor-pointer text-white hover:text-yellow-300 transition-all duration-200 hover:scale-125">
-            Jams
-        </ul>
-    </nav> -->
-
-
     <main class="flex items-center justify-around w-full h-full">
 
         <!-- FAIXA DA ESQUERDA -->
@@ -83,13 +67,20 @@
         <!-- FAIXA DE POSTS DO MEIO -->
         <div id="postMain" class="flex flex-col items-start justify-start w-5/12 h-full gap-10">
 
-            <div id="createPost" class="flex bg-gray-200 w-full h-96 rounded">
-                <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
-                    <input type="number" name="userId" id="userId" />
-                    <input type="text" name="descImage" id="descImage" placeholder="Digite a descrição" />
+            <div id="createPost" class="flex bg-gray-200 w-full h-40 rounded p-2">
+
+                <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data"
+                    class="flex flex-col w-full justify-around items-start">
+
+                    <input type="text" name="descImage" id="descImage" placeholder="Publique suas ideias!"
+                        class="w-full outline-none bg-gray-100 h-12 p-2 rounded-md" />
                     <input type="file" name="postImage" id="imagem" />
-                    <input type="submit" value="Enviar" />
+
+                    <input type="submit" value="PUBLICAR"
+                        class="bg-yellow-400 p-2 rounded-md text-white font-bold cursor-pointer hover:bg-yellow-500" />
+
                 </form>
+
             </div>
 
             <div id="localPosts"

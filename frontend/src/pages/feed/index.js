@@ -200,11 +200,9 @@ const toPost = document.getElementById('uploadForm');
 toPost.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const userId = document.querySelector('#userId');
     const descImage = document.querySelector('#descImage');
     const imagemInput = document.querySelector('#imagem');
     const imagem = imagemInput.files[0];
-    userId.value = userData.id
 
     const formData = new FormData();
     formData.append('userId', userData.id);
