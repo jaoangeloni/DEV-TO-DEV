@@ -27,14 +27,6 @@ function loadPosts() {
                 modalSettings.className = 'bg-white w-36 h-20 absolute top-12 right-0 rounded-lg hidden flex-col items-start justify-between p-2';
                 modalSettings.id = 'modalSettings'
 
-                const alterarPost = document.createElement('div');
-                alterarPost.className = 'flex gap-4 hover:bg-gray-100 cursor-pointer';
-                alterarPost.onclick = () => {
-                    api.put('/post/alterar/')
-                        .then(resp => {
-                            window.location.reload();
-                        })
-                }
 
                 const alterarIcon = document.createElement('img');
                 alterarIcon.className = 'w-6 h-6';
@@ -95,6 +87,19 @@ function loadPosts() {
                 const descImage = document.createElement('p');
                 descImage.className = 'font-osvaldo font-light text-lg';
                 descImage.innerHTML = e.descImage;
+
+                const alterarPost = document.createElement('div');
+                alterarPost.className = 'flex gap-4 hover:bg-gray-100 cursor-pointer';
+                alterarPost.onclick = () => {
+                    const inputAlterar = document.createElement('input');
+                    inputAlterar.value = descImage
+                    descImage.classList.add('hidden')
+                    postHeader.appendChild('inputAlterar')
+                    // api.put('/post/alterar/')
+                    //     .then(resp => {
+                    //         window.location.reload();
+                    //     })
+                }
 
                 //apendando os bagulho do header
                 alterarPost.appendChild(alterarIcon);
