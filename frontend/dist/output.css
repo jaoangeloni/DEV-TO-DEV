@@ -940,10 +940,6 @@ video {
   --tw-bg-opacity: 0.6;
 }
 
-.bg-bannerfoda {
-  background-image: url('/src/pages/assets/backgrounds/bannerfoda.jpg');
-}
-
 .bg-contain {
   background-size: contain;
 }

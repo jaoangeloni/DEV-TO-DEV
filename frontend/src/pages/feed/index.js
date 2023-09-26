@@ -1,5 +1,6 @@
 const likeImage = document.getElementById("likeIcon");
 const localPosts = document.getElementById("localPosts")
+let userData = JSON.parse(localStorage.getItem("user"));
 
 //LOAD POSTS ------------------------------------------------------------------------
 function loadPosts() {
@@ -19,10 +20,56 @@ function loadPosts() {
                 postHeader.className = 'bg-gray-200 w-full h-auto p-4 flex flex-col items-start justify-start gap-4 rounded-t-md';
 
                 const generic = document.createElement('div');
-                generic.className = 'flex gap-2';
+                generic.className = 'w-full flex gap-2 justify-between items-center relative';
+
+                //menu para modificar posts
+                const modalSettings = document.createElement('div');
+                modalSettings.className = 'bg-white w-36 h-20 absolute top-12 right-0 rounded-lg hidden flex-col items-start justify-between p-2';
+                modalSettings.id = 'modalSettings'
+
+                const alterarPost = document.createElement('div');
+                alterarPost.className = 'flex gap-4 hover:bg-gray-100 cursor-pointer';
+                alterarPost.onclick = () => {
+                    api.put('/post/alterar/')
+                        .then(resp => {
+                            window.location.reload();
+                        })
+                }
+
+                const alterarIcon = document.createElement('img');
+                alterarIcon.className = 'w-6 h-6';
+                alterarIcon.src = './assets/edit.webp';
+
+                const alterarTitle = document.createElement('p');
+                alterarTitle.innerHTML = 'Alterar post';
+
+                const excluirPost = document.createElement('div');
+                excluirPost.className = 'flex gap-4 hover:bg-gray-100 cursor-pointer';
+                excluirPost.onclick = () => {
+                    api.delete('/post/deletar/' + e.id)
+                        .then(resp => {
+                            window.location.reload();
+                        })
+                };
+
+                const excluirIcon = document.createElement('img');
+                excluirIcon.className = 'w-6 h-6';
+                excluirIcon.src = './assets/delete.webp';
+
+                const excluirTitle = document.createElement('p');
+                excluirTitle.innerHTML = 'Excluir post';
+
+                const settingsMenu = document.createElement('img');
+                settingsMenu.className = 'w-5 h-5 cursor-pointer';
+                settingsMenu.src = './assets/menu.png';
+                settingsMenu.onclick = () => {
+
+                    modalSettings.classList.toggle('flex');
+                    modalSettings.classList.toggle('hidden');
+                };
 
                 const generic_child = document.createElement('div');
-                generic_child.className = 'font-osvaldo font-thin flex flex-col items-start justify-center';
+                generic_child.className = 'flex';
 
                 //foto de perfil do user
                 const userPfp = document.createElement('img');
@@ -30,6 +77,9 @@ function loadPosts() {
                 if (!e.userPfp) {
                     userPfp.src = './assets/default.png';
                 }
+
+                const generic_child_child = document.createElement('div');
+                generic_child_child.className = 'font-osvaldo font-thin flex flex-col items-start justify-center';
 
                 //nome
                 const name = document.createElement('p');
@@ -47,10 +97,28 @@ function loadPosts() {
                 descImage.innerHTML = e.descImage;
 
                 //apendando os bagulho do header
-                generic_child.appendChild(name)
-                generic_child.appendChild(username)
-                generic.appendChild(userPfp)
+                alterarPost.appendChild(alterarIcon);
+                alterarPost.appendChild(alterarTitle);
+
+                excluirPost.appendChild(excluirIcon);
+                excluirPost.appendChild(excluirTitle);
+
+                modalSettings.appendChild(alterarPost)
+                modalSettings.appendChild(excluirPost)
+
+                generic_child_child.appendChild(name)
+                generic_child_child.appendChild(username)
+
+                generic_child.appendChild(userPfp)
+                generic_child.appendChild(generic_child_child)
+
+                generic.appendChild(modalSettings)
                 generic.appendChild(generic_child)
+
+                if (e.userId == userData.id) {
+                    generic.appendChild(settingsMenu)
+                }
+
                 postHeader.appendChild(generic)
                 postHeader.appendChild(descImage)
 
@@ -87,7 +155,6 @@ function loadPosts() {
                 postFooter.appendChild(footer_child1);
                 postFooter.appendChild(footer_child2);
 
-
                 //apendando o header e o footer no post
                 if (!imageData) {
                     post.appendChild(postHeader);
@@ -107,22 +174,18 @@ function loadPosts() {
                     postImage.src = imageUrl
 
                     postImage.onclick = () => {
-                        console.log('a')
                         const modalImage = document.getElementById('modalImage');
-
                         modalImage.classList.remove('hidden')
                         modalImage.classList.add('flex')
                         const fullscreen = document.getElementById('bigImage');
                         fullscreen.style.backgroundImage = `url(${imageUrl})`
                     };
 
-
                     //apendando o header e o footer no post
                     post.appendChild(postHeader);
                     post.appendChild(postImage);
                     post.appendChild(postFooter);
                     localPosts.appendChild(post);
-
 
                 }
 
@@ -141,9 +204,10 @@ toPost.addEventListener('submit', async (e) => {
     const descImage = document.querySelector('#descImage');
     const imagemInput = document.querySelector('#imagem');
     const imagem = imagemInput.files[0];
+    userId.value = userData.id
 
     const formData = new FormData();
-    formData.append('userId', userId.value);
+    formData.append('userId', userData.id);
     formData.append('descImage', descImage.value);
     formData.append('postImage', imagem);
 
@@ -165,13 +229,13 @@ toPost.addEventListener('submit', async (e) => {
 //ABRIR MODAL DE IMAGEM---------------------------------------------------
 function hiddeModal() {
     const modalImage = document.getElementById('modalImage');
-
     modalImage.classList.remove('flex')
     modalImage.classList.add('hidden')
 }
 
-function openSettings(){
+function openSettings() {
     const modalSettings = document.getElementById('modalSettings');
     modalSettings.classList.toggle('flex');
     modalSettings.classList.toggle('hidden');
 }
+
