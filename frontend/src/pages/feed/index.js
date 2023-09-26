@@ -57,7 +57,7 @@ function loadPosts() {
                 settingsMenu.className = 'w-5 h-5 cursor-pointer';
                 settingsMenu.src = './assets/menu.png';
                 settingsMenu.onclick = () => {
-                    const modalSettings = document.getElementById('modalSettings');
+
                     modalSettings.classList.toggle('flex');
                     modalSettings.classList.toggle('hidden');
                 };
@@ -109,7 +109,7 @@ function loadPosts() {
                 generic.appendChild(modalSettings)
                 generic.appendChild(generic_child)
 
-                if (e.id == userData.id) {
+                if (e.userId == userData.id) {
                     generic.appendChild(settingsMenu)
                 }
 

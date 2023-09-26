@@ -46,6 +46,6 @@ app.on('ready', () => {
         }
     })
 
-    win.loadURL('http://127.0.0.1:5500/frontend/src/pages/feed/feed.html');
+    win.loadURL('http://127.0.0.1:5500/frontend/src/pages/login/index.html');
     // win.loadFile(__dirname + '/pages/index.hmtl')
 });
