@@ -105,7 +105,10 @@ function loadPosts() {
                         modalAlterar.classList.toggle('flex')
                         modalAlterar.classList.toggle('hidden')
                     }
+                    cancelarAlteracao.innerHTML = 'Cancelar'
+
                     const alterarDesc = document.createElement('button');
+                    alterarDesc.innerHTML = 'Alterar'
                     alterarDesc.onclick = () => {
                         const newDesc = {
                             descImage: descAlterada.value
