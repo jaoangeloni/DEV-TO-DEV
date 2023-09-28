@@ -89,42 +89,49 @@ function loadPosts() {
                 descImage.innerHTML = e.descImage;
 
                 const alterarPost = document.createElement('div');
+
                 alterarPost.className = 'flex gap-4 hover:bg-gray-100 cursor-pointer';
+
                 alterarPost.onclick = () => {
+                    console.log('a')
                     const modalAlterar = document.getElementById('modalAlterar');
                     modalAlterar.classList.toggle('flex')
                     modalAlterar.classList.toggle('hidden')
 
-                    const alterarBox = document.getElementById('alterarBox');
-
-                    const descAlterada = document.createElement('input');
-                    descAlterada.value = e.descImage
-
-                    const cancelarAlteracao = document.createElement('button');
+                    const cancelarAlteracao = document.getElementById('cancelarAlteracao')
                     cancelarAlteracao.onclick = () => {
                         modalAlterar.classList.toggle('flex')
                         modalAlterar.classList.toggle('hidden')
                     }
-                    cancelarAlteracao.innerHTML = 'Cancelar'
 
-                    const alterarDesc = document.createElement('button');
-                    alterarDesc.innerHTML = 'Alterar'
+
+                    const descAlterada = document.getElementById('descAlterada');
+                    descAlterada.value = e.descImage
+
+                    const alterarDesc = document.getElementById('alterarDesc');
                     alterarDesc.onclick = () => {
                         const newDesc = {
+                            id: e.id,
                             descImage: descAlterada.value
                         }
 
-                        api.put('/post/alterar', newDesc)
-                            .then(resp => {
-                                window.location.reload()
-                            });
+                        if (!e.postImage) {
+                            if (descAlterada.value == 0) {
+                                alert('Preencha tudo');
+                            } else {
+                                api.put('/post/alterar', newDesc)
+                                    .then(resp => {
+                                        window.location.reload()
+                                    });
+                            }
+                        } else {
+                            api.put('/post/alterar', newDesc)
+                                .then(resp => {
+                                    window.location.reload()
+                                });
+                        }
                     }
-
-                    alterarBox.appendChild(descAlterada)
-                    alterarBox.appendChild(cancelarAlteracao)
-                    alterarBox.appendChild(alterarDesc)
                 }
-
 
                 //apendando os bagulho do header
                 alterarPost.appendChild(alterarIcon);
