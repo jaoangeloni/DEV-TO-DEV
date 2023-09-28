@@ -117,7 +117,9 @@ function loadPosts() {
 
                         if (!e.postImage) {
                             if (descAlterada.value == 0) {
-                                alert('Preencha tudo');
+                                alert('Coloque ao menos um caractére');
+                            } else if (descAlterada.value == e.descImage) {
+                                alert('A descrição é a mesma');
                             } else {
                                 api.put('/post/alterar', newDesc)
                                     .then(resp => {
@@ -246,18 +248,23 @@ toPost.addEventListener('submit', async (e) => {
     formData.append('descImage', descImage.value);
     formData.append('postImage', imagem);
 
-    api.post('/post/criar', formData)
-        .then(resp => {
-            try {
-                if (resp.status == 200) {
-                    window.location.reload();
-                } else {
-                    console.error('Erro ao enviar imagem: ' + resp.statusText);
+    if (descImage.value == 0 && imagem == null) {
+        alert('Adicione uma descrição ou uma imgem para poder fazer uma publicação')
+
+    } else {
+        api.post('/post/criar', formData)
+            .then(resp => {
+                try {
+                    if (resp.status == 200) {
+                        window.location.reload();
+                    } else {
+                        console.error('Erro ao enviar imagem: ' + resp.statusText);
+                    }
+                } catch (error) {
+                    console.error('Erro ao enviar imagem: ' + error.message);
                 }
-            } catch (error) {
-                console.error('Erro ao enviar imagem: ' + error.message);
-            }
-        });
+            });
+    }
 
 });
 

@@ -24,11 +24,12 @@
     </div>
 
     <div id="modalAlterar" class="fixed bg-black w-full h-full bg-opacity-50 items-center justify-center hidden z-20">
-        <div id="alterarBox" class="w-96 h-32 bg-gray-200">
-            <input type="text" id="descAlterada">
-            <div>
-                <button id="cancelarAlteracao" onclick="hiddeModalAlterar()">Cancelar</button>
-                <button id="alterarDesc">Alterar texto</button>
+        <div id="alterarBox" class="w-1/2 h-32 bg-gray-200 flex flex-col rounded-md gap-2 p-2">
+            <input type="text" id="descAlterada" class="outline-none h-12 p-2 rounded-md">
+            <div class="flex gap-2">
+                <button id="cancelarAlteracao" onclick="hiddeModalAlterar()"
+                    class="bg-red-500 font-bold text-white p-2 rounded-md">Cancelar</button>
+                <button id="alterarDesc" class="bg-yellow-400 font-bold text-white p-2 rounded-md">ALTERAR</button>
             </div>
         </div>
     </div>
