@@ -93,7 +93,6 @@ function loadPosts() {
                 alterarPost.className = 'flex gap-4 hover:bg-gray-100 cursor-pointer';
 
                 alterarPost.onclick = () => {
-                    console.log('a')
                     const modalAlterar = document.getElementById('modalAlterar');
                     modalAlterar.classList.toggle('flex')
                     modalAlterar.classList.toggle('hidden')
