@@ -23,6 +23,12 @@ class Comments {
             return `SELECT * FROM comments WHERE id = '${this.id}'`
     }
 
+    readPost() {
+        return `SELECT users.profilePicture, users.username, comments.commentDescription
+        FROM comments
+        INNER JOIN users ON comments.userId = users.id
+        WHERE comments.postId = '${this.id}'`
+    }
     update() {
         return `UPDATE comments SET 
         commentDescription = '${this.commentDescription}'

@@ -19,6 +19,14 @@ const listar = (req, res) => {
     })
 }
 
+const listarPost = (req, res) => {
+    let comments = new Comments(req.params)
+    con.query(comments.readPost(), (err, result) => {
+        if (err == null)
+            res.json(result).end()
+    })
+}
+
 const alterar = (req, res) => {
     let comments = new Comments(req.body);
     con.query(comments.update(), (err, result) => {
@@ -43,5 +51,6 @@ module.exports = {
     criar,
     listar,
     alterar,
-    excluir
+    excluir,
+    listarPost
 }

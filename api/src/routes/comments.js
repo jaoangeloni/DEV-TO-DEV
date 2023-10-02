@@ -6,6 +6,7 @@ routeComments.get('/', (req, res) => { return res.json("Back Funciona") });
 
 routeComments.post('/comentario/criar', comentario.criar);
 routeComments.get('/comentario/listar/:id', comentario.listar);
+routeComments.get('/comentario/listarPost/:id', comentario.listarPost);
 routeComments.put('/comentario/alterar', comentario.alterar);
 routeComments.delete('/comentario/deletar/:id', comentario.excluir);
 

@@ -178,6 +178,26 @@ function loadPosts() {
                 const footer_child2 = document.createElement('div');
                 footer_child2.className = 'bg-gray-50 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
 
+                footer_child2.onclick = () => {
+                    hiddeModalComentarios();
+                    const publicarComentario = document.getElementById('publicarComentario');
+                    const commentDescription = document.getElementById('commentDescription');
+
+                    const comentario = {
+                        userId: userData.id,
+                        postId: e.id,
+                        commentDescription: commentDescription.value
+                    }
+
+                    publicarComentario.onclick = () => {
+                        api.post('/comentario/criar', comentario)
+                            .then(resp => {
+                                alert('Comentário publicado');
+                                window.location.reload()
+                            })
+                    }
+                }
+
                 const commentIcon = document.createElement('img');
                 commentIcon.className = 'w-6 h-6';
                 commentIcon.src = './assets/comment.png'
@@ -248,7 +268,7 @@ toPost.addEventListener('submit', async (e) => {
     formData.append('postImage', imagem);
 
     if (descImage.value == 0 && imagem == null) {
-        alert('Adicione uma descrição ou uma imgem para poder fazer uma publicação')
+        alert('Adicione uma descrição ou uma imagem para poder fazer uma publicação')
 
     } else {
         api.post('/post/criar', formData)
