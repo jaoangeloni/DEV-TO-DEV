@@ -280,8 +280,6 @@ function openSettings() {
     modalSettings.classList.toggle('hidden');
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 //CURTIDAS ---------------------------------------------------
 let isLiked = false;
 let count = 0;
@@ -321,8 +319,6 @@ function updateLikeCount(){
     const likeCount = document.getElementById("likeCount");
     likeCount.textContent = `${count}`;
 }
-=======
-=======
 // function perfil() {
 //     api.post("/user/login", data)
 //         .then(resp => {
@@ -340,15 +336,10 @@ function updateLikeCount(){
 // }
 
 
->>>>>>> 86371ff8623a8baa78869de9c74cd6de68ef301b
+
 function hiddeModalComentarios() {
     const modalComentarios = document.getElementById('modalComentarios');
     modalComentarios.classList.toggle('flex');
     modalComentarios.classList.toggle('hidden');
-<<<<<<< HEAD
->>>>>>> ed90c21ef995c780d1eba0b3d68b02f99e54703f
-}
-=======
-}
 
->>>>>>> 86371ff8623a8baa78869de9c74cd6de68ef301b
+}
