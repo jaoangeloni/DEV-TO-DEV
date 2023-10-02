@@ -296,10 +296,11 @@ function like() {
 
     if (isLiked) {
         likeIcon.src = "./assets/liked.png";
-        count++;
+        if(count > 0);
+        count--;
     } else {
         likeIcon.src = "./assets/like.png";
-        count--;
+        count++;
     }
     isLiked = !isLiked;
     updateLikeCount();
@@ -342,7 +343,4 @@ function hiddeModalComentarios() {
     const modalComentarios = document.getElementById('modalComentarios');
     modalComentarios.classList.toggle('flex');
     modalComentarios.classList.toggle('hidden');
-
-
 }
-
