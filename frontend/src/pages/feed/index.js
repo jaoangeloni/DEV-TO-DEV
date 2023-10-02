@@ -180,6 +180,48 @@ function loadPosts() {
 
                 footer_child2.onclick = () => {
                     hiddeModalComentarios();
+                    api.get('/comentario/listarPost/' + e.id)
+                        .then(resp => {
+                            const dados = resp.data;
+                            const commentSection = document.getElementById('commentSection')
+
+                            dados.forEach(i => {
+                                console.log(i)
+
+                                const modeloComment = document.createElement('div');
+                                modeloComment.className = 'flex items-start gap-2';
+
+                                const imageFather = document.createElement('div');
+                                imageFather.className = 'flex items-start justify-start gap-2';
+
+                                const imageSon = document.createElement('div');
+                                imageSon.className = 'w-12 h-12 bg-gray-100 rounded-full';
+                                if (!i.profilePicture) {
+                                    imageSon.style.backgroundImage = 'url(./assets/default.png)'
+                                }
+
+                                const textContent = document.createElement('div');
+                                textContent.className = 'flex flex-col items-start justify-start gap-2';
+
+                                const userName = document.createElement('div');
+                                userName.className = 'font-osvaldo font-light text-lg';
+                                userName.innerHTML = i.username
+
+                                const description = document.createElement('div');
+                                description.className = 'font-osvaldo font-thin text-lg';
+                                description.innerHTML = i.commentDescription
+
+                                textContent.appendChild(userName)
+                                textContent.appendChild(description)
+
+                                imageFather.appendChild(imageSon)
+
+                                modeloComment.appendChild(imageFather)
+                                modeloComment.appendChild(textContent)
+
+                                commentSection.appendChild(modeloComment)
+                            })
+                        })
                     const publicarComentario = document.getElementById('publicarComentario');
                     const commentDescription = document.getElementById('commentDescription');
 
@@ -316,7 +358,7 @@ function like() {
 
     if (isLiked) {
         likeIcon.src = "./assets/liked.png";
-        if(count > 0);
+        if (count > 0);
         count--;
     } else {
         likeIcon.src = "./assets/like.png";
