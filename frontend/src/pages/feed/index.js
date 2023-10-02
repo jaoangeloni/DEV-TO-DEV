@@ -239,3 +239,19 @@ function openSettings() {
     modalSettings.classList.toggle('hidden');
 }
 
+// function perfil() {
+//     api.post("/user/login", data)
+//         .then(resp => {
+//             if (resp.status == 200) {
+//                 localStorage.setItem("user", JSON.stringify(resp.data));
+//                 window.location.href = "../perfil/perfil.html";
+
+//                 ipc.send('maximizeRestoreApp')
+//             } else if (resp.status == 206) {
+//                 let string = resp.data.error;
+//                 showModal(string, 0);
+//             }
+//         })
+
+// }
+

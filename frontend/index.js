@@ -46,10 +46,6 @@ app.on('ready', () => {
         }
     })
 
-<<<<<<< HEAD
-    win.loadURL('http://127.0.0.1:5500/frontend/src/pages/perfil/index.html');
-=======
-    win.loadURL('http://127.0.0.1:5500/frontend/src/pages/login/index.html');
->>>>>>> 65b5de3aae1e979cf8ef0d63129b26fa0ca945d7
+    win.loadURL('http://127.0.0.1:5500/frontend/src/pages/games/games.html');
     // win.loadFile(__dirname + '/pages/index.hmtl')
 });
