@@ -270,8 +270,8 @@ toPost.addEventListener('submit', async (e) => {
 //ABRIR MODAL DE IMAGEM---------------------------------------------------
 function hiddeModal() {
     const modalImage = document.getElementById('modalImage');
-    modalImage.classList.remove('flex')
-    modalImage.classList.add('hidden')
+    modalImage.classList.toggle('flex')
+    modalImage.classList.toggle('hidden')
 }
 
 function openSettings() {
@@ -280,6 +280,7 @@ function openSettings() {
     modalSettings.classList.toggle('hidden');
 }
 
+<<<<<<< HEAD
 //CURTIDAS ---------------------------------------------------
 let isLiked = false;
 let count = 0;
@@ -318,4 +319,11 @@ function like() {
 function updateLikeCount(){
     const likeCount = document.getElementById("likeCount");
     likeCount.textContent = `${count}`;
+}
+=======
+function hiddeModalComentarios() {
+    const modalComentarios = document.getElementById('modalComentarios');
+    modalComentarios.classList.toggle('flex');
+    modalComentarios.classList.toggle('hidden');
+>>>>>>> ed90c21ef995c780d1eba0b3d68b02f99e54703f
 }
