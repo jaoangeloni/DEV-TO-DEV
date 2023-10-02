@@ -319,10 +319,7 @@ function updateLikeCount() {
     const likeCount = document.getElementById("likeCount");
     likeCount.textContent = `${count}`;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 5a2faf64ef65f608bc5fd9dbe0108eea0683c703
 // function perfil() {
 //     api.post("/user/login", data)
 //         .then(resp => {
@@ -345,14 +342,7 @@ function hiddeModalComentarios() {
     const modalComentarios = document.getElementById('modalComentarios');
     modalComentarios.classList.toggle('flex');
     modalComentarios.classList.toggle('hidden');
-<<<<<<< HEAD
+
 
 }
 
-
-
-
-=======
-
-}
->>>>>>> 5a2faf64ef65f608bc5fd9dbe0108eea0683c703
