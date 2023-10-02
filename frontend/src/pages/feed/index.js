@@ -27,14 +27,6 @@ function loadPosts() {
                 modalSettings.className = 'bg-white w-36 h-20 absolute top-12 right-0 rounded-lg hidden flex-col items-start justify-between p-2';
                 modalSettings.id = 'modalSettings'
 
-                const alterarPost = document.createElement('div');
-                alterarPost.className = 'flex gap-4 hover:bg-gray-100 cursor-pointer';
-                alterarPost.onclick = () => {
-                    api.put('/post/alterar/')
-                        .then(resp => {
-                            window.location.reload();
-                        })
-                }
 
                 const alterarIcon = document.createElement('img');
                 alterarIcon.className = 'w-6 h-6';
@@ -95,6 +87,52 @@ function loadPosts() {
                 const descImage = document.createElement('p');
                 descImage.className = 'font-osvaldo font-light text-lg';
                 descImage.innerHTML = e.descImage;
+
+                const alterarPost = document.createElement('div');
+
+                alterarPost.className = 'flex gap-4 hover:bg-gray-100 cursor-pointer';
+
+                alterarPost.onclick = () => {
+                    const modalAlterar = document.getElementById('modalAlterar');
+                    modalAlterar.classList.toggle('flex')
+                    modalAlterar.classList.toggle('hidden')
+
+                    const cancelarAlteracao = document.getElementById('cancelarAlteracao')
+                    cancelarAlteracao.onclick = () => {
+                        modalAlterar.classList.toggle('flex')
+                        modalAlterar.classList.toggle('hidden')
+                    }
+
+
+                    const descAlterada = document.getElementById('descAlterada');
+                    descAlterada.value = e.descImage
+
+                    const alterarDesc = document.getElementById('alterarDesc');
+                    alterarDesc.onclick = () => {
+                        const newDesc = {
+                            id: e.id,
+                            descImage: descAlterada.value
+                        }
+
+                        if (!e.postImage) {
+                            if (descAlterada.value == 0) {
+                                alert('Coloque ao menos um caractére');
+                            } else if (descAlterada.value == e.descImage) {
+                                alert('A descrição é a mesma');
+                            } else {
+                                api.put('/post/alterar', newDesc)
+                                    .then(resp => {
+                                        window.location.reload()
+                                    });
+                            }
+                        } else {
+                            api.put('/post/alterar', newDesc)
+                                .then(resp => {
+                                    window.location.reload()
+                                });
+                        }
+                    }
+                }
 
                 //apendando os bagulho do header
                 alterarPost.appendChild(alterarIcon);
@@ -200,37 +238,40 @@ const toPost = document.getElementById('uploadForm');
 toPost.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const userId = document.querySelector('#userId');
     const descImage = document.querySelector('#descImage');
     const imagemInput = document.querySelector('#imagem');
     const imagem = imagemInput.files[0];
-    userId.value = userData.id
 
     const formData = new FormData();
     formData.append('userId', userData.id);
     formData.append('descImage', descImage.value);
     formData.append('postImage', imagem);
 
-    api.post('/post/criar', formData)
-        .then(resp => {
-            try {
-                if (resp.status == 200) {
-                    window.location.reload();
-                } else {
-                    console.error('Erro ao enviar imagem: ' + resp.statusText);
+    if (descImage.value == 0 && imagem == null) {
+        alert('Adicione uma descrição ou uma imgem para poder fazer uma publicação')
+
+    } else {
+        api.post('/post/criar', formData)
+            .then(resp => {
+                try {
+                    if (resp.status == 200) {
+                        window.location.reload();
+                    } else {
+                        console.error('Erro ao enviar imagem: ' + resp.statusText);
+                    }
+                } catch (error) {
+                    console.error('Erro ao enviar imagem: ' + error.message);
                 }
-            } catch (error) {
-                console.error('Erro ao enviar imagem: ' + error.message);
-            }
-        });
+            });
+    }
 
 });
 
 //ABRIR MODAL DE IMAGEM---------------------------------------------------
 function hiddeModal() {
     const modalImage = document.getElementById('modalImage');
-    modalImage.classList.remove('flex')
-    modalImage.classList.add('hidden')
+    modalImage.classList.toggle('flex')
+    modalImage.classList.toggle('hidden')
 }
 
 function openSettings() {
@@ -254,4 +295,11 @@ function openSettings() {
 //         })
 
 // }
+
+
+function hiddeModalComentarios() {
+    const modalComentarios = document.getElementById('modalComentarios');
+    modalComentarios.classList.toggle('flex');
+    modalComentarios.classList.toggle('hidden');
+}
 
