@@ -280,15 +280,13 @@ function openSettings() {
     modalSettings.classList.toggle('hidden');
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 //CURTIDAS ---------------------------------------------------
 let isLiked = false;
 let count = 0;
 
 //Verifica se tem um valor no LocalStorage para o contador
 const storedLikes = localStorage.getItem("likes");
-if(storedLikes){
+if (storedLikes) {
     count = parseInt(storedLikes, 10);
     updateLikeCount();
 }
@@ -306,23 +304,22 @@ function like() {
     isLiked = !isLiked;
     updateLikeCount();
 
-//Atualiza o contador no LocalStorage
+    //Atualiza o contador no LocalStorage
     localStorage.setItem("likes", count.toString());
 
     //Animaçãozinha  de like :3 
-    likeIcon.classList.remove("animate-pulse"); 
-    setTimeout(()=>{
+    likeIcon.classList.remove("animate-pulse");
+    setTimeout(() => {
         likeIcon.classList.add("animate-pulse");
     }, 0);
-    
+
 }
 
-function updateLikeCount(){
+function updateLikeCount() {
     const likeCount = document.getElementById("likeCount");
     likeCount.textContent = `${count}`;
 }
-=======
-=======
+
 // function perfil() {
 //     api.post("/user/login", data)
 //         .then(resp => {
@@ -340,15 +337,14 @@ function updateLikeCount(){
 // }
 
 
->>>>>>> 86371ff8623a8baa78869de9c74cd6de68ef301b
+
 function hiddeModalComentarios() {
     const modalComentarios = document.getElementById('modalComentarios');
     modalComentarios.classList.toggle('flex');
     modalComentarios.classList.toggle('hidden');
-<<<<<<< HEAD
->>>>>>> ed90c21ef995c780d1eba0b3d68b02f99e54703f
-}
-=======
+
 }
 
->>>>>>> 86371ff8623a8baa78869de9c74cd6de68ef301b
+
+
+
