@@ -280,3 +280,42 @@ function openSettings() {
     modalSettings.classList.toggle('hidden');
 }
 
+//CURTIDAS ---------------------------------------------------
+let isLiked = false;
+let count = 0;
+
+//Verifica se tem um valor no LocalStorage para o contador
+const storedLikes = localStorage.getItem("likes");
+if(storedLikes){
+    count = parseInt(storedLikes, 10);
+    updateLikeCount();
+}
+
+function like() {
+    const likeIcon = document.getElementById("likeIcon");
+
+    if (isLiked) {
+        likeIcon.src = "./assets/liked.png";
+        count++;
+    } else {
+        likeIcon.src = "./assets/like.png";
+        count--;
+    }
+    isLiked = !isLiked;
+    updateLikeCount();
+
+//Atualiza o contador no LocalStorage
+    localStorage.setItem("likes", count.toString());
+
+    //Animaçãozinha  de like :3 
+    likeIcon.classList.remove("animate-pulse"); 
+    setTimeout(()=>{
+        likeIcon.classList.add("animate-pulse");
+    }, 0);
+    
+}
+
+function updateLikeCount(){
+    const likeCount = document.getElementById("likeCount");
+    likeCount.textContent = `${count}`;
+}
