@@ -270,8 +270,8 @@ toPost.addEventListener('submit', async (e) => {
 //ABRIR MODAL DE IMAGEM---------------------------------------------------
 function hiddeModal() {
     const modalImage = document.getElementById('modalImage');
-    modalImage.classList.remove('flex')
-    modalImage.classList.add('hidden')
+    modalImage.classList.toggle('flex')
+    modalImage.classList.toggle('hidden')
 }
 
 function openSettings() {
@@ -280,3 +280,8 @@ function openSettings() {
     modalSettings.classList.toggle('hidden');
 }
 
+function hiddeModalComentarios() {
+    const modalComentarios = document.getElementById('modalComentarios');
+    modalComentarios.classList.toggle('flex');
+    modalComentarios.classList.toggle('hidden');
+}

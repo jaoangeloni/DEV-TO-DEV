@@ -19,6 +19,8 @@
         id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
         userId INT NOT NULL,
         name VARCHAR(255) NOT NULL,
+        gameDescription VARCHAR(255),
+        gameGenre VARCHAR(255) NOT NULL,
         gamePicture BLOB,
         gameBanner BLOB,
         FOREIGN KEY(userId) REFERENCES users(id)
