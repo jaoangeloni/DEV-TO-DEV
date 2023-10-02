@@ -4,17 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de perfil</title>
     <link rel="stylesheet" href="../../../dist/output.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../../scripts/api.js"></script>
+    <title>Document</title>
 </head>
 
-<body class="w-full h-auto bg-gray-50">
-
+<body class="w-full h-auto bg-gray-50" onload="loadGames()">
     <header class=" flex top-0 sticky justify-end items-center w-full p-5 gap-3 bg-gray-50">
         <div id="minimizeBtn" title="Minimize"
             class="topBtn minimizeBtn w-5 h-5 bg-green-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
@@ -48,19 +46,22 @@
         </div>
     </header>
 
-    <div id="perfil" class="w-full h-96 bg-yellow-300 flex justify-center relative ">
-        <div
-            class="bg-white rounded-full hover:cursor-pointer hover:scale-110 hover:rounded-none transition-all duration-100 absolute bottom-0">
-            <img src="./assets/default.png" alt="" class="w-48">
-        </div>
-        <div class="absolute top-0 right-0 hover:cursor-pointer" id="camera">
-            <img src="./assets/camera.png" alt="" class="h-7">
-        </div>
-    </div>
-    <main class="w-full h-full flex justify-center">
-        <div class="w-full h-full bg-slate-500">
+    <main class="flex items-center justify-around w-full h-full">
+        <div id="navLeft" class="flex items-start justify-center bg-gray-200 w-1/5 h-96 rounded-t-md"></div>
 
+        <div id="loadPostGames" class="flex flex-col items-start justify-start w-5/12 h-full gap-8">
+            <div class="w-full h-56 bg-gray-200 hover:scale-105 hover:cursor-pointer duration-200 flex ">
+                <img src="./assets/gameindie.png" alt=""
+                    class="w-36 h-32 hover:rounded-full duration-200 cursor-pointer">
+                <div class="">
+                    <p class="font-osvaldo font-extrabold text-2xl">Jogo da Silva</p>
+                    <p class="">a</p>
+                </div>
+            </div>
         </div>
+
+        <div id="navRight" class="flex items-start justify-center bg-gray-200 w-1/5 h-96 rounded-md"></div>
+
     </main>
 </body>
 <script src="index.js"></script>
