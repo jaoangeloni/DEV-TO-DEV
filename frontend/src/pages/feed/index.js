@@ -195,7 +195,7 @@ function loadPosts() {
                                 imageFather.className = 'flex items-start justify-start gap-2';
 
                                 const imageSon = document.createElement('div');
-                                imageSon.className = 'w-12 h-12 bg-gray-50 rounded-full bg-cover';
+                                imageSon.className = 'w-12 h-12 bg-gray-100 rounded-full bg-cover';
                                 if (!i.profilePicture) {
                                     imageSon.style.backgroundImage = 'url(./assets/default.png)'
                                 }
@@ -225,15 +225,16 @@ function loadPosts() {
 
                     hiddeModalComentarios();
                     const publicarComentario = document.getElementById('publicarComentario');
-                    const commentDescription = document.getElementById('commentDescription');
+                    const commentDescriptione = document.getElementById('commentDescription');
 
-                    const comentario = {
-                        userId: userData.id,
-                        postId: e.id,
-                        commentDescription: commentDescription.value
-                    }
-
+                    
                     publicarComentario.onclick = () => {
+                        const comentario = {
+                            userId: userData.id,
+                            postId: e.id,
+                            commentDescription: commentDescription.value
+                        }
+
                         api.post('/comentario/criar', comentario)
                             .then(resp => {
                                 alert('Comentário publicado');
