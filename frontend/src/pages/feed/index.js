@@ -1,5 +1,6 @@
 const likeImage = document.getElementById("likeIcon");
 const localPosts = document.getElementById("localPosts")
+const commentSection = document.getElementById('commentSection')
 let userData = JSON.parse(localStorage.getItem("user"));
 
 //LOAD POSTS ------------------------------------------------------------------------
@@ -178,12 +179,11 @@ function loadPosts() {
                 const footer_child2 = document.createElement('div');
                 footer_child2.className = 'bg-gray-50 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
 
+                
                 footer_child2.onclick = () => {
-                    hiddeModalComentarios();
                     api.get('/comentario/listarPost/' + e.id)
                         .then(resp => {
                             const dados = resp.data;
-                            const commentSection = document.getElementById('commentSection')
 
                             dados.forEach(i => {
                                 console.log(i)
@@ -195,7 +195,7 @@ function loadPosts() {
                                 imageFather.className = 'flex items-start justify-start gap-2';
 
                                 const imageSon = document.createElement('div');
-                                imageSon.className = 'w-12 h-12 bg-gray-100 rounded-full';
+                                imageSon.className = 'w-12 h-12 bg-gray-50 rounded-full bg-cover';
                                 if (!i.profilePicture) {
                                     imageSon.style.backgroundImage = 'url(./assets/default.png)'
                                 }
@@ -222,6 +222,8 @@ function loadPosts() {
                                 commentSection.appendChild(modeloComment)
                             })
                         })
+
+                    hiddeModalComentarios();
                     const publicarComentario = document.getElementById('publicarComentario');
                     const commentDescription = document.getElementById('commentDescription');
 
