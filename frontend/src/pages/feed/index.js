@@ -168,13 +168,25 @@ function loadPosts() {
                 const footer_child1 = document.createElement('div');
                 footer_child1.className = 'bg-gray-50 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
 
+                footer_child1.onclick = () => {
+                    const curtida = {
+                        userId: userData.id,
+                        postId: e.id
+                    }
+
+                    api.post('/likes/curtir', curtida)
+                    .then(resp => {
+                        window.location.reload();
+                    })
+                }
+
                 //like
                 const likeIcon = document.createElement('img');
                 likeIcon.className = 'w-6 h-6';
                 likeIcon.src = './assets/like.png'
 
                 const likeCount = document.createElement('div');
-                likeCount.innerHTML = '100';
+                likeCount.innerHTML = e.likes;
 
                 const footer_child2 = document.createElement('div');
                 footer_child2.className = 'bg-gray-50 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
@@ -225,7 +237,7 @@ function loadPosts() {
 
                     hiddeModalComentarios();
                     const publicarComentario = document.getElementById('publicarComentario');
-                    const commentDescriptione = document.getElementById('commentDescription');
+                    const commentDescription = document.getElementById('commentDescription');
 
                     
                     publicarComentario.onclick = () => {
@@ -248,7 +260,7 @@ function loadPosts() {
                 commentIcon.src = './assets/comment.png'
 
                 const commentCount = document.createElement('div');
-                commentCount.innerHTML = '100';
+                commentCount.innerHTML = e.comments;
 
                 //apendando os bagulho do footer
                 footer_child1.appendChild(likeIcon);

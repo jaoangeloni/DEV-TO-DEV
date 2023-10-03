@@ -11,9 +11,17 @@ class Post {
 
     read() {
         if (this.id == undefined)
-            return `SELECT u.name, u.username, p.*
+            return `SELECT 
+            u.name, 
+            u.username, 
+            p.*,
+            COUNT(DISTINCT l.id) AS likes,
+            COUNT(DISTINCT c.id) AS comments
             FROM users u
             JOIN post p ON u.id = p.userId
+            LEFT JOIN likes l ON p.id = l.postId
+            LEFT JOIN comments c ON p.id = c.postId
+            GROUP BY u.name, u.username, p.id
             ORDER BY p.id DESC;`
         else
             return `SELECT u.name, u.username, p.*
