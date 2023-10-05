@@ -39,3 +39,50 @@
         (1, 1, CURDATE()),
         (2, 1, CURDATE()),
         (3, 2, CURDATE());
+
+    --Inserindo gêneros dos jogos na na tabela 'gameGenre'
+    INSERT INTO gameGenre (genreName) 
+    VALUES 
+        ('FPS');
+    INSERT INTO gameGenre (genreName) 
+    VALUES 
+        ('BattleRoyale');
+    INSERT INTO gameGenre (genreName) 
+    VALUES
+        ('PVP');
+    INSERT INTO gameGenre (genreName) 
+    VALUES 
+        ('FPA');
+    INSERT INTO gameGenre (genreName)
+     VALUES 
+        ('RTS');
+    INSERT INTO gameGenre (genreName) 
+    VALUES 
+        ('MOBA');
+    INSERT INTO gameGenre (genreName) 
+    VALUES 
+        ('RPG');
+    INSERT INTO gameGenre (genreName) 
+    VALUES 
+        ('MMORPG');
+    INSERT INTO gameGenre (genreName)
+    VALUES
+        ('MMO');
+    INSERT INTO gameGenre (genreName) 
+    VALUES
+        ('SPORTS');
+    INSERT INTO gameGenre (genreName)
+    VALUES
+        ('ADVENTURE');
+    INSERT INTO gameGenre (genreName)
+    VALUES
+        ('SIMULATION');
+    INSERT INTO gameGenre (genreName)
+    VALUES
+        ('TOWER DEFENSE');
+    INSERT INTO gameGenre (genreName)
+    VALUES
+        ('PLATFORM');
+    INSERT INTO gameGenre (genreName)
+    VALUES
+        ('RACING');    

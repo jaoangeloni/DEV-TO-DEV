@@ -20,10 +20,11 @@
         userId INT NOT NULL,
         name VARCHAR(255) NOT NULL,
         gameDescription VARCHAR(255),
-        gameGenre VARCHAR(255) NOT NULL,
+        gameGenreId INT NOT NULL,
         gamePicture BLOB,
         gameBanner BLOB,
-        FOREIGN KEY(userId) REFERENCES users(id)
+        FOREIGN KEY(userId) REFERENCES users(id),
+        FOREIGN KEY(gameGenreId) REFERENCES gameGenre(id)
     );
 
     CREATE TABLE followers (
@@ -65,3 +66,10 @@
         FOREIGN KEY(userId) REFERENCES users(id),
         FOREIGN KEY(postId) REFERENCES post(id)
     );
+
+   CREATE TABLE gameGenre (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    genreName VARCHAR(255) NOT NULL UNIQUE,
+    gamePageId INT NOT NULL,
+    FOREIGN KEY(gamePageId) REFERENCES gamePage(id)
+);

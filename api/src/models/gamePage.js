@@ -3,6 +3,7 @@ class gamePage {
     this.id = i.id;
     this.userId = i.userId;
     this.name = i.name;
+    this.gameGenre = i.gameGenre;
     this.gamePicture = i.gamePicture;
     this.gameBanner = i.gameBanner;
   }
