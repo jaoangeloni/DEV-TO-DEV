@@ -21,6 +21,11 @@ class Likes {
       return `SELECT * FROM likes WHERE id = ${this.id}`;
   }
 
+  readUser() {
+    return `SELECT * FROM likes
+    WHERE userId = ${this.userId} AND postId = ${this.postId};`
+  }
+
   delete() {
     return `DELETE FROM likes WHERE id = ${this.id}`;
   }

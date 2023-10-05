@@ -41,6 +41,7 @@ function loadPosts() {
                 excluirPost.onclick = () => {
                     api.delete('/post/deletar/' + e.id)
                         .then(resp => {
+                            alert('Post deletado');
                             window.location.reload();
                         })
                 };
@@ -59,14 +60,15 @@ function loadPosts() {
 
                     modalSettings.classList.toggle('flex');
                     modalSettings.classList.toggle('hidden');
+
                 };
 
                 const generic_child = document.createElement('div');
-                generic_child.className = 'flex';
+                generic_child.className = 'flex gap-2';
 
                 //foto de perfil do user
                 const userPfp = document.createElement('img');
-                userPfp.className = 'w-16 rounded-full';
+                userPfp.className = 'w-16 rounded-full bg-gray-50';
                 if (!e.userPfp) {
                     userPfp.src = './assets/default.png';
                 }
@@ -168,22 +170,43 @@ function loadPosts() {
                 const footer_child1 = document.createElement('div');
                 footer_child1.className = 'bg-gray-50 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
 
+                const likeIcon = document.createElement('img');
+                likeIcon.className = 'w-6 h-6';
+
+                api.get(`/likes/listar/${e.id}/${userData.id}`)
+                    .then(resp => {
+                        if (resp.data.length > 0)
+                            likeIcon.src = './assets/liked.png';
+                        else
+                            likeIcon.src = './assets/like.png';
+                    })
+
                 footer_child1.onclick = () => {
                     const curtida = {
                         userId: userData.id,
                         postId: e.id
                     }
 
-                    api.post('/likes/curtir', curtida)
-                    .then(resp => {
-                        window.location.reload();
-                    })
+                    api.get(`/likes/listar/${e.id}/${userData.id}`)
+                        .then(resp => {
+                            if (resp.data.length > 0) {
+                                const id = resp.data[0].id
+                                api.delete('/likes/deletar/' + id)
+                                    .then(() => {
+                                        alert('Descurtido');
+                                        window.location.reload();
+                                    })
+                            } else {
+                                api.post('/likes/curtir', curtida)
+                                    .then(() => {
+                                        alert('Curtido')
+                                        window.location.reload();
+                                    })
+                            }
+                        })
                 }
 
                 //like
-                const likeIcon = document.createElement('img');
-                likeIcon.className = 'w-6 h-6';
-                likeIcon.src = './assets/like.png'
 
                 const likeCount = document.createElement('div');
                 likeCount.innerHTML = e.likes;
@@ -191,7 +214,7 @@ function loadPosts() {
                 const footer_child2 = document.createElement('div');
                 footer_child2.className = 'bg-gray-50 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
 
-                
+
                 footer_child2.onclick = () => {
                     api.get('/comentario/listarPost/' + e.id)
                         .then(resp => {
@@ -201,7 +224,7 @@ function loadPosts() {
                                 console.log(i)
 
                                 const modeloComment = document.createElement('div');
-                                modeloComment.className = 'flex items-start gap-2';
+                                modeloComment.className = 'flex items-start gap-2 bg-gray-50 p-2 r';
 
                                 const imageFather = document.createElement('div');
                                 imageFather.className = 'flex items-start justify-start gap-2';
@@ -213,7 +236,7 @@ function loadPosts() {
                                 }
 
                                 const textContent = document.createElement('div');
-                                textContent.className = 'flex flex-col items-start justify-start gap-2';
+                                textContent.className = 'flex flex-col items-start justify-start';
 
                                 const userName = document.createElement('div');
                                 userName.className = 'font-osvaldo font-light text-lg';
@@ -239,7 +262,7 @@ function loadPosts() {
                     const publicarComentario = document.getElementById('publicarComentario');
                     const commentDescription = document.getElementById('commentDescription');
 
-                    
+
                     publicarComentario.onclick = () => {
                         const comentario = {
                             userId: userData.id,
@@ -357,46 +380,46 @@ function openSettings() {
     modalSettings.classList.toggle('hidden');
 }
 
-//CURTIDAS ---------------------------------------------------
-let isLiked = false;
-let count = 0;
+// //CURTIDAS ---------------------------------------------------
+// let isLiked = false;
+// let count = 0;
 
-//Verifica se tem um valor no LocalStorage para o contador
-const storedLikes = localStorage.getItem("likes");
-if (storedLikes) {
-    count = parseInt(storedLikes, 10);
-    updateLikeCount();
-}
+// //Verifica se tem um valor no LocalStorage para o contador
+// const storedLikes = localStorage.getItem("likes");
+// if (storedLikes) {
+//     count = parseInt(storedLikes, 10);
+//     updateLikeCount();
+// }
 
-function like() {
-    const likeIcon = document.getElementById("likeIcon");
+// function like() {
+//     const likeIcon = document.getElementById("likeIcon");
 
-    if (isLiked) {
-        likeIcon.src = "./assets/liked.png";
-        if (count > 0);
-        count--;
-    } else {
-        likeIcon.src = "./assets/like.png";
-        count++;
-    }
-    isLiked = !isLiked;
-    updateLikeCount();
+//     if (isLiked) {
+//         likeIcon.src = "./assets/liked.png";
+//         if (count > 0);
+//         count--;
+//     } else {
+//         likeIcon.src = "./assets/like.png";
+//         count++;
+//     }
+//     isLiked = !isLiked;
+//     updateLikeCount();
 
-    //Atualiza o contador no LocalStorage
-    localStorage.setItem("likes", count.toString());
+//     //Atualiza o contador no LocalStorage
+//     localStorage.setItem("likes", count.toString());
 
-    //Animaçãozinha  de like :3 
-    likeIcon.classList.remove("animate-pulse");
-    setTimeout(() => {
-        likeIcon.classList.add("animate-pulse");
-    }, 0);
+//     //Animaçãozinha  de like :3 
+//     likeIcon.classList.remove("animate-pulse");
+//     setTimeout(() => {
+//         likeIcon.classList.add("animate-pulse");
+//     }, 0);
 
-}
+// }
 
-function updateLikeCount() {
-    const likeCount = document.getElementById("likeCount");
-    likeCount.textContent = `${count}`;
-}
+// function updateLikeCount() {
+//     const likeCount = document.getElementById("likeCount");
+//     likeCount.textContent = `${count}`;
+// }
 
 // function perfil() {
 //     api.post("/user/login", data)

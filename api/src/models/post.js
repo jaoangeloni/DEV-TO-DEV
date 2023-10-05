@@ -33,7 +33,7 @@ class Post {
     update() {
         return `UPDATE post SET 
         descImage = '${this.descImage}'
-        WHERE id = ${this.id}`
+        WHERE id = ${this.id} `
     }
 
     delete() {

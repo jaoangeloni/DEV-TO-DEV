@@ -24,10 +24,11 @@ class Comments {
     }
 
     readPost() {
-        return `SELECT users.profilePicture, users.username, comments.commentDescription
+        return `SELECT users.profilePicture, users.username, comments.commentDescription, comments.id
         FROM comments
         INNER JOIN users ON comments.userId = users.id
-        WHERE comments.postId = '${this.id}'`
+        WHERE comments.postId = '${this.id}
+        ORDER BY comments.id DESC'`
     }
     update() {
         return `UPDATE comments SET 
