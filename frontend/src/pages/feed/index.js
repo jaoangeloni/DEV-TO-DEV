@@ -168,22 +168,43 @@ function loadPosts() {
                 const footer_child1 = document.createElement('div');
                 footer_child1.className = 'bg-gray-50 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
 
+                const likeIcon = document.createElement('img');
+                likeIcon.className = 'w-6 h-6';
+
+                api.get(`/likes/listar/${e.id}/${userData.id}`)
+                    .then(resp => {
+                        if (resp.data.length > 0)
+                            likeIcon.src = './assets/liked.png';
+                        else
+                            likeIcon.src = './assets/like.png';
+                    })
+
                 footer_child1.onclick = () => {
                     const curtida = {
                         userId: userData.id,
                         postId: e.id
                     }
 
-                    api.post('/likes/curtir', curtida)
-                    .then(resp => {
-                        window.location.reload();
-                    })
+                    api.get(`/likes/listar/${e.id}/${userData.id}`)
+                        .then(resp => {
+                            if (resp.data.length > 0) {
+                                const id = resp.data[0].id
+                                api.delete('/likes/deletar/' + id)
+                                    .then(() => {
+                                        alert('Descurtido');
+                                        window.location.reload();
+                                    })
+                            } else {
+                                api.post('/likes/curtir', curtida)
+                                    .then(() => {
+                                        alert('Curtido')
+                                        window.location.reload();
+                                    })
+                            }
+                        })
                 }
 
                 //like
-                const likeIcon = document.createElement('img');
-                likeIcon.className = 'w-6 h-6';
-                likeIcon.src = './assets/like.png'
 
                 const likeCount = document.createElement('div');
                 likeCount.innerHTML = e.likes;
@@ -191,7 +212,7 @@ function loadPosts() {
                 const footer_child2 = document.createElement('div');
                 footer_child2.className = 'bg-gray-50 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
 
-                
+
                 footer_child2.onclick = () => {
                     api.get('/comentario/listarPost/' + e.id)
                         .then(resp => {
@@ -239,7 +260,7 @@ function loadPosts() {
                     const publicarComentario = document.getElementById('publicarComentario');
                     const commentDescription = document.getElementById('commentDescription');
 
-                    
+
                     publicarComentario.onclick = () => {
                         const comentario = {
                             userId: userData.id,

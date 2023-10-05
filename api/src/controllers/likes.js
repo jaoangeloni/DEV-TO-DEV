@@ -19,6 +19,14 @@ const listar = (req, res) => {
     })
 }
 
+const listarUser = (req, res) => {
+    let likes = new Like(req.params)
+    con.query(likes.readUser(), (err, result) => {
+        if (err == null)
+            res.json(result).end()
+    })
+}
+
 const excluir = (req, res) => {
     let likes = new Like(req.params)
     con.query(likes.delete(), (err, result) => {
@@ -32,5 +40,6 @@ const excluir = (req, res) => {
 module.exports = {
     criar,
     listar,
-    excluir
+    excluir,
+    listarUser
 }
