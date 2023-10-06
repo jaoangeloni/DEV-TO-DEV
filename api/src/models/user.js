@@ -17,8 +17,8 @@ class User {
         '${this.name}',
         '${this.email}',
         PASSWORD('${this.password}'), 
-        LOAD_FILE('D:/JAO/PROJETO-ULTRA-SECRETO/api/default/default.png'),
-        LOAD_FILE('D:/JAO/PROJETO-ULTRA-SECRETO/api/default/default.jpg'));`
+        NULL,
+        NULL);`
     }
 
     read() {
