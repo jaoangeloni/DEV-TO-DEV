@@ -1,12 +1,47 @@
+const fs = require('fs');
+const path = require('path');
 const con = require('../db/connect');
 const User = require('../models/user');
 
 const criar = (req, res) => {
     let user = new User(req.body)
     con.query(user.create(), (err, result) => {
-        if (err == null)
-            res.status(201).end()
-        else
+        if (err == null) {
+            const userId = result.userId;
+            const username = user.username; // Suponha que você tenha um campo 'username' no seu modelo de usuário
+
+            // Crie um diretório para armazenar os arquivos de perfil, se não existir
+            const baseDir = path.join(__dirname, '../../../frontend/src/pages');
+            const perfilDir = path.join(baseDir, 'perfis');
+            if (!fs.existsSync(perfilDir)) {
+                fs.mkdirSync(perfilDir);
+            }
+
+            // Conteúdo HTML para o perfil
+            const perfilHTML = `
+            <html>
+            <head>
+                <title>${username}'s Perfil</title>
+            </head>
+            <body>
+                <h1>Perfil de ${username}</h1>
+                <!-- Conteúdo do perfil aqui -->
+            </body>
+            </html>
+        `;
+
+            // Caminho completo para o arquivo HTML de perfil
+            const perfilFilePath = path.join(perfilDir, `${username}.html`);
+
+            // Crie o arquivo HTML de perfil
+            fs.writeFile(perfilFilePath, perfilHTML, (err) => {
+                if (err) {
+                    res.status(500).json(err).end();
+                } else {
+                    res.status(201).end();
+                }
+            })
+        } else
             res.status(500).json(err).end();
     })
 }
