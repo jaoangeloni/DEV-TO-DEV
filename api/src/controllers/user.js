@@ -12,7 +12,7 @@ const criar = (req, res) => {
 
             // Crie um diretório para armazenar os arquivos de perfil, se não existir
             const baseDir = path.join(__dirname, '../../../frontend/src/pages');
-            const perfilDir = path.join(baseDir, 'perfis');
+            const perfilDir = path.join(baseDir, 'profiles');
             if (!fs.existsSync(perfilDir)) {
                 fs.mkdirSync(perfilDir);
             }
