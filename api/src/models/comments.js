@@ -28,7 +28,7 @@ class Comments {
         FROM comments
         INNER JOIN users ON comments.userId = users.id
         WHERE comments.postId = '${this.id}
-        ORDER BY comments.id DESC'`
+        ORDER BY comments.id`
     }
     update() {
         return `UPDATE comments SET 
