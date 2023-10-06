@@ -13,7 +13,7 @@
     <title>Document</title>
 </head>
 
-<body class="w-full h-auto bg-gray-50" onload="loadGames()">
+<body class="w-full bg-gray-50 min-h-screen" onload="loadGames()">
     <header class=" flex top-0 sticky justify-end items-center w-full p-5 gap-3 bg-gray-50">
         <div id="minimizeBtn" title="Minimize"
             class="topBtn minimizeBtn w-5 h-5 bg-green-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
@@ -47,23 +47,22 @@
         </div>
     </header>
 
-    <main class="flex items-start justify-around w-full h-auto">
-        <div id="navLeft" class="flex items-start justify-center bg-gray-200 w-1/5 h-96 rounded-t-md"></div>
+    <main class="flex items-start justify-around w-full h-fit">
+        <!-- <div id="navLeft" class="flex items-start justify-center bg-gray-200 w-1/5 h-96 rounded-t-md"></div> -->
 
-        <div id="gameMain" class="flex flex-col items-start justify-start w-5/12 h-full gap-10">
+        <div id="gameMain" class="flex flex-col items-start justify-start w-5/12 h-fit gap-10">
 
-            <div class="w-full h-72 bg-gray-200 hover:scale-105 hover:cursor-pointer duration-200 flex">
+            <div class="w-full h-52 bg-gray-200 hover:scale-105 hover:cursor-pointer duration-200 flex">
                 <div class="w-36 h-36 hover:rounded-full duration-200 cursor-pointer"></div>
                 <div class="flex flex-col p-2 relative w-full">
-                    <p class="font-osvaldo font-extrabold text-2xl">Jogo da Silva</p>
-                    <p class="font-osvaldo font-extralight text-lg">a</p>
-                    <p class="font-osvaldo font-light text-lg absolute bottom-0 right-2">Font</p>
+                    <p class="font-osvaldo font-extrabold text-2xl">Title</p>
+                    <p class="font-osvaldo font-extralight text-lg">Description</p>
+                    <p class="font-osvaldo font-light text-lg absolute bottom-0 right-2">Genre</p>
                 </div>
 
             </div>
-        </div>
 
-        <div id="navRight" class="flex items-start justify-center bg-gray-200 w-1/5 h-96 rounded-md"></div>
+            <!-- <div id="navRight" class="flex items-start justify-center bg-gray-200 w-1/5 h-96 rounded-md"></div> -->
 
     </main>
 </body>
