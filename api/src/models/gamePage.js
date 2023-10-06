@@ -21,10 +21,20 @@ class gamePage {
   }
 
   read() {
-    if (this.id == undefined)
-      return `SELECT * FROM gamePage`;
-    else
-      return `SELECT * FROM gamePage WHERE id = '${this.id}'`;
+    if (this.id == undefined) {
+      return `
+        SELECT gamePage.*, gameGenre.genreName
+        FROM gamePage
+        LEFT JOIN gameGenre ON gamePage.gameGenreId = gameGenre.id;
+      `;
+    } else {
+      return `
+        SELECT gamePage.*, gameGenre.genreName
+        FROM gamePage
+        LEFT JOIN gameGenre ON gamePage.gameGenreId = gameGenre.id
+        WHERE gamePage.id = '${this.id}';
+      `;
+    }
   }
 
   update() {
