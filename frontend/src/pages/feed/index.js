@@ -68,7 +68,7 @@ function loadPosts() {
 
                 //foto de perfil do user
                 const userPfp = document.createElement('img');
-                userPfp.className = 'w-16 rounded-full bg-gray-50';
+                userPfp.className = 'w-16 rounded-full';
                 if (!e.userPfp) {
                     userPfp.src = './assets/default.png';
                 }
