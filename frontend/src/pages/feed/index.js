@@ -380,65 +380,6 @@ function openSettings() {
     modalSettings.classList.toggle('hidden');
 }
 
-// //CURTIDAS ---------------------------------------------------
-// let isLiked = false;
-// let count = 0;
-
-// //Verifica se tem um valor no LocalStorage para o contador
-// const storedLikes = localStorage.getItem("likes");
-// if (storedLikes) {
-//     count = parseInt(storedLikes, 10);
-//     updateLikeCount();
-// }
-
-// function like() {
-//     const likeIcon = document.getElementById("likeIcon");
-
-//     if (isLiked) {
-//         likeIcon.src = "./assets/liked.png";
-//         if (count > 0);
-//         count--;
-//     } else {
-//         likeIcon.src = "./assets/like.png";
-//         count++;
-//     }
-//     isLiked = !isLiked;
-//     updateLikeCount();
-
-//     //Atualiza o contador no LocalStorage
-//     localStorage.setItem("likes", count.toString());
-
-//     //Animaçãozinha  de like :3 
-//     likeIcon.classList.remove("animate-pulse");
-//     setTimeout(() => {
-//         likeIcon.classList.add("animate-pulse");
-//     }, 0);
-
-// }
-
-// function updateLikeCount() {
-//     const likeCount = document.getElementById("likeCount");
-//     likeCount.textContent = `${count}`;
-// }
-
-// function perfil() {
-//     api.post("/user/login", data)
-//         .then(resp => {
-//             if (resp.status == 200) {
-//                 localStorage.setItem("user", JSON.stringify(resp.data));
-//                 window.location.href = "../perfil/perfil.html";
-
-//                 ipc.send('maximizeRestoreApp')
-//             } else if (resp.status == 206) {
-//                 let string = resp.data.error;
-//                 showModal(string, 0);
-//             }
-//         })
-
-// }
-
-
-
 function hiddeModalComentarios() {
     const modalComentarios = document.getElementById('modalComentarios');
     modalComentarios.classList.toggle('flex');
