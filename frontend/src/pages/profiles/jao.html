@@ -24,7 +24,7 @@
     </header>
 
     <header class="w-full h-28 bg-bannerfoda bg-cover flex items-center justify-around">
-        <div class="w-40 flex items-center justify-center">
+        <div class="w-40 flex items-center justify-center" onclick="goToHome()">
             <img src="../feed/assets/logo.png" alt="logo da empresa dev to dev"
                 class="w-36 transition-all duration-200 hover:scale-105 hover:cursor-pointer">
         </div>
@@ -42,6 +42,16 @@
                 class="w-16 transition-all duration-200 hover:scale-105 hover:cursor-pointer bg-gray-200 rounded-full">
         </div>
     </header>
+
+    <div id="perfil" class="w-full h-96 bg-yellow-300 flex justify-center relative ">
+        <div
+            class="bg-white rounded-full hover:cursor-pointer hover:scale-110 hover:rounded-none transition-all duration-100 absolute bottom-0">
+            <img src="./assets/default.png" alt="" class="w-48">
+        </div>
+        <div class="absolute top-0 right-0 hover:cursor-pointer" id="camera">
+            <img src="./assets/camera.png" alt="" class="h-7">
+        </div>
+    </div>
 
     <main class="flex items-start justify-around w-full">
 

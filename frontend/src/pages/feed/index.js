@@ -398,3 +398,7 @@ function hiddeModalComentarios() {
 function goToProfile() {
     window.location = `../profiles/${userData.username}.html`
 }
+
+function goToHome() {
+    window.location = '../feed/feed.html'
+}
