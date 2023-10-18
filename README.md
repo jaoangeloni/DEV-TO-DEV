@@ -2,6 +2,8 @@
 
 Primeiramente clone o repositório e abra a pasta no VS code
 
+set PATH=%PATH%;C:\Users\SUPORTE\AppData\Roaming\npm
+
 <h1>BANCO DE DADOS</h1>
 <h2>XAMPP é necessário</h2>
 <li>Inicie o módulo Apache e MySQL no XAMPP</li>

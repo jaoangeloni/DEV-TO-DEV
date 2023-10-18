@@ -216,12 +216,16 @@ function loadPosts() {
 
 
                 footer_child2.onclick = () => {
-                    hiddeModalComentarios();
+
                     api.get('/comentario/listarPost/' + e.id)
                         .then(resp => {
                             const dados = resp.data;
 
                             dados.forEach(i => {
+                                const divToRemove = document.createElement('div');
+                                divToRemove.className = ''
+                                divToRemove.id = 'divToRemove'
+
                                 const modeloComment = document.createElement('div');
                                 modeloComment.className = 'flex items-start gap-2 bg-gray-50 p-2 r';
 
@@ -230,6 +234,7 @@ function loadPosts() {
 
                                 const imageSon = document.createElement('div');
                                 imageSon.className = 'w-12 h-12 bg-gray-100 rounded-full bg-cover';
+
                                 if (!i.profilePicture) {
                                     imageSon.style.backgroundImage = 'url(./assets/default.png)'
                                 }
@@ -253,9 +258,12 @@ function loadPosts() {
                                 modeloComment.appendChild(imageFather)
                                 modeloComment.appendChild(textContent)
 
-                                commentSection.appendChild(modeloComment)
+                                divToRemove.appendChild(modeloComment)
+                                commentSection.appendChild(divToRemove)
                             })
                         })
+
+                    hiddeModalComentarios();
 
                     const publicarComentario = document.getElementById('publicarComentario');
                     const commentDescription = document.getElementById('commentDescription');
@@ -275,8 +283,6 @@ function loadPosts() {
                             })
                     }
                 }
-
-
 
                 const commentIcon = document.createElement('img');
                 commentIcon.className = 'w-6 h-6';
@@ -380,67 +386,15 @@ function openSettings() {
     modalSettings.classList.toggle('hidden');
 }
 
-// //CURTIDAS ---------------------------------------------------
-// let isLiked = false;
-// let count = 0;
-
-// //Verifica se tem um valor no LocalStorage para o contador
-// const storedLikes = localStorage.getItem("likes");
-// if (storedLikes) {
-//     count = parseInt(storedLikes, 10);
-//     updateLikeCount();
-// }
-
-// function like() {
-//     const likeIcon = document.getElementById("likeIcon");
-
-//     if (isLiked) {
-//         likeIcon.src = "./assets/liked.png";
-//         if (count > 0);
-//         count--;
-//     } else {
-//         likeIcon.src = "./assets/like.png";
-//         count++;
-//     }
-//     isLiked = !isLiked;
-//     updateLikeCount();
-
-//     //Atualiza o contador no LocalStorage
-//     localStorage.setItem("likes", count.toString());
-
-//     //Animaçãozinha  de like :3 
-//     likeIcon.classList.remove("animate-pulse");
-//     setTimeout(() => {
-//         likeIcon.classList.add("animate-pulse");
-//     }, 0);
-
-// }
-
-// function updateLikeCount() {
-//     const likeCount = document.getElementById("likeCount");
-//     likeCount.textContent = `${count}`;
-// }
-
-// function perfil() {
-//     api.post("/user/login", data)
-//         .then(resp => {
-//             if (resp.status == 200) {
-//                 localStorage.setItem("user", JSON.stringify(resp.data));
-//                 window.location.href = "../perfil/perfil.html";
-
-//                 ipc.send('maximizeRestoreApp')
-//             } else if (resp.status == 206) {
-//                 let string = resp.data.error;
-//                 showModal(string, 0);
-//             }
-//         })
-
-// }
-
-
-
 function hiddeModalComentarios() {
+    // const divToRemove = document.getElementById('divToRemove')
+    // divToRemove.parentNode.removeChild(divToRemove);
+
     const modalComentarios = document.getElementById('modalComentarios');
     modalComentarios.classList.toggle('flex');
     modalComentarios.classList.toggle('hidden');
+}
+
+function goToProfile() {
+    window.location = `../profiles/${userData.username}.html`
 }
