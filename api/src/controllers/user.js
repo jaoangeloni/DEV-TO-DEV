@@ -22,6 +22,12 @@ const criar = (req, res) => {
             <html>
             <head>
                 <title>${username}</title>
+                <link rel="stylesheet" href="../../../dist/output.css">
+                <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+                <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                <script src="../../scripts/api.js"></script>
             </head>
             <body class="w-full bg-gray-50" onload="loadPosts()">
                 <header class="flex top-0 sticky justify-end items-center w-full p-5 gap-3 bg-gray-50 z-50">
