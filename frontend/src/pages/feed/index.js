@@ -394,3 +394,7 @@ function hiddeModalComentarios() {
     modalComentarios.classList.toggle('flex');
     modalComentarios.classList.toggle('hidden');
 }
+
+function goToProfile() {
+    window.location = `../profiles/${userData.username}.html`
+}
