@@ -216,12 +216,16 @@ function loadPosts() {
 
 
                 footer_child2.onclick = () => {
-                    hiddeModalComentarios();
+
                     api.get('/comentario/listarPost/' + e.id)
                         .then(resp => {
                             const dados = resp.data;
 
                             dados.forEach(i => {
+                                const divToRemove = document.createElement('div');
+                                divToRemove.className = ''
+                                divToRemove.id = 'divToRemove'
+
                                 const modeloComment = document.createElement('div');
                                 modeloComment.className = 'flex items-start gap-2 bg-gray-50 p-2 r';
 
@@ -230,6 +234,7 @@ function loadPosts() {
 
                                 const imageSon = document.createElement('div');
                                 imageSon.className = 'w-12 h-12 bg-gray-100 rounded-full bg-cover';
+
                                 if (!i.profilePicture) {
                                     imageSon.style.backgroundImage = 'url(./assets/default.png)'
                                 }
@@ -253,9 +258,12 @@ function loadPosts() {
                                 modeloComment.appendChild(imageFather)
                                 modeloComment.appendChild(textContent)
 
-                                commentSection.appendChild(modeloComment)
+                                divToRemove.appendChild(modeloComment)
+                                commentSection.appendChild(divToRemove)
                             })
                         })
+
+                    hiddeModalComentarios();
 
                     const publicarComentario = document.getElementById('publicarComentario');
                     const commentDescription = document.getElementById('commentDescription');
@@ -275,8 +283,6 @@ function loadPosts() {
                             })
                     }
                 }
-
-
 
                 const commentIcon = document.createElement('img');
                 commentIcon.className = 'w-6 h-6';
@@ -381,6 +387,9 @@ function openSettings() {
 }
 
 function hiddeModalComentarios() {
+    // const divToRemove = document.getElementById('divToRemove')
+    // divToRemove.parentNode.removeChild(divToRemove);
+
     const modalComentarios = document.getElementById('modalComentarios');
     modalComentarios.classList.toggle('flex');
     modalComentarios.classList.toggle('hidden');

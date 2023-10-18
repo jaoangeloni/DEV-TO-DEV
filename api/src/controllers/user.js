@@ -21,7 +21,7 @@ const criar = (req, res) => {
             const perfilHTML = `
             <html>
             <head>
-                <title>${username}'s Perfil</title>
+                <title>${username}</title>
             </head>
             <body>
                 <h1>Perfil de ${username}</h1>
