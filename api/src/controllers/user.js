@@ -61,7 +61,18 @@ const criar = (req, res) => {
                         class="w-16 transition-all duration-200 hover:scale-105 hover:cursor-pointer bg-gray-200 rounded-full">
                     </div>
                 </header>
-    
+
+                <div id="perfil" class="w-full flex justify-center relative" style="background-color: blueviolet; height: 30vh;">
+                <div class="bg-white rounded-full hover:cursor-pointer hover:scale-110 transition-all duration-100"
+                    style="position: absolute; margin-top: 10rem; border-color: black;">
+                    <img src="" alt="" style="width: 9vw;">
+                </div>
+
+                <div class="absolute top-0 right-0 hover:cursor-pointer" id="camera">
+                    <img src="./assets/camera.png" alt="" class="h-7">
+                </div>
+                </div>
+        
                 <main class="flex items-start justify-around w-full">
             
                     <!-- FAIXA DA ESQUERDA -->
