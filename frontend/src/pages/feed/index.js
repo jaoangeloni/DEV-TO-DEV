@@ -173,7 +173,7 @@ function loadPosts() {
                 footer_child1.className = 'bg-lightpurple-0 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
 
                 const likeIcon = document.createElement('img');
-                likeIcon.className = 'w-6 h-6 invert';
+                likeIcon.className = 'w-6 h-6';
 
                 api.get(`/likes/listar/${e.id}/${userData.id}`)
                     .then(resp => {

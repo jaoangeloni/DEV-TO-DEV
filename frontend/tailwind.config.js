@@ -27,9 +27,9 @@ module.exports = {
         ]
       },
       backgroundColor: {
-        bg: ['#120918'],
-        land: ['#2B1D38'],
-        lightpurple: ['#9386A0']
+        bg: ['#363A45'],
+        land: ['#272B34'],
+        lightpurple: ['#959CAE']
       }
     },
     plugins: [],

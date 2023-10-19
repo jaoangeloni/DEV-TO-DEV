@@ -27,7 +27,7 @@
     <div id="modalAlterar" class="fixed bg-black w-full h-full bg-opacity-50 items-center justify-center hidden z-20">
         <div id="alterarBox" class="w-1/2 h-32 bg-land-0 flex flex-col rounded-md gap-2 p-2">
             <input type="text" id="descAlterada"
-                class="outline-none h-12 bg-lightpurple-0 p-2 rounded-md placeholder-white text-white">
+                class="outline-none h-12 bg-lightpurple-0 p-2 rounded-sm placeholder-white text-white">
             <div class="flex gap-2">
                 <button id="cancelarAlteracao" onclick="hiddeModalAlterar()"
                     class="bg-red-500 font-bold text-white p-2 rounded-md">Cancelar</button>
@@ -74,20 +74,20 @@
     <!-- header com botoes customizados para fechar e minimizar ---------------------------------------------------------------------->
 
     <!-- header logo pesquisa e perfil -->
-    <header class="w-full bg-bg-0 sticky top-14 z-50 flex items-center justify-around">
+    <header class="w-full bg-bg-0 sticky top-14 z-50 flex items-center justify-around p-2">
         <div class="w-40 flex items-center justify-center">
             <img src="../feed/assets/logo.png" alt="logo da empresa dev to dev"
-                class="w-36 transition-all duration-200 hover:scale-110 hover:cursor-pointer">
+                class="w-36 transition-all duration-200 hover:scale-110 hover:cursor-pointer ">
         </div>
 
         <!-- pesquisa -->
         <span class="flex items-center justify-center w-2/6">
-            <div class="h-9 bg-lightpurple-0  p-2 flex items-center justify-center rounded-s-lg">
+            <div class="h-9 bg-lightpurple-0  p-2 flex items-center justify-center rounded-s-sm">
                 <img src="../feed/assets/lupa.png" alt="" class="w-6 h-6 bg-lightpurple-0  hover:cursor-pointer">
             </div>
 
             <input type="search" placeholder="Pesquisa"
-                class="h-9 w-full bg-lightpurple-0 rounded-e-lg outline-none placeholder-white text-white">
+                class="h-9 w-full bg-lightpurple-0 rounded-e-sm outline-none placeholder-white text-white">
         </span>
 
         <div class="w-40 flex items-center justify-center" onclick="goToProfile()">
@@ -113,7 +113,7 @@
 
                     <input type="text" name="descImage" id="descImage" placeholder="Publique suas ideias!"
                         class="w-full outline-none bg-lightpurple-0 h-12 p-2 rounded-sm placeholder-white text-white" />
-                    <input type="file" name="postImage" id="imagem" />
+                    <input type="file" name="postImage" id="imagem" class="text-white" />
 
                     <input type="submit" value="PUBLICAR"
                         class="bg-yellow-400 p-2 rounded-sm text-white font-bold cursor-pointer hover:bg-yellow-500" />
