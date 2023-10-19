@@ -1,6 +1,6 @@
 const likeImage = document.getElementById("likeIcon");
 const localPosts = document.getElementById("localPosts")
-const commentSection = document.getElementById('commentSection')
+const commentSection = document.getElementById(' commentSection')
 let userData = JSON.parse(localStorage.getItem("user"));
 
 //LOAD POSTS ------------------------------------------------------------------------
