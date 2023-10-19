@@ -18,14 +18,14 @@ function loadPosts() {
 
                 //header
                 const postHeader = document.createElement('div');
-                postHeader.className = 'bg-gray-200 w-full h-auto p-4 flex flex-col items-start justify-start gap-4 rounded-t-md';
+                postHeader.className = 'bg-land-0 w-full h-auto p-4 flex flex-col items-start justify-start gap-4 rounded-t-md';
 
                 const generic = document.createElement('div');
                 generic.className = 'w-full flex gap-2 justify-between items-center relative';
 
                 //menu para modificar posts
                 const modalSettings = document.createElement('div');
-                modalSettings.className = 'bg-white w-36 h-20 absolute top-12 right-0 rounded-lg hidden flex-col items-start justify-between p-2';
+                modalSettings.className = 'bg-lightpurple-0 w-36 h-20 absolute top-12 right-0 rounded-lg hidden flex-col items-start justify-between p-2';
                 modalSettings.id = 'modalSettings'
 
 
@@ -34,10 +34,11 @@ function loadPosts() {
                 alterarIcon.src = './assets/edit.webp';
 
                 const alterarTitle = document.createElement('p');
+                alterarTitle.className = 'text-white'
                 alterarTitle.innerHTML = 'Alterar post';
 
                 const excluirPost = document.createElement('div');
-                excluirPost.className = 'flex gap-4 hover:bg-gray-100 cursor-pointer';
+                excluirPost.className = 'flex gap-4 cursor-pointer';
                 excluirPost.onclick = () => {
                     api.delete('/post/deletar/' + e.id)
                         .then(resp => {
@@ -51,10 +52,11 @@ function loadPosts() {
                 excluirIcon.src = './assets/delete.webp';
 
                 const excluirTitle = document.createElement('p');
+                excluirTitle.className = 'text-white'
                 excluirTitle.innerHTML = 'Excluir post';
 
                 const settingsMenu = document.createElement('img');
-                settingsMenu.className = 'w-5 h-5 cursor-pointer';
+                settingsMenu.className = 'w-5 h-5 cursor-pointer invert';
                 settingsMenu.src = './assets/menu.png';
                 settingsMenu.onclick = () => {
 
@@ -78,22 +80,22 @@ function loadPosts() {
 
                 //nome
                 const name = document.createElement('p');
-                name.className = 'font-light text-2xl';
+                name.className = 'font-light text-2xl text-white';
                 name.innerHTML = e.name
 
                 //username
                 const username = document.createElement('p');
-                username.className = 'font-extralight text-lg';
+                username.className = 'font-extralight text-lg text-white';
                 username.innerHTML = `#${e.username}`;
 
                 //descricao da imagem
                 const descImage = document.createElement('p');
-                descImage.className = 'font-osvaldo font-light text-lg';
+                descImage.className = 'font-osvaldo font-light text-lg text-white';
                 descImage.innerHTML = e.descImage;
 
                 const alterarPost = document.createElement('div');
 
-                alterarPost.className = 'flex gap-4 hover:bg-gray-100 cursor-pointer';
+                alterarPost.className = 'flex gap-4 cursor-pointer';
 
                 alterarPost.onclick = () => {
                     const modalAlterar = document.getElementById('modalAlterar');
@@ -165,13 +167,13 @@ function loadPosts() {
 
                 //footer com elementos de curtida e comentário
                 const postFooter = document.createElement('div');
-                postFooter.className = 'w-full items-start justify-start p-2 flex gap-4 bg-gray-200 rounded-b-md';
+                postFooter.className = 'w-full items-start justify-start p-2 flex gap-4 bg-land-0 rounded-b-md';
 
                 const footer_child1 = document.createElement('div');
-                footer_child1.className = 'bg-gray-50 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
+                footer_child1.className = 'bg-lightpurple-0 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
 
                 const likeIcon = document.createElement('img');
-                likeIcon.className = 'w-6 h-6';
+                likeIcon.className = 'w-6 h-6 invert';
 
                 api.get(`/likes/listar/${e.id}/${userData.id}`)
                     .then(resp => {
@@ -208,11 +210,12 @@ function loadPosts() {
 
                 //like
 
-                const likeCount = document.createElement('div');
+                const likeCount = document.createElement('p');
+                likeCount.className = 'text-white'
                 likeCount.innerHTML = e.likes;
 
                 const footer_child2 = document.createElement('div');
-                footer_child2.className = 'bg-gray-50 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
+                footer_child2.className = 'bg-lightpurple-0 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
 
 
                 footer_child2.onclick = () => {
@@ -227,13 +230,13 @@ function loadPosts() {
                                 divToRemove.id = 'divToRemove'
 
                                 const modeloComment = document.createElement('div');
-                                modeloComment.className = 'flex items-start gap-2 bg-gray-50 p-2 r';
+                                modeloComment.className = 'flex items-start gap-2 bg-lightpurple-0 p-2 r';
 
                                 const imageFather = document.createElement('div');
                                 imageFather.className = 'flex items-start justify-start gap-2';
 
                                 const imageSon = document.createElement('div');
-                                imageSon.className = 'w-12 h-12 bg-gray-100 rounded-full bg-cover';
+                                imageSon.className = 'w-12 h-12 bg-lightpurple-0 rounded-full bg-cover';
 
                                 if (!i.profilePicture) {
                                     imageSon.style.backgroundImage = 'url(./assets/default.png)'
@@ -288,7 +291,8 @@ function loadPosts() {
                 commentIcon.className = 'w-6 h-6';
                 commentIcon.src = './assets/comment.png'
 
-                const commentCount = document.createElement('div');
+                const commentCount = document.createElement('p');
+                commentCount.className = 'text-white';
                 commentCount.innerHTML = e.comments;
 
                 //apendando os bagulho do footer

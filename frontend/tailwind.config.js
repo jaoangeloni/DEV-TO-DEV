@@ -26,6 +26,11 @@ module.exports = {
           '0px 5px 5px rgb(0,0,0)'
         ]
       },
+      backgroundColor: {
+        bg: ['#120918'],
+        land: ['#2B1D38'],
+        lightpurple: ['#9386A0']
+      }
     },
     plugins: [],
   }
