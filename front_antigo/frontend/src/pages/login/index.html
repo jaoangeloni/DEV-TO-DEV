@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SITE</title>
+    <link rel="stylesheet" href="../../../dist/output.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../../scripts/api.js"></script>
+</head>
+
+<body class="w-screen h-screen overflow-hidden">
+    <!-- header com botoes customizados para fechar e minimizar ---------------------------------------------------------------------->
+    <header class="fixed flex top-0 justify-end items-center w-full p-5 gap-3">
+        <div id="minimizeBtn" title="Minimize"
+            class="topBtn minimizeBtn w-5 h-5 bg-green-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+        </div>
+        <div id="maxResBtn" title="Maximize"
+            class="maxResBtn w-5 h-5 bg-yellow-300 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+        </div>
+        <div id="closeBtn" title="Close"
+            class="topBtn closeBtn w-5 h-5 bg-red-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+        </div>
+    </header>
+
+    <main class="flex w-full h-full select-none overflow-hidden">
+
+        <!-- parte esquerda da tela, onde possui as imagens e o logo------------------------------------------------------------------>
+        <div id="carrossel" class="w-3/5 h-full bg-cover bg-center">
+            <div class="h-full w-full bg-black bg-opacity-60 flex flex-col items-center justify-start">
+
+                <!-- Logo e descricao------------------------------------------------------------------------------------------------->
+                <div class="h-3/5 w-full p-24">
+                    <span class="flex items-center">
+                        <p class="font-concert text-7xl text-yellow-300 drop-shadow-sombrinhabaixo">DEV</p>
+                        <p class="font-concert text-white text-7xl">TO</p>
+                        <p class="font-concert text-7xl text-yellow-300 drop-shadow-sombrinhabaixo">DEV</p>
+                    </span>
+                    <p class="text-white font-osvaldo text-2xl font-extralight mt-6">
+                        Connecting creative minds,
+                        we are a
+                        platform for devs to share innovative experiences together!</p>
+                </div>
+
+                <!-- Footer--------------------------------------------------------------------------------------------------------->
+                <div class="w-full h-2/4 flex flex-col items-start justify-center px-24">
+                    <p class="text-white text-4xl font-osvaldo font-light">Game Community</p>
+                    <p class="text-white text-2xl font-osvaldo font-extralight">for game devs.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- parte direita da tela, onde possui login e registro------------------------------------------------------------------>
+        <!-- Modal de login------------------------------------------------------------------------------------------------------->
+        <div class="w-2/5 h-full flex flex-col items-center justify-center gap-1" id="logar">
+            <div class="w-full flex flex-col items-center justify-center gap-4">
+
+                <p class="font-osvaldo font-normal text-2xl">USER LOGIN</p>
+
+                <!-- Entrar user ID----------------------------------------------------------------------------------------------->
+                <div class="flex flex-col gap-2">
+                    <label for="user" class="font-osvaldo font-light">User ID</label>
+                    <span class="flex items-center justify-center">
+                        <div class="h-9 bg-gray-300 p-2 flex items-center justify-center rounded-s-lg">
+                            <img src="./assets/icon.png" alt="" class="w-6 h-6 bg-gray-300">
+                        </div>
+                        <input type=" text" id="user" class="w-64 h-9 bg-gray-300 rounded-e-lg outline-none">
+                    </span>
+                </div>
+
+                <!-- Entrar senha------------------------------------------------------------------------------------------------->
+                <div class="flex flex-col gap-2">
+                    <label for="senha" class="font-osvaldo font-light">Password</label>
+                    <span class="flex items-center justify-center">
+                        <div class="h-9 bg-gray-300 p-2 flex items-center justify-center rounded-s-lg">
+                            <img src="assets/password.webp" alt="" class="w-5 h-5 bg-gray-300">
+                        </div>
+                        <input type="password" id="senha" class="w-64 h-9 bg-gray-300 rounded-e-lg outline-none">
+                    </span>
+                </div>
+
+                <!-- Butao de login------------------------------------------------------------------------------------------------->
+                <button
+                    class="bg-pink-500 text-white p-2 w-48 font-osvaldo font-normal rounded-md transition-all duration-100 hover:scale-110 hover:bg-pink-600"
+                    onclick="autenticar()">LOGIN</button>
+                <p class="font-osvaldo font-light">Want to join us? <span
+                        class="text-pink-500 cursor-pointer hover:text-yellow-300 transition-all duration-100"
+                        onclick="goToCreate()">Create
+                        an Account</span>
+                </p>
+
+            </div>
+
+            <!-- Entrar com outras redes sociais---------------------------------------------------------------------------------->
+            <div class="h-1/6 w-3/4 flex flex-col items-center justify-center gap-4 ">
+                <p class="font-osvaldo font-light">Or</p>
+                <div class="flex items-center justify-center gap-8">
+                    <div
+                        class="w-12 h-12 bg-gray-300 flex items-center justify-center rounded-full cursor-pointer transition-all duration-100 hover:bg-gray-200 hover:scale-110">
+                        <img src="assets/google.png" alt="" class="w-7 h-7">
+                    </div>
+                    <div
+                        class="w-12 h-12 bg-gray-300 flex items-center justify-center rounded-full cursor-pointer transition-all duration-100 hover:bg-gray-200 hover:scale-110">
+                        <img src="assets/twitter.png" alt="" class="w-7 h-7">
+                    </div>
+                    <div
+                        class="w-12 h-12 bg-gray-300 flex items-center justify-center rounded-full cursor-pointer transition-all duration-150 hover:bg-gray-200 hover:scale-110">
+                        <img src="assets/github.png" alt="" class="w-7 h-7">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de registro----------------------------------------------------------------------------------------------------->
+        <div class=" w-2/5 h-full hidden flex-col items-center justify-center gap-2" id="registrar">
+
+            <p class="font-osvaldo font-normal text-2xl">USER REGISTER</p>
+
+            <!-- Criar user ID----------------------------------------------------------------------------------------------------->
+            <div class="flex flex-col gap-2">
+                <label for="user" class="font-osvaldo font-light">User ID</label>
+                <span class="flex items-center justify-center">
+                    <div class="h-9 bg-gray-300 p-2 flex items-center justify-center rounded-s-lg">
+                        <img src="./assets/icon.png" alt="" class="w-6 h-6 bg-gray-300">
+                    </div>
+                    <input type="text" id="createUsername"
+                        class="w-64 h-9 bg-gray-300 rounded-e-lg outline-none font-osvaldo font-light" placeholder="">
+                </span>
+            </div>
+
+            <!-- Entrar com email----------------------------------------------------------------------------------------------------->
+            <div class="flex flex-col gap-2">
+                <label for="user" class="font-osvaldo font-light">Email</label>
+                <span class="flex items-center justify-center">
+                    <div class="h-9 bg-gray-300 p-2 flex items-center justify-center rounded-s-lg">
+                        <img src="assets/email.webp" alt="" class="w-6 h-6 bg-gray-300">
+                    </div>
+                    <input type="email" id="email"
+                        class="w-64 h-9 bg-gray-300 rounded-e-lg outline-none font-osvaldo font-light" placeholder="">
+                </span>
+            </div>
+
+            <!-- Criar senha----------------------------------------------------------------------------------------------------->
+            <div class="flex flex-col gap-2">
+                <label for="user" class="font-osvaldo font-light">Password</label>
+                <span class="flex items-center justify-center">
+                    <div class="h-9 bg-gray-300 p-2 flex items-center justify-center rounded-s-lg">
+                        <img src="assets/password.webp" alt="" class="w-5 h-5 bg-gray-300">
+                    </div>
+                    <input type="password" id="createPassword"
+                        class="w-64 h-9 bg-gray-300 rounded-e-lg outline-none font-osvaldo font-light" placeholder="">
+                </span>
+            </div>
+
+            <!-- Confirmar senha----------------------------------------------------------------------------------------------------->
+            <div class="flex flex-col gap-2">
+                <label for="user" class="font-osvaldo font-light">Confirm Password</label>
+                <span class="flex items-center justify-center">
+                    <div class="h-9 bg-gray-300 p-2 flex items-center justify-center rounded-s-lg">
+                        <img src="assets/password.webp" alt="" class="w-5 h-5 bg-gray-300">
+                    </div>
+                    <input type="password" id="confirmPassword"
+                        class="w-64 h-9 bg-gray-300 rounded-e-lg outline-none font-osvaldo font-light" placeholder="">
+                </span>
+            </div>
+
+            <!-- <!-- Criar user---------------------------------------------------------------------------------------------------->
+            <button
+                class="bg-pink-500 text-white p-2 font-osvaldo font-normal my-3 w-56 rounded-md transition-all duration-100 hover:scale-110 hover:bg-pink-600"
+                onclick="cadastrar()">REGISTER</button>
+            <p class="font-osvaldo font-light">Already have an account? <span
+                    class="text-pink-500 cursor-pointer hover:text-yellow-300 transition-all duration-100"
+                    onclick="backToLogin()">Log
+                    In</span>
+            </p>
+
+        </div>
+        <div id="modalError"
+            class="absolute w-80 h-32 bg-white rounded-lg bottom-0 m-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex drop-shadow-sombra transition-opacity duration-200 opacity-0">
+            <div class="h-full w-1/4 flex items-center justify-center">
+                <img src="assets/error.png" alt="" class="w-14 h-14" id="modalIcon">
+            </div>
+            <div class="h-full w-3/4 flex items-center justify-center">
+                <p id="warning" class="text-lg font-osvaldo font-light"></p>
+            </div>
+        </div>
+    </main>
+</body>
+
+<script src="index.js"></script>
+<script src="login.js"></script>
+<script defer src="../../scripts/winButtons.js"></script>
+
+</html>
