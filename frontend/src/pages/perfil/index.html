@@ -15,36 +15,83 @@
 
 <body class="w-full  bg-bg-0" onload="loadPosts()"">
 
-    <header class=" flex top-0 sticky justify-end items-center w-full p-5 gap-3 bg-gray-50">
-    <div id="minimizeBtn" title="Minimize"
-        class="topBtn minimizeBtn w-5 h-5 bg-green-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+    <div id=" modalImage"
+    class="fixed bg-black w-full h-full bg-opacity-50 items-center justify-center hidden cursor-zoom-out z-20"
+    onclick="hiddeModal()">
+    <div id="bigImageModal" class=" w-4/5 h-4/5 rounded-lg">
+        <div id="bigImage" class="w-full h-full bg-contain bg-no-repeat bg-center "></div>
     </div>
-    <div id="maxResBtn" title="Maximize"
-        class="maxResBtn w-5 h-5 bg-yellow-300 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
     </div>
-    <div id="closeBtn" title="Close"
-        class="topBtn closeBtn w-5 h-5 bg-red-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+
+    <div id="modalAlterar" class="fixed bg-black w-full h-full bg-opacity-50 items-center justify-center hidden z-20">
+        <div id="alterarBox" class="w-1/2 h-32 bg-land-0 flex flex-col rounded-md gap-2 p-2">
+            <input type="text" id="descAlterada"
+                class="outline-none h-12 bg-lightpurple-0 p-2 rounded-sm placeholder-white text-white">
+            <div class="flex gap-2">
+                <button id="cancelarAlteracao" onclick="hiddeModalAlterar()"
+                    class="bg-red-500 font-bold text-white p-2 rounded-md">Cancelar</button>
+                <button id="alterarDesc" class="bg-yellow-400 font-bold text-white p-2 rounded-md">ALTERAR</button>
+            </div>
+        </div>
     </div>
+
+    <div id="modalComentarios"
+        class="fixed bg-black w-full h-full bg-opacity-50 hidden items-center justify-center z-20">
+
+        <div id=" commentSection"
+            class="relative bg-land-0 flex flex-col rounded-sm p-2 gap-2 w-2/5 h-2/3 overflow-y-auto overflow-x-hidden">
+
+            <div class="w-6 h-6 bg-red-500 absolute top-2 right-2 rounded-sm flex items-center justify-center cursor-pointer"
+                onclick="hiddeModalComentarios()">
+                <p class="text-white text-lg font-bold">X</p>
+            </div>
+
+            <div id="postComment" class="mt-12 w-full flex gap-2">
+                <input type="text" id="commentDescription"
+                    class="outline-none w-full bg-lightpurple-0 p-2 rounded-sm placeholder-white text-white"
+                    placeholder="Publique um comentário">
+                <button id="publicarComentario"
+                    class="bg-yellow-400 p-2 rounded-sm text-white font-bold cursor-pointer hover:bg-yellow-500">Enviar</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <header class="flex top-0 sticky justify-end items-center w-full p-5 gap-3 bg-bg-0 z-50">
+        <div id="minimizeBtn" title="Minimize"
+            class="topBtn minimizeBtn w-5 h-5 bg-green-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+        </div>
+        <div id="maxResBtn" title="Maximize"
+            class="maxResBtn w-5 h-5 bg-yellow-300 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+        </div>
+        <div id="closeBtn" title="Close"
+            class="topBtn closeBtn w-5 h-5 bg-red-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+        </div>
     </header>
 
-    <header class="w-full h-28 bg-bannerfoda bg-cover flex items-center justify-around">
+    <!-- header com botoes customizados para fechar e minimizar ---------------------------------------------------------------------->
+
+    <!-- header logo pesquisa e perfil -->
+    <header class="w-full bg-bg-0 sticky top-14 z-10 flex items-center justify-around p-2">
         <div class="w-40 flex items-center justify-center">
             <img src="../feed/assets/logo.png" alt="logo da empresa dev to dev"
-                class="w-36 transition-all duration-200 hover:scale-110 hover:cursor-pointer">
+                class="w-36 transition-all duration-200 hover:scale-110 hover:cursor-pointer ">
         </div>
 
         <!-- pesquisa -->
         <span class="flex items-center justify-center w-2/6">
-            <div class="h-9 bg-gray-200  p-2 flex items-center justify-center rounded-s-lg">
-                <img src="../feed/assets/lupa.png" alt="" class="w-6 h-6 bg-gray-200  hover:cursor-pointer">
+            <div class="h-9 bg-lightpurple-0  p-2 flex items-center justify-center rounded-s-sm">
+                <img src="../feed/assets/lupa.png" alt="" class="w-6 h-6 bg-lightpurple-0  hover:cursor-pointer">
             </div>
 
-            <input type="search" placeholder="Pesquisa" class="h-9 w-full bg-gray-200 rounded-e-lg outline-none">
+            <input type="search" placeholder="Pesquisa"
+                class="h-9 w-full bg-lightpurple-0 rounded-e-sm outline-none placeholder-white text-white">
         </span>
 
-        <div class="w-40 flex items-center justify-center">
+        <div class="w-40 flex items-center justify-center" onclick="goToProfile()">
             <img src="./assets/default.png" alt="usericon"
-                class="w-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer">
+                class="w-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer bg-land-0 rounded-full">
         </div>
     </header>
 
