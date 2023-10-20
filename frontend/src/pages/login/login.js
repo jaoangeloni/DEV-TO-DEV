@@ -1,11 +1,6 @@
 const fs = require('fs');
-const imagePath = './assets/userpfp/';
 
 //importação dos inputs
-const iUsername = document.getElementById("createUsername");
-const iEmail = document.getElementById("email");
-const iPassword = document.getElementById("createPassword");
-const iConfirmPassword = document.getElementById("confirmPassword");
 
 //importação dos elementos do modal
 const modalError = document.getElementById("modalError");
@@ -36,24 +31,34 @@ function readImageFile(path) {
     }
 }
 
+
 //função de cadastrar
 function cadastrar() {
-    const images = [
-        imagePath + 'default01.png',
-        imagePath + 'default02.png',
-        imagePath + 'default03.png',
-        imagePath + 'default04.png',
-        imagePath + 'default05.png',
-        imagePath + 'default06.png',
-        imagePath + 'default07.png',
-        imagePath + 'default08.png',
-        imagePath + 'default09.png',
-        imagePath + 'default10.png',
-        imagePath + 'default11.png',
-        imagePath + 'default12.png',
+
+    const iUsername = document.getElementById("createUsername");
+    const iEmail = document.getElementById("email");
+    const iPassword = document.getElementById("createPassword");
+    const iConfirmPassword = document.getElementById("confirmPassword");
+
+    const pfpPath = './assets/userpfp/';
+
+    const pfpImages = [
+        pfpPath + 'default01.png',
+        pfpPath + 'default02.png',
+        pfpPath + 'default03.png',
+        pfpPath + 'default04.png',
+        pfpPath + 'default05.png',
+        pfpPath + 'default06.png',
+        pfpPath + 'default07.png',
+        pfpPath + 'default08.png',
+        pfpPath + 'default09.png',
+        pfpPath + 'default10.png',
+        pfpPath + 'default11.png',
+        pfpPath + 'default12.png',
     ];
 
-    const aleatorio = Math.floor(Math.random() * images.length);
+    const aleatorio = Math.floor(Math.random() * pfpImages.length);
+    const randomImagePath = pfpImages[aleatorio];
 
     if (iUsername.value == "" || iEmail.value == "") {
         let string = "Preencha todos os campos";
@@ -68,7 +73,9 @@ function cadastrar() {
             "email": iEmail.value,
             "name": iUsername.value,
             "password": iPassword.value,
+            "profilePicture": readImageFile(randomImagePath)
         }
+
         api.post("/user/cadastrar", user)
             .then(resp => {
                 if (resp.status == 206) {
