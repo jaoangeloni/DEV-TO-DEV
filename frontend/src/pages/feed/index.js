@@ -230,7 +230,7 @@ function loadPosts() {
                                 divToRemove.id = 'divToRemove'
 
                                 const modeloComment = document.createElement('div');
-                                modeloComment.className = 'flex items-start gap-2 bg-lightpurple-0 p-2 r';
+                                modeloComment.className = 'flex items-start gap-2 bg-lightpurple-0 p-2 text-white';
 
                                 const imageFather = document.createElement('div');
                                 imageFather.className = 'flex items-start justify-start gap-2';
