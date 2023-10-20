@@ -38,6 +38,7 @@
     "fastq": "^1.15.0",
     "fd-slicer": "^1.1.0",
     "fill-range": "^7.0.1",
+    "fs": "^0.0.1-security",
     "fs-extra": "^8.1.0",
     "fs.realpath": "^1.0.0",
     "function-bind": "^1.1.1",

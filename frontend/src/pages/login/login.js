@@ -1,3 +1,6 @@
+const fs = require('fs');
+const imagePath = './assets/userpfp/';
+
 //importação dos inputs
 const iUsername = document.getElementById("createUsername");
 const iEmail = document.getElementById("email");
@@ -22,15 +25,43 @@ function showModal(string, error) {
     modalError.classList.add("opacity-100");
 }
 
+
+function readImageFile(path) {
+    try {
+        const imageData = fs.readFileSync(path);
+        return imageData;
+    } catch (err) {
+        console.error('Erro ao ler o arquivo de imagem:', err);
+        return null;
+    }
+}
+
 //função de cadastrar
 function cadastrar() {
+    const images = [
+        imagePath + 'default01.png',
+        imagePath + 'default02.png',
+        imagePath + 'default03.png',
+        imagePath + 'default04.png',
+        imagePath + 'default05.png',
+        imagePath + 'default06.png',
+        imagePath + 'default07.png',
+        imagePath + 'default08.png',
+        imagePath + 'default09.png',
+        imagePath + 'default10.png',
+        imagePath + 'default11.png',
+        imagePath + 'default12.png',
+    ];
+
+    const aleatorio = Math.floor(Math.random() * images.length);
+
     if (iUsername.value == "" || iEmail.value == "") {
         let string = "Preencha todos os campos";
         showModal(string, 0);
     } else if (iPassword.value != iConfirmPassword.value) {
         let string = "Senhas não conferem";
         showModal(string, 0);
-    } else if (iPassword.value == iConfirmPassword.value && iPassword.value) {
+    } else if (iPassword.value == iConfirmPassword.value) {
 
         let user = {
             "username": iUsername.value,
