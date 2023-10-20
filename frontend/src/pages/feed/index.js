@@ -31,7 +31,7 @@ function loadPosts() {
 
                 const alterarIcon = document.createElement('img');
                 alterarIcon.className = 'w-6 h-6';
-                alterarIcon.src = './assets/edit.webp';
+                alterarIcon.src = './assets/edit.png';
 
                 const alterarTitle = document.createElement('p');
                 alterarTitle.className = 'text-white'
@@ -49,7 +49,7 @@ function loadPosts() {
 
                 const excluirIcon = document.createElement('img');
                 excluirIcon.className = 'w-6 h-6';
-                excluirIcon.src = './assets/delete.webp';
+                excluirIcon.src = './assets/delete.png';
 
                 const excluirTitle = document.createElement('p');
                 excluirTitle.className = 'text-white'
