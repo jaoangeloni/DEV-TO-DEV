@@ -13,14 +13,14 @@
     <script src="../../scripts/api.js"></script>
 </head>
 
-<body class="w-full  bg-bg-0" onload="loadPosts()"">
-            
-                <div id=" modalImage"
-    class="fixed bg-black w-full h-full bg-opacity-50 items-center justify-center hidden cursor-zoom-out z-20"
-    onclick="hiddeModal()">
-    <div id="bigImageModal" class=" w-4/5 h-4/5 rounded-lg">
-        <div id="bigImage" class="w-full h-full bg-contain bg-no-repeat bg-center "></div>
-    </div>
+<body class="w-full bg-bg-0" onload="loadPosts()">
+
+    <div id=" modalImage"
+        class="fixed bg-black w-full h-full bg-opacity-50 items-center justify-center hidden cursor-zoom-out z-20"
+        onclick="hiddeModal()">
+        <div id="bigImageModal" class=" w-4/5 h-4/5 rounded-lg">
+            <div id="bigImage" class="w-full h-full bg-contain bg-no-repeat bg-center "></div>
+        </div>
     </div>
 
     <div id="modalAlterar" class="fixed bg-black w-full h-full bg-opacity-50 items-center justify-center hidden z-20">
@@ -95,16 +95,17 @@
         </div>
     </header>
 
-    <div id="perfil" class="w-full h-96 bg-white flex justify-center items-center static">
+    <div id="banner" class="w-full h-96 bg-white flex justify-center items-center relative"
+        style="background-image: url('./assets//default-banner.jpg'); background-size: contain;">
 
         <div
-            class="bg-white rounded-full hover:cursor-pointer hover:scale-105 transition-all duration-100 absolute top-0">
+            class="bg-white rounded-full hover:cursor-pointer hover:scale-105 transition-all duration-100 absolute bottom-12">
             <img src="./assets/default.png" alt="" class="rounded-full w-40">
         </div>
 
     </div>
 
-    <main class="flex items-start justify-around w-full" style="margin-top: 6rem;">
+    <main class="flex items-start justify-around w-full mt-10">
 
         <!-- FAIXA DA ESQUERDA -->
         <div id="navLeft" class="flex items-start justify-center bg-land-0 w-1/5 h-96 rounded-md">
