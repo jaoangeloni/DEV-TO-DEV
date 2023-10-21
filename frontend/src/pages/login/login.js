@@ -1,6 +1,9 @@
-const fs = require('fs');
 
 //importação dos inputs
+const iUsername = document.getElementById("createUsername");
+const iEmail = document.getElementById("email");
+const iPassword = document.getElementById("createPassword");
+const iConfirmPassword = document.getElementById("confirmPassword");
 
 //importação dos elementos do modal
 const modalError = document.getElementById("modalError");
@@ -21,45 +24,9 @@ function showModal(string, error) {
 }
 
 
-function readImageFile(path) {
-    try {
-        const imageData = fs.readFileSync(path);
-        return imageData;
-    } catch (err) {
-        console.error('Erro ao ler o arquivo de imagem:', err);
-        return null;
-    }
-}
-
 
 //função de cadastrar
 function cadastrar() {
-
-    const iUsername = document.getElementById("createUsername");
-    const iEmail = document.getElementById("email");
-    const iPassword = document.getElementById("createPassword");
-    const iConfirmPassword = document.getElementById("confirmPassword");
-
-    const pfpPath = './assets/userpfp/';
-
-    const pfpImages = [
-        pfpPath + 'default01.png',
-        pfpPath + 'default02.png',
-        pfpPath + 'default03.png',
-        pfpPath + 'default04.png',
-        pfpPath + 'default05.png',
-        pfpPath + 'default06.png',
-        pfpPath + 'default07.png',
-        pfpPath + 'default08.png',
-        pfpPath + 'default09.png',
-        pfpPath + 'default10.png',
-        pfpPath + 'default11.png',
-        pfpPath + 'default12.png',
-    ];
-
-    const aleatorio = Math.floor(Math.random() * pfpImages.length);
-    const randomImagePath = pfpImages[aleatorio];
-
     if (iUsername.value == "" || iEmail.value == "") {
         let string = "Preencha todos os campos";
         showModal(string, 0);
@@ -72,8 +39,7 @@ function cadastrar() {
             "username": iUsername.value,
             "email": iEmail.value,
             "name": iUsername.value,
-            "password": iPassword.value,
-            "profilePicture": readImageFile(randomImagePath)
+            "password": iPassword.value
         }
 
         api.post("/user/cadastrar", user)
