@@ -1,3 +1,4 @@
+
 //importação dos inputs
 const iUsername = document.getElementById("createUsername");
 const iEmail = document.getElementById("email");
@@ -22,6 +23,8 @@ function showModal(string, error) {
     modalError.classList.add("opacity-100");
 }
 
+
+
 //função de cadastrar
 function cadastrar() {
     if (iUsername.value == "" || iEmail.value == "") {
@@ -30,14 +33,15 @@ function cadastrar() {
     } else if (iPassword.value != iConfirmPassword.value) {
         let string = "Senhas não conferem";
         showModal(string, 0);
-    } else if (iPassword.value == iConfirmPassword.value && iPassword.value) {
+    } else if (iPassword.value == iConfirmPassword.value) {
 
         let user = {
             "username": iUsername.value,
             "email": iEmail.value,
             "name": iUsername.value,
-            "password": iPassword.value,
+            "password": iPassword.value
         }
+
         api.post("/user/cadastrar", user)
             .then(resp => {
                 if (resp.status == 206) {
