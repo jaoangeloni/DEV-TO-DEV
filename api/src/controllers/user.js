@@ -90,18 +90,12 @@ const criar = (req, res) => {
                         class="topBtn closeBtn w-5 h-5 bg-red-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
                     </div>
                 </header>
-<<<<<<< HEAD
-            
-                <header class="w-full h-28 bg-bannerfoda bg-cover flex items-center justify-around">
-                    <div class="w-40 flex items-center justify-center" onclick="goToHome()">
-=======
 
                 <!-- header com botoes customizados para fechar e minimizar ---------------------------------------------------------------------->
 
                 <!-- header logo pesquisa e perfil -->
                 <header class="w-full bg-bg-0 sticky top-14 z-10 flex items-center justify-around p-2">
                     <div class="w-40 flex items-center justify-center">
->>>>>>> 39fbb9d6ba08dd41e6c874bb68c0e7854f4c8dd7
                         <img src="../feed/assets/logo.png" alt="logo da empresa dev to dev"
                             class="w-36 transition-all duration-200 hover:scale-110 hover:cursor-pointer ">
                     </div>
@@ -115,13 +109,8 @@ const criar = (req, res) => {
                         <input type="search" placeholder="Pesquisa"
                             class="h-9 w-full bg-lightpurple-0 rounded-e-sm outline-none placeholder-white text-white">
                     </span>
-<<<<<<< HEAD
-            
-                    <div class="w-40 flex items-center justify-center" onclick="goToHome()">
-=======
 
                     <div class="w-40 flex items-center justify-center" onclick="goToProfile()">
->>>>>>> 39fbb9d6ba08dd41e6c874bb68c0e7854f4c8dd7
                         <img src="./assets/default.png" alt="usericon"
                             class="w-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer rounded-full">
                     </div>
