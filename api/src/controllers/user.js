@@ -95,7 +95,11 @@ const criar = (req, res) => {
 
                 <!-- header logo pesquisa e perfil -->
                 <header class="w-full bg-bg-0 sticky top-14 z-10 flex items-center justify-around p-2">
+<<<<<<< HEAD
                     <div class="w-40 flex items-center justify-center onclick="goToHome()"">
+=======
+                    <div class="w-40 flex items-center justify-center">
+>>>>>>> bbfbae62c3691840e223f99f61843cd5e31c6fc8
                         <img src="../feed/assets/logo.png" alt="logo da empresa dev to dev"
                             class="w-36 transition-all duration-200 hover:scale-110 hover:cursor-pointer ">
                     </div>
@@ -109,7 +113,10 @@ const criar = (req, res) => {
                         <input type="search" placeholder="Pesquisa"
                             class="h-9 w-full bg-lightpurple-0 rounded-e-sm outline-none placeholder-white text-white">
                     </span>
+<<<<<<< HEAD
 
+=======
+>>>>>>> bbfbae62c3691840e223f99f61843cd5e31c6fc8
 
                     <div class="w-40 flex items-center justify-center" onclick="goToProfile()">
                         <img src="./assets/default.png" alt="usericon"
