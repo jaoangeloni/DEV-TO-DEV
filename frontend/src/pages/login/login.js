@@ -4,7 +4,24 @@ const iUsername = document.getElementById("createUsername");
 const iEmail = document.getElementById("email");
 const iPassword = document.getElementById("createPassword");
 const iConfirmPassword = document.getElementById("confirmPassword");
-const urlPicture = 'https://res.cloudinary.com/dneit0fsb/image/upload/v1698154247/userPFP/lgtnoe2gu1vd6ftx7tsh.png'
+
+const urlPicture = [
+    'htts://res.cloudinary.com/dneit0fsb/image/upload/v1698154247/userPFP/lgtnoe2gu1vd6ftx7tsh.png',
+    'http://res.cloudinary.com/dneit0fsb/image/upload/v1698156380/userPFP/f3zyn9lj8napedc0z4d5.png',
+    'http://res.cloudinary.com/dneit0fsb/image/upload/v1698156381/userPFP/htg5hc2ythoo02rs1rmx.png',
+    'http://res.cloudinary.com/dneit0fsb/image/upload/v1698156380/userPFP/jkegbvvkxk8erjczei0b.png',
+    'http://res.cloudinary.com/dneit0fsb/image/upload/v1698156380/userPFP/jyqghxavml3tobbxyu5x.png',
+    'http://res.cloudinary.com/dneit0fsb/image/upload/v1698154247/userPFP/lgtnoe2gu1vd6ftx7tsh.png',
+    'http://res.cloudinary.com/dneit0fsb/image/upload/v1698156380/userPFP/tvapbm9wrn0aptbzvibh.png',
+    'http://res.cloudinary.com/dneit0fsb/image/upload/v1698156381/userPFP/upqfsurp38xl4zrcxago.png',
+    'http://res.cloudinary.com/dneit0fsb/image/upload/v1698156380/userPFP/uv57qvwimmfteekzzzpf.png',
+    'http://res.cloudinary.com/dneit0fsb/image/upload/v1698156380/userPFP/vp6qrl7e1carvzv44c2w.png',
+    'http://res.cloudinary.com/dneit0fsb/image/upload/v1698156381/userPFP/yhayu5azqj0btenjceex.png'
+]
+
+const imagemAleatoria = Math.floor(Math.random() * urlPicture.length);
+urlAleatoria = urlPicture[imagemAleatoria];
+
 const urlBanner = 'https://assets.tumblr.com/images/default_header/optica_pattern_05.png'
 
 //importação dos elementos do modal
@@ -42,7 +59,7 @@ function cadastrar() {
             "email": iEmail.value,
             "name": iUsername.value,
             "password": iPassword.value,
-            "profilePicture": urlPicture,
+            "profilePicture": urlAleatoria,
             "profileBanner": urlBanner
         }
 

@@ -15,37 +15,61 @@ const criar = (req, res) => {
         const userId = req.body.userId;
         const descImage = req.body.descImage;
 
-        const imageFile = req.file;
-        const { mimetype, buffer } = imageFile;
+        if (req.file) {
+            const imageFile = req.file;
+            const { mimetype, buffer } = imageFile;
+            cloudinary.uploader
+                .upload_stream((error, result) => {
+                    if (error) throw error;
 
-        cloudinary.uploader
-            .upload_stream((error, result) => {
-                if (error) throw error;
+                    const { url } = result;
 
-                const { url } = result;
-
-                const data = {
-                    userId: userId,
-                    descImage: descImage,
-                    postImage: url,
-                    mime_type: mimetype,
-                    date: 'CURDATE()'
-                }
-
-                const sql = 'INSERT INTO post SET ?;';
-
-                db.query(sql, data, (err, result) => {
-                    if (err) {
-                        console.error('Erro ao inserir imagem no banco de dados: ' + err.message);
-                        res.status(500).send('Erro ao fazer o upload da imagem.').end();
-                    } else {
-                        console.log('Imagem inserida com sucesso.');
-
-                        res.status(200).json(result.insertId).end();
+                    const data = {
+                        userId: userId,
+                        descImage: descImage,
+                        postImage: url,
+                        mime_type: mimetype,
+                        date: 'CURDATE()'
                     }
-                });
-            })
-            .end(buffer)
+
+                    const sql = 'INSERT INTO post SET ?;';
+
+                    db.query(sql, data, (err, result) => {
+                        if (err) {
+                            console.error('Erro ao inserir imagem no banco de dados: ' + err.message);
+                            res.status(500).send('Erro ao fazer o upload da imagem.').end();
+                        } else {
+                            console.log('Imagem inserida com sucesso.');
+
+                            res.status(200).json(result.insertId).end();
+                        }
+                    });
+                })
+                .end(buffer)
+        } else {
+            const data = {
+                userId: userId,
+                descImage: descImage,
+                postImage: null,
+                mime_type: null,
+                date: 'CURDATE()'
+            }
+
+            const sql = 'INSERT INTO post SET ?;';
+
+            db.query(sql, data, (err, result) => {
+                if (err) {
+                    console.error('Erro ao inserir imagem no banco de dados: ' + err.message);
+                    res.status(500).send('Erro ao fazer o upload da imagem.').end();
+                } else {
+                    console.log('Imagem inserida com sucesso.');
+
+                    res.status(200).json(result.insertId).end();
+                }
+            });
+
+        }
+
     })
 };
 
