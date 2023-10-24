@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de perfil</title>
+    <title>Dev to dev - Perfil</title>
     <link rel="stylesheet" href="../../../dist/output.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
@@ -89,10 +89,16 @@
                 class="h-9 w-full bg-lightpurple-0 rounded-e-sm outline-none placeholder-white text-white">
         </span>
 
-        <div class="w-40 flex items-center justify-center" onclick="goToProfile()">
+        <div class="w-40 flex items-center justify-center gap-8" onclick="goToProfile()">
             <img src="./assets/default.png" alt="usericon"
                 class="w-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer rounded-full">
+            <div>
+                <a href="../login/index.html"><img src="./assets/logout.png" alt="botão para sair"
+                        class="w-5 hover:cursor-pointer"></a>
+            </div>
         </div>
+
+
     </header>
 
     <div id="banner" class="w-full h-96 bg-land-0 flex justify-center items-center relative"
@@ -105,8 +111,8 @@
 
     </div>
 
-    <div class="w-full h-auto">
-        <button class="w-12 h-14 bg-green-500 font-osvaldo font-extrabold text-white ">Publicar
+    <div class="w-full">
+        <button class="w-16 h-14 bg-green-500 font-osvaldo font-extrabold text-white ">Publicar
             Jogos</button>
     </div>
 
