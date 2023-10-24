@@ -1,8 +1,14 @@
 require('dotenv').config();
+
 const express = require('express');
-const app = express();
+const cors = require('cors')
 const upload = require('./multer');
 const con = require('./database');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
 
 const cloudinary = require('cloudinary').v2;
 
