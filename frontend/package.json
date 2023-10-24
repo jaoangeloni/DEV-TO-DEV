@@ -18,6 +18,7 @@
     "camelcase-css": "^2.0.1",
     "chokidar": "^3.5.3",
     "clone-response": "^1.0.3",
+    "cloudinary": "^1.41.0",
     "commander": "^4.1.1",
     "concat-map": "^0.0.1",
     "cssesc": "^3.0.0",

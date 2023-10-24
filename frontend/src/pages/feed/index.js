@@ -3,6 +3,7 @@ const localPosts = document.getElementById("localPosts")
 const commentSection = document.getElementById(' commentSection')
 let userData = JSON.parse(localStorage.getItem("user"));
 
+
 //LOAD POSTS ------------------------------------------------------------------------
 function loadPosts() {
     api.get('/post/listar')
@@ -10,6 +11,9 @@ function loadPosts() {
             const dados = resp.data;
 
             dados.forEach(e => {
+                const usericon = document.getElementById('usericon')
+
+                usericon.src = userData.profilePicture
                 console.log(e)
                 const imageData = e.postImage
 
@@ -72,8 +76,10 @@ function loadPosts() {
                 //foto de perfil do user
                 const userPfp = document.createElement('img');
                 userPfp.className = 'w-16 rounded-full';
-                if (!e.userPfp) {
+                if (!userData.profilePicture) {
                     userPfp.src = './assets/default.png';
+                } else {
+                    userPfp.src = userData.profilePicture
                 }
 
                 const generic_child_child = document.createElement('div');

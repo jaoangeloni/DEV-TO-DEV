@@ -17,8 +17,8 @@ class User {
         '${this.name}',
         '${this.email}',
         PASSWORD('${this.password}'), 
-        NULL,
-        NULL);`
+        '${this.profilePicture}',
+        '${this.profileBanner}');`
     }
 
     read() {
