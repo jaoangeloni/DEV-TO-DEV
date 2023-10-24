@@ -4,6 +4,8 @@ const iUsername = document.getElementById("createUsername");
 const iEmail = document.getElementById("email");
 const iPassword = document.getElementById("createPassword");
 const iConfirmPassword = document.getElementById("confirmPassword");
+const urlPicture = 'https://res.cloudinary.com/dneit0fsb/image/upload/v1698154247/userPFP/lgtnoe2gu1vd6ftx7tsh.png'
+const urlBanner = 'https://assets.tumblr.com/images/default_header/optica_pattern_05.png'
 
 //importação dos elementos do modal
 const modalError = document.getElementById("modalError");
@@ -39,7 +41,9 @@ function cadastrar() {
             "username": iUsername.value,
             "email": iEmail.value,
             "name": iUsername.value,
-            "password": iPassword.value
+            "password": iPassword.value,
+            "profilePicture": urlPicture,
+            "profileBanner": urlBanner
         }
 
         api.post("/user/cadastrar", user)

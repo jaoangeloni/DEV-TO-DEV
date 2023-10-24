@@ -17,6 +17,15 @@ cloudinary.config({
     api_secret: process.env.API_SECRET
 })
 
+// cloudinary.api.resources({ type: 'upload', prefix: 'userPFP' },
+//     function (error, result) {
+//         if (error) {
+//             console.log(error);
+//         } else {
+//             console.log(result);
+//         }
+//     });
+
 const app = express();
 app.use(cors());
 app.use(express.json());
