@@ -10,8 +10,8 @@ CREATE TABLE users(
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    profilePicture BLOB,
-    profileBanner BLOB
+    profilePicture varchar(255),
+    profileBanner varchar(255)
 );
 
 CREATE TABLE gameGenre (
@@ -25,8 +25,8 @@ CREATE TABLE gamePage(
     name VARCHAR(255) NOT NULL,
     gameDescription VARCHAR(255),
     gameGenreId INT NOT NULL,
-    gamePicture BLOB,
-    gameBanner BLOB,
+    gamePicture varchar(255),
+    gameBanner varchar(255),
     FOREIGN KEY(userId) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY(gameGenreId) REFERENCES gameGenre(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
@@ -45,7 +45,7 @@ CREATE TABLE post(
     userId INT NOT NULL,
     pageId INT NULL,
     descImage VARCHAR(255),
-    postImage LONGBLOB,
+    postImage varchar(255),
     mime_type VARCHAR(255),
     date DATE NOT NULL,
     FOREIGN KEY(userId) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE,

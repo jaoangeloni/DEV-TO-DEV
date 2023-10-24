@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const cors = require('cors');
 
@@ -7,6 +9,13 @@ const routePage = require('./src/routes/gamePage');
 const routeLikes = require('./src/routes/likes');
 const routePost = require('./src/routes/post');
 
+const cloudinary = require('cloudinary').v2;
+
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.API_KEY,
+    api_secret: process.env.API_SECRET
+})
 
 const app = express();
 app.use(cors());
