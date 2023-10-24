@@ -10,6 +10,7 @@ function loadPosts() {
             const dados = resp.data;
 
             dados.forEach(e => {
+                console.log(e)
                 const imageData = e.postImage
 
                 //card post
@@ -313,20 +314,14 @@ function loadPosts() {
                     const postImage = document.createElement('img');
                     postImage.className = 'w-full h-auto cursor-zoom-in'
 
-                    const imageBuffer = new Uint8Array(imageData.data);
-
-                    const imageBlob = new Blob([imageBuffer], { type: e.mime_type });
-
-                    const imageUrl = URL.createObjectURL(imageBlob);
-
-                    postImage.src = imageUrl
+                    postImage.src = imageData
 
                     postImage.onclick = () => {
                         const modalImage = document.getElementById('modalImage');
                         modalImage.classList.remove('hidden')
                         modalImage.classList.add('flex')
                         const fullscreen = document.getElementById('bigImage');
-                        fullscreen.style.backgroundImage = `url(${imageUrl})`
+                        fullscreen.style.backgroundImage = `url(${imageData})`
                     };
 
                     //apendando o header e o footer no post
