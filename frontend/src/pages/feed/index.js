@@ -407,3 +407,9 @@ function goToProfile() {
 function goToHome() {
     window.location = '../feed/feed.html'
 }
+
+function logoff() {
+    localStorage.removeItem("");
+
+    window.location = "../login/index.html"
+}
