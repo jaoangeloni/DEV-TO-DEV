@@ -3,7 +3,6 @@ const localPosts = document.getElementById("localPosts")
 const commentSection = document.getElementById(' commentSection')
 let userData = JSON.parse(localStorage.getItem("user"));
 
-
 //LOAD POSTS ------------------------------------------------------------------------
 function loadPosts() {
     api.get('/post/listar')

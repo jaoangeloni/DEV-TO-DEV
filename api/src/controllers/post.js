@@ -74,12 +74,16 @@ const criar = (req, res) => {
 };
 
 const listar = (req, res) => {
-    let post = new Post(req.params)
+    const username = req.params.username;
+    let post = new Post({ username: username });
     db.query(post.read(), (err, result) => {
-        if (err == null)
-
-            res.json(result).end()
-    })
+        if (err) {
+            console.error('Erro ao executar a consulta:', err);
+            res.status(500).json({ error: 'Erro ao executar a consulta' });
+        } else {
+            res.json(result);
+        }
+    });
 }
 
 const alterar = (req, res) => {
