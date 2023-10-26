@@ -5,12 +5,12 @@ let userData = JSON.parse(localStorage.getItem("user"));
 
 //LOAD POSTS ------------------------------------------------------------------------
 function loadPosts() {
+    const usericon = document.getElementById('usericon')
+    usericon.src = userData.profilePicture
     api.get('/post/listar')
         .then(resp => {
             const dados = resp.data;
             dados.forEach(e => {
-                const usericon = document.getElementById('usericon')
-                usericon.src = userData.profilePicture
 
                 const imageData = e.postImage
 

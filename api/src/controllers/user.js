@@ -122,9 +122,10 @@ const criar = (req, res) => {
                 <div id="banner" class="w-full h-96 bg-white flex justify-center items-center relative"
                     style="background-size: contain; background-position: center;">
             
-                    <div class="bg-white rounded-full hover:cursor-pointer hover:scale-105 transition-all duration-100">
-                        <img id=userGiantIcon src="" alt="" class="rounded-full w-40" style=" position:absolute; top: 18rem ;">
-                    </div>
+                <div class="bg-white rounded-full hover:cursor-pointer">
+                    <img id=userGiantIcon src="" alt="" class="rounded-full w-40" style=" position:absolute; top: 18rem ;  left: 50%;
+                                transform: translate(-50%, 0);">
+                </div>
             
                 </div>
             

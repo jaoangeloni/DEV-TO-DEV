@@ -12,350 +12,355 @@ function loadPosts() {
     api.get('/post/listar/' + userPageName)
         .then(resp => {
             const dados = resp.data;
-            dados.forEach(e => {
-                console.log(e);
+            if (dados.length == 0) {
+                console.log('tem nada')
+            } else {
 
-                if (userPageName != userData.username) {
-                    const createPost = document.getElementById('createPost');
-                    createPost.style.display = 'none'
-                }
+                dados.forEach(e => {
+                    console.log(e);
 
-                const banner = document.getElementById('banner');
-                banner.style.backgroundImage = `url(${e.profileBanner})`
-
-                const userGiantIcon = document.getElementById('userGiantIcon');
-                userGiantIcon.src = e.profilePicture
-
-
-
-                const imageData = e.postImage
-
-
-                //card post
-                const post = document.createElement('div');
-                post.className = 'w-full rounded-md';
-
-                //header
-                const postHeader = document.createElement('div');
-                postHeader.className = 'bg-land-0 w-full h-auto p-4 flex flex-col items-start justify-start gap-4 rounded-t-md';
-
-                const generic = document.createElement('div');
-                generic.className = 'w-full flex gap-2 justify-between items-center relative';
-
-                //menu para modificar posts
-                const modalSettings = document.createElement('div');
-                modalSettings.className = 'bg-lightpurple-0 w-36 h-20 absolute top-12 right-0 rounded-lg hidden flex-col items-start justify-between p-2';
-                modalSettings.id = 'modalSettings'
-
-
-                const alterarIcon = document.createElement('img');
-                alterarIcon.className = 'w-6 h-6';
-                alterarIcon.src = './assets/edit.png';
-
-                const alterarTitle = document.createElement('p');
-                alterarTitle.className = 'text-white'
-                alterarTitle.innerHTML = 'Alterar post';
-
-                const excluirPost = document.createElement('div');
-                excluirPost.className = 'flex gap-4 cursor-pointer';
-                excluirPost.onclick = () => {
-                    api.delete('/post/deletar/' + e.id)
-                        .then(resp => {
-                            alert('Post deletado');
-                            window.location.reload();
-                        })
-                };
-
-                const excluirIcon = document.createElement('img');
-                excluirIcon.className = 'w-6 h-6';
-                excluirIcon.src = './assets/delete.png';
-
-                const excluirTitle = document.createElement('p');
-                excluirTitle.className = 'text-white'
-                excluirTitle.innerHTML = 'Excluir post';
-
-                const settingsMenu = document.createElement('img');
-                settingsMenu.className = 'w-5 h-5 cursor-pointer invert';
-                settingsMenu.src = './assets/menu.png';
-                settingsMenu.onclick = () => {
-
-                    modalSettings.classList.toggle('flex');
-                    modalSettings.classList.toggle('hidden');
-
-                };
-
-                const generic_child = document.createElement('div');
-                generic_child.className = 'flex gap-2';
-
-                //foto de perfil do user
-                const userPfp = document.createElement('img');
-                userPfp.className = 'w-16 rounded-full cursor-pointer';
-                userPfp.onclick = () => {
-                    window.location = `../profiles/${e.username}.html`
-                }
-                if (!e.profilePicture) {
-                    userPfp.src = './assets/default.png';
-                } else {
-                    userPfp.src = e.profilePicture
-                }
-
-                const generic_child_child = document.createElement('div');
-                generic_child_child.className = 'font-osvaldo font-thin flex flex-col items-start justify-center';
-
-                //nome
-                const name = document.createElement('p');
-                name.className = 'font-light text-2xl text-white';
-                name.innerHTML = e.name
-
-                //username
-                const username = document.createElement('p');
-                username.className = 'font-extralight text-lg text-white';
-                username.innerHTML = `#${e.username}`;
-
-                //descricao da imagem
-                const descImage = document.createElement('p');
-                descImage.className = 'font-osvaldo font-light text-lg text-white';
-                descImage.innerHTML = e.descImage;
-
-                const alterarPost = document.createElement('div');
-
-                alterarPost.className = 'flex gap-4 cursor-pointer';
-
-                alterarPost.onclick = () => {
-                    const modalAlterar = document.getElementById('modalAlterar');
-                    modalAlterar.classList.toggle('flex')
-                    modalAlterar.classList.toggle('hidden')
-
-                    const cancelarAlteracao = document.getElementById('cancelarAlteracao')
-                    cancelarAlteracao.onclick = () => {
-                        modalAlterar.classList.toggle('flex')
-                        modalAlterar.classList.toggle('hidden')
+                    if (userPageName != userData.username) {
+                        const createPost = document.getElementById('createPost');
+                        createPost.style.display = 'none'
                     }
 
+                    const banner = document.getElementById('banner');
+                    banner.style.backgroundImage = `url(${e.profileBanner})`
 
-                    const descAlterada = document.getElementById('descAlterada');
-                    descAlterada.value = e.descImage
+                    const userGiantIcon = document.getElementById('userGiantIcon');
+                    userGiantIcon.src = e.profilePicture
 
-                    const alterarDesc = document.getElementById('alterarDesc');
-                    alterarDesc.onclick = () => {
-                        const newDesc = {
-                            id: e.id,
-                            descImage: descAlterada.value
+
+
+                    const imageData = e.postImage
+
+
+                    //card post
+                    const post = document.createElement('div');
+                    post.className = 'w-full rounded-md';
+
+                    //header
+                    const postHeader = document.createElement('div');
+                    postHeader.className = 'bg-land-0 w-full h-auto p-4 flex flex-col items-start justify-start gap-4 rounded-t-md';
+
+                    const generic = document.createElement('div');
+                    generic.className = 'w-full flex gap-2 justify-between items-center relative';
+
+                    //menu para modificar posts
+                    const modalSettings = document.createElement('div');
+                    modalSettings.className = 'bg-lightpurple-0 w-36 h-20 absolute top-12 right-0 rounded-lg hidden flex-col items-start justify-between p-2';
+                    modalSettings.id = 'modalSettings'
+
+
+                    const alterarIcon = document.createElement('img');
+                    alterarIcon.className = 'w-6 h-6';
+                    alterarIcon.src = './assets/edit.png';
+
+                    const alterarTitle = document.createElement('p');
+                    alterarTitle.className = 'text-white'
+                    alterarTitle.innerHTML = 'Alterar post';
+
+                    const excluirPost = document.createElement('div');
+                    excluirPost.className = 'flex gap-4 cursor-pointer';
+                    excluirPost.onclick = () => {
+                        api.delete('/post/deletar/' + e.id)
+                            .then(resp => {
+                                alert('Post deletado');
+                                window.location.reload();
+                            })
+                    };
+
+                    const excluirIcon = document.createElement('img');
+                    excluirIcon.className = 'w-6 h-6';
+                    excluirIcon.src = './assets/delete.png';
+
+                    const excluirTitle = document.createElement('p');
+                    excluirTitle.className = 'text-white'
+                    excluirTitle.innerHTML = 'Excluir post';
+
+                    const settingsMenu = document.createElement('img');
+                    settingsMenu.className = 'w-5 h-5 cursor-pointer invert';
+                    settingsMenu.src = './assets/menu.png';
+                    settingsMenu.onclick = () => {
+
+                        modalSettings.classList.toggle('flex');
+                        modalSettings.classList.toggle('hidden');
+
+                    };
+
+                    const generic_child = document.createElement('div');
+                    generic_child.className = 'flex gap-2';
+
+                    //foto de perfil do user
+                    const userPfp = document.createElement('img');
+                    userPfp.className = 'w-16 rounded-full cursor-pointer';
+                    userPfp.onclick = () => {
+                        window.location = `../profiles/${e.username}.html`
+                    }
+                    if (!e.profilePicture) {
+                        userPfp.src = './assets/default.png';
+                    } else {
+                        userPfp.src = e.profilePicture
+                    }
+
+                    const generic_child_child = document.createElement('div');
+                    generic_child_child.className = 'font-osvaldo font-thin flex flex-col items-start justify-center';
+
+                    //nome
+                    const name = document.createElement('p');
+                    name.className = 'font-light text-2xl text-white';
+                    name.innerHTML = e.name
+
+                    //username
+                    const username = document.createElement('p');
+                    username.className = 'font-extralight text-lg text-white';
+                    username.innerHTML = `#${e.username}`;
+
+                    //descricao da imagem
+                    const descImage = document.createElement('p');
+                    descImage.className = 'font-osvaldo font-light text-lg text-white';
+                    descImage.innerHTML = e.descImage;
+
+                    const alterarPost = document.createElement('div');
+
+                    alterarPost.className = 'flex gap-4 cursor-pointer';
+
+                    alterarPost.onclick = () => {
+                        const modalAlterar = document.getElementById('modalAlterar');
+                        modalAlterar.classList.toggle('flex')
+                        modalAlterar.classList.toggle('hidden')
+
+                        const cancelarAlteracao = document.getElementById('cancelarAlteracao')
+                        cancelarAlteracao.onclick = () => {
+                            modalAlterar.classList.toggle('flex')
+                            modalAlterar.classList.toggle('hidden')
                         }
 
-                        if (!e.postImage) {
-                            if (descAlterada.value == 0) {
-                                alert('Coloque ao menos um caractére');
-                            } else if (descAlterada.value == e.descImage) {
-                                alert('A descrição é a mesma');
+
+                        const descAlterada = document.getElementById('descAlterada');
+                        descAlterada.value = e.descImage
+
+                        const alterarDesc = document.getElementById('alterarDesc');
+                        alterarDesc.onclick = () => {
+                            const newDesc = {
+                                id: e.id,
+                                descImage: descAlterada.value
+                            }
+
+                            if (!e.postImage) {
+                                if (descAlterada.value == 0) {
+                                    alert('Coloque ao menos um caractére');
+                                } else if (descAlterada.value == e.descImage) {
+                                    alert('A descrição é a mesma');
+                                } else {
+                                    api.put('/post/alterar', newDesc)
+                                        .then(resp => {
+                                            window.location.reload()
+                                        });
+                                }
                             } else {
                                 api.put('/post/alterar', newDesc)
                                     .then(resp => {
                                         window.location.reload()
                                     });
                             }
-                        } else {
-                            api.put('/post/alterar', newDesc)
-                                .then(resp => {
-                                    window.location.reload()
-                                });
                         }
                     }
-                }
 
-                //apendando os bagulho do header
-                alterarPost.appendChild(alterarIcon);
-                alterarPost.appendChild(alterarTitle);
+                    //apendando os bagulho do header
+                    alterarPost.appendChild(alterarIcon);
+                    alterarPost.appendChild(alterarTitle);
 
-                excluirPost.appendChild(excluirIcon);
-                excluirPost.appendChild(excluirTitle);
+                    excluirPost.appendChild(excluirIcon);
+                    excluirPost.appendChild(excluirTitle);
 
-                modalSettings.appendChild(alterarPost)
-                modalSettings.appendChild(excluirPost)
+                    modalSettings.appendChild(alterarPost)
+                    modalSettings.appendChild(excluirPost)
 
-                generic_child_child.appendChild(name)
-                generic_child_child.appendChild(username)
+                    generic_child_child.appendChild(name)
+                    generic_child_child.appendChild(username)
 
-                generic_child.appendChild(userPfp)
-                generic_child.appendChild(generic_child_child)
+                    generic_child.appendChild(userPfp)
+                    generic_child.appendChild(generic_child_child)
 
-                generic.appendChild(modalSettings)
-                generic.appendChild(generic_child)
+                    generic.appendChild(modalSettings)
+                    generic.appendChild(generic_child)
 
-                if (e.userId == userData.id) {
-                    generic.appendChild(settingsMenu)
-                }
-
-                postHeader.appendChild(generic)
-                postHeader.appendChild(descImage)
-
-                //footer com elementos de curtida e comentário
-                const postFooter = document.createElement('div');
-                postFooter.className = 'w-full items-start justify-start p-2 flex gap-4 bg-land-0 rounded-b-md';
-
-                const footer_child1 = document.createElement('div');
-                footer_child1.className = 'bg-lightpurple-0 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
-
-                const likeIcon = document.createElement('img');
-                likeIcon.className = 'w-6 h-6';
-
-                api.get(`/likes/listar/${e.id}/${userData.id}`)
-                    .then(resp => {
-                        if (resp.data.length > 0)
-                            likeIcon.src = './assets/liked.png';
-                        else
-                            likeIcon.src = './assets/like.png';
-                    })
-
-                footer_child1.onclick = () => {
-                    const curtida = {
-                        userId: userData.id,
-                        postId: e.id
+                    if (e.userId == userData.id) {
+                        generic.appendChild(settingsMenu)
                     }
+
+                    postHeader.appendChild(generic)
+                    postHeader.appendChild(descImage)
+
+                    //footer com elementos de curtida e comentário
+                    const postFooter = document.createElement('div');
+                    postFooter.className = 'w-full items-start justify-start p-2 flex gap-4 bg-land-0 rounded-b-md';
+
+                    const footer_child1 = document.createElement('div');
+                    footer_child1.className = 'bg-lightpurple-0 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
+
+                    const likeIcon = document.createElement('img');
+                    likeIcon.className = 'w-6 h-6';
 
                     api.get(`/likes/listar/${e.id}/${userData.id}`)
                         .then(resp => {
-                            if (resp.data.length > 0) {
-                                const id = resp.data[0].id
-                                api.delete('/likes/deletar/' + id)
-                                    .then(() => {
-                                        alert('Descurtido');
-                                        window.location.reload();
-                                    })
-                            } else {
-                                api.post('/likes/curtir', curtida)
-                                    .then(() => {
-                                        alert('Curtido')
-                                        window.location.reload();
-                                    })
-                            }
-                        })
-                }
-
-                //like
-
-                const likeCount = document.createElement('p');
-                likeCount.className = 'text-white'
-                likeCount.innerHTML = e.likes;
-
-                const footer_child2 = document.createElement('div');
-                footer_child2.className = 'bg-lightpurple-0 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
-
-
-                footer_child2.onclick = () => {
-
-                    api.get('/comentario/listarPost/' + e.id)
-                        .then(resp => {
-                            const dados = resp.data;
-
-                            dados.forEach(i => {
-                                const divToRemove = document.createElement('div');
-                                divToRemove.className = ''
-                                divToRemove.id = 'divToRemove'
-
-                                const modeloComment = document.createElement('div');
-                                modeloComment.className = 'flex items-start gap-2 bg-lightpurple-0 p-2 text-white';
-
-                                const imageFather = document.createElement('div');
-                                imageFather.className = 'flex items-start justify-start gap-2';
-
-                                const imageSon = document.createElement('div');
-                                imageSon.className = 'w-12 h-12 bg-lightpurple-0 rounded-full bg-cover';
-
-                                if (!i.profilePicture) {
-                                    imageSon.style.backgroundImage = 'url(./assets/default.png)'
-                                }
-
-                                const textContent = document.createElement('div');
-                                textContent.className = 'flex flex-col items-start justify-start';
-
-                                const userName = document.createElement('div');
-                                userName.className = 'font-osvaldo font-light text-lg';
-                                userName.innerHTML = i.username
-
-                                const description = document.createElement('div');
-                                description.className = 'font-osvaldo font-thin text-lg';
-                                description.innerHTML = i.commentDescription
-
-                                textContent.appendChild(userName)
-                                textContent.appendChild(description)
-
-                                imageFather.appendChild(imageSon)
-
-                                modeloComment.appendChild(imageFather)
-                                modeloComment.appendChild(textContent)
-
-                                divToRemove.appendChild(modeloComment)
-                                commentSection.appendChild(divToRemove)
-                            })
+                            if (resp.data.length > 0)
+                                likeIcon.src = './assets/liked.png';
+                            else
+                                likeIcon.src = './assets/like.png';
                         })
 
-                    hiddeModalComentarios();
-
-                    const publicarComentario = document.getElementById('publicarComentario');
-                    const commentDescription = document.getElementById('commentDescription');
-
-
-                    publicarComentario.onclick = () => {
-                        const comentario = {
+                    footer_child1.onclick = () => {
+                        const curtida = {
                             userId: userData.id,
-                            postId: e.id,
-                            commentDescription: commentDescription.value
+                            postId: e.id
                         }
 
-                        api.post('/comentario/criar', comentario)
+                        api.get(`/likes/listar/${e.id}/${userData.id}`)
                             .then(resp => {
-                                alert('Comentário publicado');
-                                window.location.reload()
+                                if (resp.data.length > 0) {
+                                    const id = resp.data[0].id
+                                    api.delete('/likes/deletar/' + id)
+                                        .then(() => {
+                                            alert('Descurtido');
+                                            window.location.reload();
+                                        })
+                                } else {
+                                    api.post('/likes/curtir', curtida)
+                                        .then(() => {
+                                            alert('Curtido')
+                                            window.location.reload();
+                                        })
+                                }
                             })
                     }
-                }
 
-                const commentIcon = document.createElement('img');
-                commentIcon.className = 'w-6 h-6';
-                commentIcon.src = './assets/comment.png'
+                    //like
 
-                const commentCount = document.createElement('p');
-                commentCount.className = 'text-white';
-                commentCount.innerHTML = e.comments;
+                    const likeCount = document.createElement('p');
+                    likeCount.className = 'text-white'
+                    likeCount.innerHTML = e.likes;
 
-                //apendando os bagulho do footer
-                footer_child1.appendChild(likeIcon);
-                footer_child1.appendChild(likeCount);
-                footer_child2.appendChild(commentIcon);
-                footer_child2.appendChild(commentCount);
-                postFooter.appendChild(footer_child1);
-                postFooter.appendChild(footer_child2);
+                    const footer_child2 = document.createElement('div');
+                    footer_child2.className = 'bg-lightpurple-0 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
 
-                //apendando o header e o footer no post
-                if (!imageData) {
-                    post.appendChild(postHeader);
-                    post.appendChild(postFooter);
-                    localPosts.appendChild(post);
-                } else {
-                    //imagem do post
-                    const postImage = document.createElement('img');
-                    postImage.className = 'w-full h-auto cursor-zoom-in'
 
-                    postImage.src = imageData
+                    footer_child2.onclick = () => {
 
-                    postImage.onclick = () => {
-                        const modalImage = document.getElementById('modalImage');
-                        modalImage.classList.remove('hidden')
-                        modalImage.classList.add('flex')
-                        const fullscreen = document.getElementById('bigImage');
-                        fullscreen.style.backgroundImage = `url(${imageData})`
-                    };
+                        api.get('/comentario/listarPost/' + e.id)
+                            .then(resp => {
+                                const dados = resp.data;
+
+                                dados.forEach(i => {
+                                    const divToRemove = document.createElement('div');
+                                    divToRemove.className = ''
+                                    divToRemove.id = 'divToRemove'
+
+                                    const modeloComment = document.createElement('div');
+                                    modeloComment.className = 'flex items-start gap-2 bg-lightpurple-0 p-2 text-white';
+
+                                    const imageFather = document.createElement('div');
+                                    imageFather.className = 'flex items-start justify-start gap-2';
+
+                                    const imageSon = document.createElement('div');
+                                    imageSon.className = 'w-12 h-12 bg-lightpurple-0 rounded-full bg-cover';
+
+                                    if (!i.profilePicture) {
+                                        imageSon.style.backgroundImage = 'url(./assets/default.png)'
+                                    }
+
+                                    const textContent = document.createElement('div');
+                                    textContent.className = 'flex flex-col items-start justify-start';
+
+                                    const userName = document.createElement('div');
+                                    userName.className = 'font-osvaldo font-light text-lg';
+                                    userName.innerHTML = i.username
+
+                                    const description = document.createElement('div');
+                                    description.className = 'font-osvaldo font-thin text-lg';
+                                    description.innerHTML = i.commentDescription
+
+                                    textContent.appendChild(userName)
+                                    textContent.appendChild(description)
+
+                                    imageFather.appendChild(imageSon)
+
+                                    modeloComment.appendChild(imageFather)
+                                    modeloComment.appendChild(textContent)
+
+                                    divToRemove.appendChild(modeloComment)
+                                    commentSection.appendChild(divToRemove)
+                                })
+                            })
+
+                        hiddeModalComentarios();
+
+                        const publicarComentario = document.getElementById('publicarComentario');
+                        const commentDescription = document.getElementById('commentDescription');
+
+
+                        publicarComentario.onclick = () => {
+                            const comentario = {
+                                userId: userData.id,
+                                postId: e.id,
+                                commentDescription: commentDescription.value
+                            }
+
+                            api.post('/comentario/criar', comentario)
+                                .then(resp => {
+                                    alert('Comentário publicado');
+                                    window.location.reload()
+                                })
+                        }
+                    }
+
+                    const commentIcon = document.createElement('img');
+                    commentIcon.className = 'w-6 h-6';
+                    commentIcon.src = './assets/comment.png'
+
+                    const commentCount = document.createElement('p');
+                    commentCount.className = 'text-white';
+                    commentCount.innerHTML = e.comments;
+
+                    //apendando os bagulho do footer
+                    footer_child1.appendChild(likeIcon);
+                    footer_child1.appendChild(likeCount);
+                    footer_child2.appendChild(commentIcon);
+                    footer_child2.appendChild(commentCount);
+                    postFooter.appendChild(footer_child1);
+                    postFooter.appendChild(footer_child2);
 
                     //apendando o header e o footer no post
-                    post.appendChild(postHeader);
-                    post.appendChild(postImage);
-                    post.appendChild(postFooter);
-                    localPosts.appendChild(post);
+                    if (!imageData) {
+                        post.appendChild(postHeader);
+                        post.appendChild(postFooter);
+                        localPosts.appendChild(post);
+                    } else {
+                        //imagem do post
+                        const postImage = document.createElement('img');
+                        postImage.className = 'w-full h-auto cursor-zoom-in'
 
-                }
+                        postImage.src = imageData
 
-            });
+                        postImage.onclick = () => {
+                            const modalImage = document.getElementById('modalImage');
+                            modalImage.classList.remove('hidden')
+                            modalImage.classList.add('flex')
+                            const fullscreen = document.getElementById('bigImage');
+                            fullscreen.style.backgroundImage = `url(${imageData})`
+                        };
+
+                        //apendando o header e o footer no post
+                        post.appendChild(postHeader);
+                        post.appendChild(postImage);
+                        post.appendChild(postFooter);
+                        localPosts.appendChild(post);
+
+                    }
+
+                });
+            }
         })
 }
 
