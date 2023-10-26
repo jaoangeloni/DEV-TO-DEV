@@ -30,6 +30,7 @@ class Post {
                 u.name, 
                 u.username,
                 u.profilePicture,
+                u.profileBanner,
                 p.*,
                 COUNT(DISTINCT l.id) AS likes,
                 COUNT(DISTINCT c.id) AS comments
