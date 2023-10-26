@@ -95,7 +95,7 @@ const criar = (req, res) => {
             
                 <!-- header logo pesquisa e perfil -->
                 <header class="w-full bg-bg-0 sticky top-14 z-10 flex items-center justify-around p-2">
-                    <div class="w-40 flex items-center justify-center onclick=" goToHome()"">
+                    <div class="w-40 flex items-center justify-center" onclick=" goToHome()">
                         <img src="../feed/assets/logo.png" alt="logo da empresa dev to dev"
                             class="w-36 transition-all duration-200 hover:scale-110 hover:cursor-pointer ">
                     </div>
