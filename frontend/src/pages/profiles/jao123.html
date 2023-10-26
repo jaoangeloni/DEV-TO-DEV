@@ -88,12 +88,11 @@
             <input type="search" placeholder="Pesquisa"
                 class="h-9 w-full bg-lightpurple-0 rounded-e-sm outline-none placeholder-white text-white">
         </span>
-        <div class="w-40 flex items-center justify-center gap-8" onclick="goToProfile()">
-            <img id="usericon" src="" alt="usericon"
+        <div class="w-40 flex items-center justify-center gap-8">
+            <img id="usericon" alt="usericon" onclick="goToProfile()"
                 class="w-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer rounded-full">
-            <div>
-                <a href="../login/index.html"><img src="./assets/logout.png" alt="botão para sair"
-                        class="w-5 hover:cursor-pointer"></a>
+            <div onclick="logoff()">
+                <img src="./assets/logout.png" alt="botão para sair" class="w-5 hover:cursor-pointer">
             </div>
         </div>
     </header>
@@ -101,8 +100,9 @@
     <div id="banner" class="w-full h-96 bg-white flex justify-center items-center relative"
         style="background-size: contain; background-position: center;">
 
-        <div class="bg-white rounded-full hover:cursor-pointer hover:scale-105 transition-all duration-100">
-            <img id=userGiantIcon src="" alt="" class="rounded-full w-40" style=" position:absolute; top: 18rem ;">
+        <div class="bg-white rounded-full hover:cursor-pointer">
+            <img id=userGiantIcon src="" alt="" class="rounded-full w-40"
+                style=" position:absolute; top: 18rem ;left: 50%;transform: translate(-50%, 0);">
         </div>
 
     </div>
