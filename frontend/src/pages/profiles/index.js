@@ -408,6 +408,7 @@
 // function goToHome() {
 //     window.location = '../feed/feed.html'
 // }
+
 const likeImage = document.getElementById("likeIcon");
 const localPosts = document.getElementById("localPosts")
 const commentSection = document.getElementById(' commentSection')
@@ -415,14 +416,21 @@ let userData = JSON.parse(localStorage.getItem("user"));
 
 //LOAD POSTS ------------------------------------------------------------------------
 function loadPosts() {
-    api.get('/post/listar')
+    const userPageName = document.title;
+    api.get('/post/listar/' + userPageName)
         .then(resp => {
             const dados = resp.data;
             dados.forEach(e => {
+
+                if (userPageName != userData.username) {
+                    const createPost = document.getElementById('createPost');
+                    createPost.style.display = 'none'
+                }
                 const usericon = document.getElementById('usericon')
                 usericon.src = userData.profilePicture
 
                 const imageData = e.postImage
+
 
                 //card post
                 const post = document.createElement('div');

@@ -25,7 +25,7 @@ const criar = (req, res) => {
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>d</title>
+                <title>${username}</title>
                 <link rel="stylesheet" href="../../../dist/output.css">
                 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
                 <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
@@ -128,7 +128,7 @@ const criar = (req, res) => {
                     style="background-size: contain; background-position: center;">
             
                     <div class="bg-white rounded-full hover:cursor-pointer hover:scale-105 transition-all duration-100">
-                        <img src="./assets/default.png" alt="" class="rounded-full w-40" style=" position:absolute; top: 18rem ;">
+                        <img id=userGiantIcon src="" alt="" class="rounded-full w-40" style=" position:absolute; top: 18rem ;">
                     </div>
             
                 </div>
