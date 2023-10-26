@@ -13,7 +13,8 @@ class Post {
         if (this.id == undefined)
             return `SELECT 
             u.name, 
-            u.username, 
+            u.username,
+            u.profilePicture,
             p.*,
             COUNT(DISTINCT l.id) AS likes,
             COUNT(DISTINCT c.id) AS comments

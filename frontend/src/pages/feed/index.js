@@ -9,8 +9,8 @@ function loadPosts() {
     api.get('/post/listar')
         .then(resp => {
             const dados = resp.data;
-
             dados.forEach(e => {
+                console.log(e)
                 const usericon = document.getElementById('usericon')
 
                 usericon.src = userData.profilePicture
@@ -75,11 +75,14 @@ function loadPosts() {
 
                 //foto de perfil do user
                 const userPfp = document.createElement('img');
-                userPfp.className = 'w-16 rounded-full';
-                if (!userData.profilePicture) {
+                userPfp.className = 'w-16 rounded-full cursor-pointer';
+                userPfp.onclick = () => {
+                    window.location = `../profiles/${e.username}.html`
+                }
+                if (!e.profilePicture) {
                     userPfp.src = './assets/default.png';
                 } else {
-                    userPfp.src = userData.profilePicture
+                    userPfp.src = e.profilePicture
                 }
 
                 const generic_child_child = document.createElement('div');
