@@ -6,7 +6,7 @@ const iPassword = document.getElementById("createPassword");
 const iConfirmPassword = document.getElementById("confirmPassword");
 
 const urlPicture = [
-    'htts://res.cloudinary.com/dneit0fsb/image/upload/v1698154247/userPFP/lgtnoe2gu1vd6ftx7tsh.png',
+    'http://res.cloudinary.com/dneit0fsb/image/upload/v1698154247/userPFP/lgtnoe2gu1vd6ftx7tsh.png',
     'http://res.cloudinary.com/dneit0fsb/image/upload/v1698156380/userPFP/f3zyn9lj8napedc0z4d5.png',
     'http://res.cloudinary.com/dneit0fsb/image/upload/v1698156381/userPFP/htg5hc2ythoo02rs1rmx.png',
     'http://res.cloudinary.com/dneit0fsb/image/upload/v1698156380/userPFP/jkegbvvkxk8erjczei0b.png',
