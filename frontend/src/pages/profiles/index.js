@@ -426,7 +426,6 @@ function goToHome() {
 }
 
 function logoff() {
-    localStorage.removeItem("");
-
+    localStorage.removeItem("user");
     window.location = "../login/index.html"
 }

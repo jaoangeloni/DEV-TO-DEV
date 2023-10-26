@@ -5,7 +5,7 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>d</title>
+                <title>jaoajoaoj</title>
                 <link rel="stylesheet" href="../../../dist/output.css">
                 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
                 <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
@@ -75,7 +75,7 @@
             
                 <!-- header logo pesquisa e perfil -->
                 <header class="w-full bg-bg-0 sticky top-14 z-10 flex items-center justify-around p-2">
-                    <div class="w-40 flex items-center justify-center onclick=" goToHome()"">
+                    <div class="w-40 flex items-center justify-center" onclick=" goToHome()">
                         <img src="../feed/assets/logo.png" alt="logo da empresa dev to dev"
                             class="w-36 transition-all duration-200 hover:scale-110 hover:cursor-pointer ">
                     </div>
@@ -92,9 +92,13 @@
                     <div class="w-40 flex items-center justify-center gap-8" onclick="goToProfile()">
                     <img id="usericon" src="" alt="usericon"
                         class="w-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer rounded-full">
-                    <div>
-                        <a href="../login/index.html"><img src="./assets/logout.png" alt="botão para sair"
-                                class="w-5 hover:cursor-pointer"></a>
+                        <div class="w-40 flex items-center justify-center gap-8">
+                        <div class="w-40 flex items-center justify-center gap-8">
+                        <img id="usericon" src="" alt="usericon"
+                            class="w-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer rounded-full"
+                            onclick="goToProfile()">
+                        <img src="assets/logout.png" alt="botão para sair" class="w-5 hover:cursor-pointer" onclick="logoff()">
+                    </div>
                     </div>
                 </div>
                 </header>
@@ -103,7 +107,7 @@
                     style="background-size: contain; background-position: center;">
             
                     <div class="bg-white rounded-full hover:cursor-pointer hover:scale-105 transition-all duration-100">
-                        <img src="./assets/default.png" alt="" class="rounded-full w-40" style=" position:absolute; top: 18rem ;">
+                        <img id=userGiantIcon src="" alt="" class="rounded-full w-40" style=" position:absolute; top: 18rem ;">
                     </div>
             
                 </div>
