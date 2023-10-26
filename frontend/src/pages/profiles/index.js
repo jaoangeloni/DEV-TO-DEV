@@ -1,8 +1,15 @@
+let userData = JSON.parse(localStorage.getItem("user"));
+
 function loadPosts() {
-    api.get('/post/listar')
+    const userPageName = document.title;
+    console.log(userPageName)
+
+    api.get('/post/listar/' + userPageName)
         .then(resp => {
             const dados = resp.data;
+            console.log(dados)
             dados.forEach(e => {
+                console.log(e)
                 const usericon = document.getElementById('usericon')
 
                 usericon.src = userData.profilePicture
