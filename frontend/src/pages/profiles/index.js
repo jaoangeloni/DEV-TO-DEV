@@ -7,11 +7,18 @@ function loadPosts() {
         .then(resp => {
             const dados = resp.data;
             dados.forEach(e => {
+                console.log(e);
 
                 if (userPageName != userData.username) {
                     const createPost = document.getElementById('createPost');
                     createPost.style.display = 'none'
                 }
+
+                const banner = document.getElementById('banner');
+                banner.style.backgroundImage = `url(${e.profileBanner})`
+
+                const userGiantIcon = document.getElementById('userGiantIcon');
+                userGiantIcon.src = e.profilePicture
 
                 const usericon = document.getElementById('usericon')
 
