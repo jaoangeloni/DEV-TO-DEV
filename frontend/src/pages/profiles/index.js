@@ -2,18 +2,22 @@ let userData = JSON.parse(localStorage.getItem("user"));
 
 function loadPosts() {
     const userPageName = document.title;
-    console.log(userPageName)
 
     api.get('/post/listar/' + userPageName)
         .then(resp => {
             const dados = resp.data;
-            console.log(dados)
             dados.forEach(e => {
-                console.log(e)
+
+                if (userPageName != userData.username) {
+                    const createPost = document.getElementById('createPost');
+                    createPost.style.display = 'none'
+                }
+
                 const usericon = document.getElementById('usericon')
 
                 usericon.src = userData.profilePicture
                 const imageData = e.postImage
+
 
                 //card post
                 const post = document.createElement('div');
