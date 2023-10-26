@@ -6,6 +6,9 @@ let userData = JSON.parse(localStorage.getItem("user"));
 //LOAD POSTS ------------------------------------------------------------------------
 function loadPosts() {
     const userPageName = document.title;
+    const usericon = document.getElementById('usericon')
+    usericon.src = userData.profilePicture
+
     api.get('/post/listar/' + userPageName)
         .then(resp => {
             const dados = resp.data;
@@ -24,8 +27,6 @@ function loadPosts() {
                 userGiantIcon.src = e.profilePicture
 
 
-                const usericon = document.getElementById('usericon')
-                usericon.src = userData.profilePicture
 
                 const imageData = e.postImage
 
