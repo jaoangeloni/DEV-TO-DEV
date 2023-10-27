@@ -109,11 +109,11 @@ const criar = (req, res) => {
                         <input type="search" placeholder="Pesquisa"
                             class="h-9 w-full bg-lightpurple-0 rounded-e-sm outline-none placeholder-white text-white">
                     </span>
-                    <div class="w-40 flex items-center justify-center gap-8" onclick="goToProfile()">
+                    <div class="w-40 flex items-center justify-center gap-8">
                         <img id="usericon" src="" alt="usericon"
                             class="w-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer rounded-full"
                             onclick="goToProfile()">
-                        <img src="assets/logout.png" alt="botão para sair" class="w-5 hover:cursor-pointer" onclick="logoff()">
+                        <img src="assets/logout.png" alt="botão para sair" class="w-7 hover:cursor-pointer" onclick="logoff()">
                     </div>
                     </div>
                 </div>
