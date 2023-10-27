@@ -34,7 +34,8 @@ function loadPosts() {
                     const userGiantIcon = document.getElementById('userGiantIcon');
                     userGiantIcon.src = e.profilePicture
 
-
+                    const profileUserName = document.getElementById('profileUserName');
+                    profileUserName.innerHTML = e.username
 
                     const imageData = e.postImage
 
@@ -270,9 +271,7 @@ function loadPosts() {
                                     const imageSon = document.createElement('div');
                                     imageSon.className = 'w-12 h-12 bg-lightpurple-0 rounded-full bg-cover';
 
-                                    if (!i.profilePicture) {
-                                        imageSon.style.backgroundImage = 'url(./assets/default.png)'
-                                    }
+                                    imageSon.style.backgroundImage = `url(${i.profilePicture})`
 
                                     const textContent = document.createElement('div');
                                     textContent.className = 'flex flex-col items-start justify-start';

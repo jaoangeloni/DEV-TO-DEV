@@ -120,16 +120,19 @@ const criar = (req, res) => {
                 </header>
             
                 <div id="banner" class="w-full h-96 bg-white flex justify-center items-center relative"
-                    style="background-size: contain; background-position: center;">
-            
-                <div class="bg-white rounded-full hover:cursor-pointer">
-                    <img id=userGiantIcon src="" alt="" class="rounded-full w-40" style=" position:absolute; top: 18rem ;  left: 50%;
-                                transform: translate(-50%, 0);">
+                style="background-size: contain; background-position: center;">
+
+                    <div class="bg-white rounded-full hover:cursor-pointer">
+                        <img id=userGiantIcon src="" alt="" class="rounded-full w-40" style=" position:absolute; top: 18rem ;  left: 50%;
+                                            transform: translate(-50%, 0);">
+                    </div>
+
+                    <p id="profileUserName" class="absolute -bottom-28 left-1/2 text-white font-osvaldo font-light text-3xl"
+                        style="transform: translate(-50%, 0);"></p>
+
                 </div>
-            
-                </div>
-            
-                <main class="flex items-start justify-around w-full" style="margin-top: 6rem;">
+
+                <main class="flex items-start justify-around w-full mt-36">
             
                     <!-- FAIXA DA ESQUERDA -->
                     <div id="navLeft" class="flex items-start justify-center bg-land-0 w-1/5 h-96 rounded-md">
@@ -163,7 +166,8 @@ const criar = (req, res) => {
                     <div id="navRight" class="flex items-start justify-center bg-land-0 w-1/5 h-96 rounded-md"></div>
             
                 </main>
-            
+                <footer class="w-full p-4">
+                </footer>
             </body>
             <script src="index.js"></script>
             <script defer src="../../scripts/winButtons.js"></script>

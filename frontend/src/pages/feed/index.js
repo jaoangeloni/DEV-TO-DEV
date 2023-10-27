@@ -71,16 +71,13 @@ function loadPosts() {
                 generic_child.className = 'flex gap-2';
 
                 //foto de perfil do user
-                const userPfp = document.createElement('img');
-                userPfp.className = 'w-16 rounded-full cursor-pointer';
+                const userPfp = document.createElement('div');
+                userPfp.className = 'w-16 rounded-full cursor-pointer bg-center bg-contain bg-no-repeat';
                 userPfp.onclick = () => {
                     window.location = `../profiles/${e.username}.html`
                 }
-                if (!e.profilePicture) {
-                    userPfp.src = './assets/default.png';
-                } else {
-                    userPfp.src = e.profilePicture
-                }
+                userPfp.style.backgroundImage = `url(${e.profilePicture})`
+
 
                 const generic_child_child = document.createElement('div');
                 generic_child_child.className = 'font-osvaldo font-thin flex flex-col items-start justify-center';
@@ -245,9 +242,8 @@ function loadPosts() {
                                 const imageSon = document.createElement('div');
                                 imageSon.className = 'w-12 h-12 bg-lightpurple-0 rounded-full bg-cover';
 
-                                if (!i.profilePicture) {
-                                    imageSon.style.backgroundImage = 'url(./assets/default.png)'
-                                }
+                                imageSon.style.backgroundImage = `url(${i.profilePicture})`
+
 
                                 const textContent = document.createElement('div');
                                 textContent.className = 'flex flex-col items-start justify-start';
