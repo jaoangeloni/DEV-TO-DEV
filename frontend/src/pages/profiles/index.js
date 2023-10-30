@@ -1,9 +1,9 @@
+const userData = JSON.parse(localStorage.getItem("user"));
 
 //LOAD POSTS ------------------------------------------------------------------------
 function loadPosts() {
     const commentSection = document.getElementById(' commentSection')
     const localPosts = document.getElementById("localPosts")
-    let userData = JSON.parse(localStorage.getItem("user"));
     const userPageName = document.title;
     const usericon = document.getElementById('usericon')
     usericon.src = userData.profilePicture
@@ -27,6 +27,7 @@ function loadPosts() {
             alterarBanner.src = data.profileBanner;
 
             const alterarUsername = document.getElementById('alterarUsername')
+            alterarUsername.value = data.username
         })
 
     api.get('/post/listar/' + userPageName)

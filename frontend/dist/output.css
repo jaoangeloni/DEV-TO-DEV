@@ -723,6 +723,10 @@ video {
   height: 100vh;
 }
 
+.h-16 {
+  height: 4rem;
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -823,10 +827,6 @@ video {
   width: 20rem;
 }
 
-.w-96 {
-  width: 24rem;
-}
-
 .w-full {
   width: 100%;
 }
@@ -895,6 +895,10 @@ video {
   justify-content: space-around;
 }
 
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
 .gap-1 {
   gap: 0.25rem;
 }
@@ -933,6 +937,10 @@ video {
 
 .overflow-x-hidden {
   overflow-x: hidden;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
 }
 
 .rounded {
@@ -1102,6 +1110,10 @@ video {
 .px-24 {
   padding-left: 6rem;
   padding-right: 6rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .text-end {
