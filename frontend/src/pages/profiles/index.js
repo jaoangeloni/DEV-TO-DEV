@@ -9,8 +9,22 @@ function loadPosts() {
     const usericon = document.getElementById('usericon')
     usericon.src = userData.profilePicture
 
+    api.get('/user/listar/' + userPageName)
+        .then(resp => {
+            const data = resp.data[0]
+            const banner = document.getElementById('banner');
+            banner.style.backgroundImage = `url(${data.profileBanner})`
+
+            const userGiantIcon = document.getElementById('userGiantIcon');
+            userGiantIcon.src = data.profilePicture
+
+            const profileUserName = document.getElementById('profileUserName');
+            profileUserName.innerHTML = data.username
+        })
+
     api.get('/post/listar/' + userPageName)
         .then(resp => {
+
             const dados = resp.data;
             if (dados.length == 0) {
                 const localPosts = document.getElementById('localPosts');
@@ -21,21 +35,11 @@ function loadPosts() {
             } else {
 
                 dados.forEach(e => {
-                    console.log(e);
-
                     if (userPageName != userData.username) {
                         const createPost = document.getElementById('createPost');
                         createPost.style.display = 'none'
                     }
 
-                    const banner = document.getElementById('banner');
-                    banner.style.backgroundImage = `url(${e.profileBanner})`
-
-                    const userGiantIcon = document.getElementById('userGiantIcon');
-                    userGiantIcon.src = e.profilePicture
-
-                    const profileUserName = document.getElementById('profileUserName');
-                    profileUserName.innerHTML = e.username
 
                     const imageData = e.postImage
 

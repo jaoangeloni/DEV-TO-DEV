@@ -5,7 +5,7 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>zonta</title>
+                <title>jaojao</title>
                 <link rel="stylesheet" href="../../../dist/output.css">
                 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
                 <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
@@ -89,31 +89,30 @@
                         <input type="search" placeholder="Pesquisa"
                             class="h-9 w-full bg-lightpurple-0 rounded-e-sm outline-none placeholder-white text-white">
                     </span>
-                    <div class="w-40 flex items-center justify-center gap-8" onclick="goToProfile()">
-                    <img id="usericon" src="" alt="usericon"
-                        class="w-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer rounded-full">
-                        <div class="w-40 flex items-center justify-center gap-8">
-                        <div onclick="goToProfile()">
-                            <img id="usericon" src="" alt="usericon"
-                                class="w-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer rounded-full">
-                        </div>
-                        <div onclick="logoff()">
-                            <img src="./assets/logout.png" alt="botão para sair" class="w-5 hover:cursor-pointer">
-                        </div>
+                    <div class="w-40 flex items-center justify-center gap-8">
+                        <img id="usericon" src="" alt="usericon"
+                            class="w-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer rounded-full"
+                            onclick="goToProfile()">
+                        <img src="assets/logout.png" alt="botão para sair" class="w-7 hover:cursor-pointer" onclick="logoff()">
+                    </div>
                     </div>
                 </div>
                 </header>
             
                 <div id="banner" class="w-full h-96 bg-white flex justify-center items-center relative"
-                    style="background-size: contain; background-position: center;">
-            
-                    <div class="bg-white rounded-full hover:cursor-pointer hover:scale-105 transition-all duration-100">
-                        <img id=userGiantIcon src="" alt="" class="rounded-full w-40" style=" position:absolute; top: 18rem ;">
+                style="background-size: contain; background-position: center;">
+
+                    <div class="bg-white rounded-full hover:cursor-pointer">
+                        <img id=userGiantIcon src="" alt="" class="rounded-full w-40" style=" position:absolute; top: 18rem ;  left: 50%;
+                                            transform: translate(-50%, 0);">
                     </div>
-            
+
+                    <p id="profileUserName" class="absolute -bottom-28 left-1/2 text-white font-osvaldo font-light text-3xl"
+                        style="transform: translate(-50%, 0);"></p>
+
                 </div>
-            
-                <main class="flex items-start justify-around w-full" style="margin-top: 6rem;">
+
+                <main class="flex items-start justify-around w-full mt-36">
             
                     <!-- FAIXA DA ESQUERDA -->
                     <div id="navLeft" class="flex items-start justify-center bg-land-0 w-1/5 h-96 rounded-md">
@@ -147,7 +146,8 @@
                     <div id="navRight" class="flex items-start justify-center bg-land-0 w-1/5 h-96 rounded-md"></div>
             
                 </main>
-            
+                <footer class="w-full p-4">
+                </footer>
             </body>
             <script src="index.js"></script>
             <script defer src="../../scripts/winButtons.js"></script>

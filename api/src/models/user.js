@@ -22,10 +22,10 @@ class User {
     }
 
     read() {
-        if (this.id == undefined)
+        if (this.username == undefined)
             return `SELECT * FROM users`
         else
-            return `SELECT * FROM users WHERE id = '${this.id}'`
+            return `SELECT * FROM users WHERE username = '${this.username}'`
     }
 
     update() {
