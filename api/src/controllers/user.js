@@ -130,6 +130,10 @@ const criar = (req, res) => {
                     <p id="profileUserName" class="absolute -bottom-28 left-1/2 text-white font-osvaldo font-light text-3xl"
                         style="transform: translate(-50%, 0);"></p>
 
+                    <img src="./assets/config.png" alt="config"
+                        class="w-10 absolute top-4 right-4 cursor-pointer hover:scale-105 transition-all duration-100"
+                        id="configIcon"
+                        onclick="hiddeModalConfig()">
                 </div>
 
                 <main class="flex items-start justify-around w-full mt-36">
@@ -198,12 +202,67 @@ const listar = (req, res) => {
 }
 
 const alterar = (req, res) => {
-    let user = new User(req.body);
-    con.query(user.update(), (err, result) => {
-        if (result.affectedRows > 0)
-            res.status(202).end()
-        else
-            res.status(404).end()
+    upload.single('postImage')(req, res, (err) => {
+        if (err) throw err;
+
+        const userId = req.body.userId;
+        const descImage = req.body.descImage;
+
+        if (req.file) {
+            const imageFile = req.file;
+            const { mimetype, buffer } = imageFile;
+            cloudinary.uploader
+                .upload_stream((error, result) => {
+                    if (error) throw error;
+
+                    const { url } = result;
+
+                    const data = {
+                        userId: userId,
+                        descImage: descImage,
+                        postImage: url,
+                        mime_type: mimetype,
+                        date: 'CURDATE()'
+                    }
+
+                    const sql = 'INSERT INTO post SET ?;';
+
+                    db.query(sql, data, (err, result) => {
+                        if (err) {
+                            console.error('Erro ao inserir imagem no banco de dados: ' + err.message);
+                            res.status(500).send('Erro ao fazer o upload da imagem.').end();
+                        } else {
+                            console.log('Imagem inserida com sucesso.');
+
+                            res.status(200).json(result.insertId).end();
+                        }
+                    });
+                })
+                .end(buffer)
+        } else {
+            const data = {
+                userId: userId,
+                descImage: descImage,
+                postImage: null,
+                mime_type: null,
+                date: 'CURDATE()'
+            }
+
+            const sql = 'INSERT INTO post SET ?;';
+
+            db.query(sql, data, (err, result) => {
+                if (err) {
+                    console.error('Erro ao inserir imagem no banco de dados: ' + err.message);
+                    res.status(500).send('Erro ao fazer o upload da imagem.').end();
+                } else {
+                    console.log('Imagem inserida com sucesso.');
+
+                    res.status(200).json(result.insertId).end();
+                }
+            });
+
+        }
+
     })
 }
 

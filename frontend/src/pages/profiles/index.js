@@ -1,10 +1,9 @@
-const likeImage = document.getElementById("likeIcon");
-const localPosts = document.getElementById("localPosts")
-const commentSection = document.getElementById(' commentSection')
-let userData = JSON.parse(localStorage.getItem("user"));
 
 //LOAD POSTS ------------------------------------------------------------------------
 function loadPosts() {
+    const commentSection = document.getElementById(' commentSection')
+    const localPosts = document.getElementById("localPosts")
+    let userData = JSON.parse(localStorage.getItem("user"));
     const userPageName = document.title;
     const usericon = document.getElementById('usericon')
     usericon.src = userData.profilePicture
@@ -19,7 +18,15 @@ function loadPosts() {
             userGiantIcon.src = data.profilePicture
 
             const profileUserName = document.getElementById('profileUserName');
-            profileUserName.innerHTML = data.username
+            profileUserName.innerHTML = data.name
+
+            const alterarPfp = document.getElementById('alterarPfp')
+            alterarPfp.src = data.profilePicture;
+
+            const alterarBanner = document.getElementById('alterarBanner')
+            alterarBanner.src = data.profileBanner;
+
+            const alterarUsername = document.getElementById('alterarUsername')
         })
 
     api.get('/post/listar/' + userPageName)
@@ -38,6 +45,8 @@ function loadPosts() {
                     if (userPageName != userData.username) {
                         const createPost = document.getElementById('createPost');
                         createPost.style.display = 'none'
+                        const config = getElementById('configIcon')
+                        configIcon.style.display = 'none'
                     }
 
 
@@ -440,4 +449,10 @@ function goToHome() {
 function logoff() {
     localStorage.removeItem("user");
     window.location = "../login/index.html"
+}
+
+function hiddeModalConfig() {
+    const modalConfig = document.getElementById('modalConfig');
+    modalConfig.classList.toggle('flex')
+    modalConfig.classList.toggle('hidden')
 }
