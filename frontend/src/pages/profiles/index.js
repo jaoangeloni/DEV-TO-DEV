@@ -18,7 +18,7 @@ function loadPosts() {
             banner.style.backgroundImage = `url(${data.profileBanner})`
 
             const userGiantIcon = document.getElementById('userGiantIcon');
-            userGiantIcon.src = data.profilePicture
+            userGiantIcon.style.backgroundImage = `url(${data.profilePicture})`
 
             const porfileName = document.getElementById('profileName');
             porfileName.innerHTML = `${data.name}`

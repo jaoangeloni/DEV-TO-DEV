@@ -25,14 +25,14 @@
                 class="bg-red-500 text-white rounded-full w-6 h-6 text-center absolute top-2 right-2 cursor-pointer">x
             </div>
 
-            <form action="/upload" method="put" enctype="multipart/form-data"
+            <form action="/user/alterar" method="post" enctype="multipart/form-data"
                 class="flex items-start justify-evenly h-full flex-col p-4 w-full" id="updateUser">
 
                 <label for="inputAlterarBanner"
                     class="flex items-center flex-col justify-start gap-4 hover:bg-gray-600 w-full p-2 cursor-pointer rounded-sm">
-                    <div id="alterarBanner" class="w-full h-52 bg-cover bg-center"></div>
+                    <div id="alterarBanner" class="w-full h-48 bg-cover bg-center"></div>
                     <p class="font-osvaldo text-white font-extralight text-lg">Alterar banner</p>
-                    <input id="inputAlterarBanner" type="file" name="bannerImage"
+                    <input id="inputAlterarBanner" type="file" name="profileBanner"
                         class="text-white font-osvaldo font-light hidden">
                 </label>
 
@@ -40,7 +40,7 @@
                     class="flex items-center justify-start gap-4 hover:bg-gray-600 w-full flex-col p-2 cursor-pointer rounded-sm">
                     <div id="alterarPfp" class="w-24 h-24 bg-cover bg-center"></div>
                     <p class="font-osvaldo text-white font-extralight text-lg">Alterar foto de perfil</p>
-                    <input id="inputAlterarPfp" type="file" name="pfpImage"
+                    <input id="inputAlterarPfp" type="file" name="profilePicture"
                         class="text-white font-osvaldo font-light hidden">
                 </label>
 
@@ -143,11 +143,10 @@
     </header>
 
     <div id="banner" class="w-full h-96 bg-white flex justify-center items-center relative"
-        style="background-size: contain; background-position: center;">
+        style="background-size: cover; background-position: center;">
 
-        <div class="bg-white rounded-full hover:cursor-pointer">
-            <img id="userGiantIcon" src="" alt="" class="rounded-full w-40" style=" position:absolute; top: 18rem ;  left: 50%;
-                                            transform: translate(-50%, 0);">
+        <div id="userGiantIcon" class="bg-white hover:cursor-pointer rounded-full w-40 bg-cover bg-center" style=" position:absolute; top: 18rem ;  left: 50%;
+        transform: translate(-50%, 0);">
         </div>
 
         <p id="profileName" class="absolute -bottom-28 left-1/2 text-white font-osvaldo font-light text-4xl"

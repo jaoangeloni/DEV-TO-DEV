@@ -2,6 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const con = require('../db/connect');
 const User = require('../models/user');
+const cloudinary = require('cloudinary').v2;
+const multer = require('multer');
+const storage = multer.memoryStorage();
 
 const criar = (req, res) => {
     let user = new User(req.body)
@@ -245,66 +248,64 @@ const listar = (req, res) => {
     })
 }
 
+const upload = multer({ storage: storage });
+
 const alterar = (req, res) => {
-    upload.single('bannerImage')(req, res, (err) => {
+    upload.any()(req, res, (err) => {
         if (err) throw err;
 
         const userId = req.body.id;
         const name = req.body.name;
 
-        if (req.file) {
-            const imageFile = req.file;
-            const { buffer } = imageFile;
-            cloudinary.uploader
-                .upload_stream((error, result) => {
-                    if (error) throw error;
+        // Verifica se o arquivo de banner está presente e não está vazio
+        if (req.files && req.files.length > 0 && req.files[0].fieldname === 'profileBanner') {
+            const profileBanner = req.files[0];
+            const { buffer } = profileBanner;
 
-                    const { url } = result;
+            cloudinary.uploader.upload_stream((error, result) => {
+                if (error) throw error;
 
-                    const data = {
-                        id: userId,
-                        name: name,
-                        profileBanner: url,
+                const { url } = result;
+
+                const sql = 'UPDATE users SET name = ?, profileBanner = ? WHERE id = ?';
+
+                con.query(sql, [name, url, userId], (err, result) => {
+                    if (err) {
+                        console.error('Erro ao inserir imagem do banner no banco de dados: ' + err.message);
+                        res.status(500).send('Erro ao fazer o upload da imagem do banner.').end();
+                    } else {
+                        console.log('Imagem do banner inserida com sucesso.');
                     }
-
-                    const sql = 'UPDATE user SET ?;';
-
-                    db.query(sql, data, (err, result) => {
-                        if (err) {
-                            console.error('Erro ao inserir imagem no banco de dados: ' + err.message);
-                            res.status(500).send('Erro ao fazer o upload da imagem.').end();
-                        } else {
-                            console.log('Imagem inserida com sucesso.');
-
-                            res.status(200).json(result.insertId).end();
-                        }
-                    });
-                })
-                .end(buffer)
-        } else {
-            const data = {
-                id: userId,
-                name: name,
-                profileBanner: null,
-            }
-
-            const sql = 'UPDATE user SET ?;';
-
-            db.query(sql, data, (err, result) => {
-                if (err) {
-                    console.error('Erro ao inserir imagem no banco de dados: ' + err.message);
-                    res.status(500).send('Erro ao fazer o upload da imagem.').end();
-                } else {
-                    console.log('Imagem inserida com sucesso.');
-
-                    res.status(200).json(result.insertId).end();
-                }
-            });
-
+                });
+            }).end(buffer);
         }
 
-    })
-}
+        // Verifica se o arquivo de imagem de perfil está presente e não está vazio
+        if (req.files && req.files.length > 0 && req.files[0].fieldname === 'profilePicture') {
+            const profilePicture = req.files[0];
+            const { buffer } = profilePicture;
+
+            cloudinary.uploader.upload_stream((error, result) => {
+                if (error) throw error;
+
+                const { url } = result;
+
+                const sql = 'UPDATE users SET name = ?, profilePicture = ? WHERE id = ?';
+
+                con.query(sql, [name, url, userId], (err, result) => {
+                    if (err) {
+                        console.error('Erro ao inserir imagem do perfil no banco de dados: ' + err.message);
+                        res.status(500).send('Erro ao fazer o upload da imagem do perfil.').end();
+                    } else {
+                        console.log('Imagem do perfil inserida com sucesso.');
+                        res.status(200).json(result).end();
+                    }
+                });
+            }).end(buffer);
+        }
+    });
+};
+
 
 const excluir = (req, res) => {
     let user = new User(req.params)
