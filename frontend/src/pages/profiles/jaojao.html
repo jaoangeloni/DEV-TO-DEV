@@ -15,37 +15,44 @@
 
 <body class="w-full bg-bg-0" onload="loadPosts()">
 
-    <div id="modalConfig" class="fixed bg-black w-full h-full bg-opacity-50 flex items-center justify-center z-20">
-        <div id="configBox" class="w-1/3 h-4/5 rounded-sm bg-bg-0 flex items-center justify-around z-30 flex-col">
+    <div id="modalConfig" class="fixed bg-black w-full h-full bg-opacity-50 hidden items-center justify-center z-20">
+        <div id="configBox"
+            class="w-1/2 h-4/5 rounded-sm bg-bg-0 flex items-center justify-evenly z-30 flex-col p-4 relative">
+
+            <p class="text-white font-osvaldo font-extralight text-2xl">Configurar Perfil</p>
+
+            <div id="cancelarAlteracao" onclick="hiddeModalConfig()"
+                class="bg-red-500 text-white rounded-full w-6 h-6 text-center absolute top-2 right-2 cursor-pointer">x
+            </div>
 
             <form action="/upload" method="put" enctype="multipart/form-data"
-                class="flex items-center justify-evenly h-full flex-col p-4">
+                class="flex items-start justify-evenly h-full flex-col p-4 w-full">
 
-                <p class="text-white font-osvaldo font-extralight text-2xl">Configurar Perfil</p>
-
-                <label for="inputAlterarPfp" class="flex items-center flex-col justify-around">
-                    <img id="alterarPfp" src="" alt="" class="w-24 cursor-pointer">
-                    <p class="font-osvaldo text-white font-extralight text-lg">Alterar foto de perfil</p>
-                    <input id="inputAlterarPfp" type="file" class="text-white font-osvaldo font-light hidden">
-                </label>
-
-                <label for="inputAlterarBanner" class="flex items-center flex-col justify-around">
-                    <img id="alterarBanner" src="" alt="" class="w-full cursor-pointer">
+                <label for="inputAlterarBanner"
+                    class="flex items-center flex-col justify-start gap-4 hover:bg-gray-600 w-full p-2 cursor-pointer rounded-sm">
+                    <div id="alterarBanner" class="w-full h-52 bg-cover bg-center"></div>
                     <p class="font-osvaldo text-white font-extralight text-lg">Alterar banner</p>
                     <input id="inputAlterarBanner" type="file" class="text-white font-osvaldo font-light hidden">
                 </label>
 
-                <label for="alterarUsername" class="flex items-center flex-col justify-around">
-                    <p class="font-osvaldo text-white font-extralight text-lg">Alterar Username</p>
-                    <input type="text" id="alterarUsername"
-                        class="text-center outline-none text-white bg-lightpurple-0 h-8 w-full">
+                <label for="inputAlterarPfp"
+                    class="flex items-center justify-start gap-4 hover:bg-gray-600 w-full flex-col p-2 cursor-pointer rounded-sm">
+                    <div id="alterarPfp" class="w-24 h-24 bg-cover bg-center"></div>
+                    <p class="font-osvaldo text-white font-extralight text-lg">Alterar foto de perfil</p>
+                    <input id="inputAlterarPfp" type="file" class="text-white font-osvaldo font-light hidden">
                 </label>
 
-                <div>
-                    <button id="cancelarAlteracao" onclick="hiddeModalConfig()"
-                        class="bg-red-500 font-bold text-white p-2 rounded-sm">Cancelar</button>
+
+                <label for="alterarUsername"
+                    class="flex items-center justify-start gap-4 hover:bg-gray-600 w-full flex-col p-2 cursor-pointer rounded-sm">
+                    <input type="text" id="alterarUsername"
+                        class="text-center outline-none text-white bg-lightpurple-0 h-8 w-full">
+                    <p class="font-osvaldo text-white font-extralight text-lg">Alterar nome de exibição</p>
+                </label>
+
+                <div class="flex justify-center items-center w-full gap-4">
                     <input type="submit" value="ALTERAR"
-                        class="bg-yellow-400 p-2 rounded-sm text-white font-bold cursor-pointer hover:bg-yellow-500" />
+                        class="bg-yellow-400 p-2 rounded-sm text-white font-bold cursor-pointer hover:bg-yellow-500 w-1/4" />
                 </div>
             </form>
         </div>
@@ -131,8 +138,6 @@
                 onclick="goToProfile()">
             <img src="assets/logout.png" alt="botão para sair" class="w-7 hover:cursor-pointer" onclick="logoff()">
         </div>
-        </div>
-        </div>
     </header>
 
     <div id="banner" class="w-full h-96 bg-white flex justify-center items-center relative"
@@ -143,7 +148,10 @@
                                             transform: translate(-50%, 0);">
         </div>
 
-        <p id="profileUserName" class="absolute -bottom-28 left-1/2 text-white font-osvaldo font-light text-3xl"
+        <p id="profileName" class="absolute -bottom-28 left-1/2 text-white font-osvaldo font-light text-4xl"
+            style="transform: translate(-50%, 0);"></p>
+
+        <p id="profileUserName" class="absolute -bottom-36 left-1/2 text-white font-osvaldo font-thin text-2xl"
             style="transform: translate(-50%, 0);"></p>
 
         <img src="./assets/config.png" alt="config"
@@ -151,7 +159,7 @@
             id="configIcon" onclick="hiddeModalConfig()">
     </div>
 
-    <main class="flex items-start justify-around w-full mt-36">
+    <main class="flex items-start justify-around w-full mt-40">
 
         <!-- FAIXA DA ESQUERDA -->
         <div id="navLeft" class="flex items-start justify-center bg-land-0 w-1/5 h-96 rounded-md">

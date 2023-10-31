@@ -8,26 +8,49 @@ function loadPosts() {
     const usericon = document.getElementById('usericon')
     usericon.src = userData.profilePicture
 
+
+
     api.get('/user/listar/' + userPageName)
         .then(resp => {
             const data = resp.data[0]
+            console.log(data)
             const banner = document.getElementById('banner');
             banner.style.backgroundImage = `url(${data.profileBanner})`
 
             const userGiantIcon = document.getElementById('userGiantIcon');
             userGiantIcon.src = data.profilePicture
 
+            const porfileName = document.getElementById('profileName');
+            porfileName.innerHTML = `${data.name}`
+
             const profileUserName = document.getElementById('profileUserName');
-            profileUserName.innerHTML = data.name
+            profileUserName.innerHTML = `#${data.username}`
 
             const alterarPfp = document.getElementById('alterarPfp')
-            alterarPfp.src = data.profilePicture;
+            alterarPfp.style.backgroundImage = `url(${data.profilePicture})`;
 
             const alterarBanner = document.getElementById('alterarBanner')
-            alterarBanner.src = data.profileBanner;
+            alterarBanner.style.backgroundImage = `url(${data.profileBanner})`;
 
             const alterarUsername = document.getElementById('alterarUsername')
             alterarUsername.value = data.username
+
+            const inputAlterarBanner = document.getElementById('inputAlterarBanner');
+            const inputAlterarPfp = document.getElementById('inputAlterarPfp');
+
+            inputAlterarBanner.onchange = evt => {
+                const [file] = inputAlterarBanner.files
+                if (file) {
+                    alterarBanner.style.backgroundImage = `url(${URL.createObjectURL(file)})`
+                }
+            }
+
+            inputAlterarPfp.onchange = evt => {
+                const [file] = inputAlterarPfp.files
+                if (file) {
+                    alterarPfp.style.backgroundImage = `url(${URL.createObjectURL(file)})`
+                }
+            }
         })
 
     api.get('/post/listar/' + userPageName)
@@ -39,7 +62,7 @@ function loadPosts() {
                 localPosts.innerHTML = `
                 <div class="w-full h-52 bg-land-0 flex items-center justify-center rounded-sm">
                     <p class="text-gray-500">Você não tem publicações</p>
-                </div>`
+                    </div>`
             } else {
 
                 dados.forEach(e => {
