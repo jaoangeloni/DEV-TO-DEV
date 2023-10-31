@@ -246,15 +246,15 @@ const listar = (req, res) => {
 }
 
 const alterar = (req, res) => {
-    upload.single('postImage')(req, res, (err) => {
+    upload.single('bannerImage')(req, res, (err) => {
         if (err) throw err;
 
-        const userId = req.body.userId;
-        const descImage = req.body.descImage;
+        const userId = req.body.id;
+        const name = req.body.name;
 
         if (req.file) {
             const imageFile = req.file;
-            const { mimetype, buffer } = imageFile;
+            const { buffer } = imageFile;
             cloudinary.uploader
                 .upload_stream((error, result) => {
                     if (error) throw error;
@@ -262,14 +262,12 @@ const alterar = (req, res) => {
                     const { url } = result;
 
                     const data = {
-                        userId: userId,
-                        descImage: descImage,
-                        postImage: url,
-                        mime_type: mimetype,
-                        date: 'CURDATE()'
+                        id: userId,
+                        name: name,
+                        profileBanner: url,
                     }
 
-                    const sql = 'INSERT INTO post SET ?;';
+                    const sql = 'UPDATE user SET ?;';
 
                     db.query(sql, data, (err, result) => {
                         if (err) {
@@ -285,14 +283,12 @@ const alterar = (req, res) => {
                 .end(buffer)
         } else {
             const data = {
-                userId: userId,
-                descImage: descImage,
-                postImage: null,
-                mime_type: null,
-                date: 'CURDATE()'
+                id: userId,
+                name: name,
+                profileBanner: null,
             }
 
-            const sql = 'INSERT INTO post SET ?;';
+            const sql = 'UPDATE user SET ?;';
 
             db.query(sql, data, (err, result) => {
                 if (err) {
