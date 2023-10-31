@@ -480,3 +480,36 @@ function hiddeModalConfig() {
     modalConfig.classList.toggle('flex')
     modalConfig.classList.toggle('hidden')
 }
+
+const updateUser = document.getElementById('updateUser');
+
+updateUser.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const inputAlterarBanner = document.querySelector('#inputAlterarBanner');
+    const inputAlterarPfp = document.querySelector('#inputAlterarPfp');
+    const alterarUsername = document.querySelector('#alterarUsername');
+    const imagemBanner = inputAlterarBanner.files[0];
+    const imagemPfp = inputAlterarPfp.files[0];
+
+    const formData = new FormData();
+    formData.append('id', userData.id);
+    formData.append('name', alterarUsername.value);
+    formData.append('profilePicture', imagemPfp);
+    formData.append('profileBanner', imagemBanner);
+
+    api.post('/user/alterar', formData)
+        .then(resp => {
+            try {
+                if (resp.status == 200) {
+                    window.location.reload();
+                } else {
+                    console.error('Erro ao atualizar perfil: ' + resp.statusText);
+                }
+            } catch (error) {
+                console.error('Erro ao atualizar perfil: ' + error.message);
+            }
+        });
+
+
+});
