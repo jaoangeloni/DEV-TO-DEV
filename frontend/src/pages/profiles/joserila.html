@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jaojao</title>
+    <title>joserila</title>
     <link rel="stylesheet" href="../../../dist/output.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
@@ -27,22 +27,20 @@
             </div>
 
             <form action="/upload" method="put" enctype="multipart/form-data"
-                class="flex items-start justify-evenly h-full flex-col p-4 w-full" id="updateUser">
+                class="flex items-start justify-evenly h-full flex-col p-4 w-full">
 
                 <label for="inputAlterarBanner"
                     class="flex items-center flex-col justify-start gap-4 hover:bg-gray-600 w-full p-2 cursor-pointer rounded-sm">
                     <div id="alterarBanner" class="w-full h-52 bg-cover bg-center"></div>
                     <p class="font-osvaldo text-white font-extralight text-lg">Alterar banner</p>
-                    <input id="inputAlterarBanner" type="file" name="bannerImage"
-                        class="text-white font-osvaldo font-light hidden">
+                    <input id="inputAlterarBanner" type="file" class="text-white font-osvaldo font-light hidden">
                 </label>
 
                 <label for="inputAlterarPfp"
                     class="flex items-center justify-start gap-4 hover:bg-gray-600 w-full flex-col p-2 cursor-pointer rounded-sm">
                     <div id="alterarPfp" class="w-24 h-24 bg-cover bg-center"></div>
                     <p class="font-osvaldo text-white font-extralight text-lg">Alterar foto de perfil</p>
-                    <input id="inputAlterarPfp" type="file" name="pfpImage"
-                        class="text-white font-osvaldo font-light hidden">
+                    <input id="inputAlterarPfp" type="file" class="text-white font-osvaldo font-light hidden">
                 </label>
 
 
@@ -148,7 +146,7 @@
 
         <div class="bg-white rounded-full hover:cursor-pointer">
             <img id="userGiantIcon" src="" alt="" class="rounded-full w-40" style=" position:absolute; top: 18rem ;  left: 50%;
-                                            transform: translate(-50%, 0);">
+                                                        transform: translate(-50%, 0);">
         </div>
 
         <p id="profileName" class="absolute -bottom-28 left-1/2 text-white font-osvaldo font-light text-4xl"

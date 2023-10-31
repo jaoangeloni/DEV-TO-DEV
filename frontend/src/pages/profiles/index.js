@@ -61,7 +61,7 @@ function loadPosts() {
                 const localPosts = document.getElementById('localPosts');
                 localPosts.innerHTML = `
                 <div class="w-full h-52 bg-land-0 flex items-center justify-center rounded-sm">
-                    <p class="text-gray-500">Você não tem publicações</p>
+                    <p class="text-white">Você não possui publicações</p>
                     </div>`
             } else {
 

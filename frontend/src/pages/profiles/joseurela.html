@@ -1,0 +1,204 @@
+
+            <!DOCTYPE html>
+            <html lang="en">
+            
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>joseurela</title>
+                <link rel="stylesheet" href="../../../dist/output.css">
+                <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap" rel="stylesheet">
+                <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+                <script src="../../scripts/api.js"></script>
+            </head>
+            
+            <body class="w-full bg-bg-0" onload="loadPosts()">
+
+                <div id="modalConfig" class="fixed bg-black w-full h-full bg-opacity-50 hidden items-center justify-center z-20">
+                    <div id="configBox"
+                        class="w-1/2 h-4/5 rounded-sm bg-bg-0 flex items-center justify-evenly z-30 flex-col p-4 relative">
+
+                        <p class="text-white font-osvaldo font-extralight text-2xl">Configurar Perfil</p>
+
+                        <div id="cancelarAlteracao" onclick="hiddeModalConfig()"
+                            class="bg-red-500 text-white rounded-full w-6 h-6 text-center absolute top-2 right-2 cursor-pointer">x
+                        </div>
+
+                        <form action="/upload" method="put" enctype="multipart/form-data"
+                            class="flex items-start justify-evenly h-full flex-col p-4 w-full">
+
+                            <label for="inputAlterarBanner"
+                                class="flex items-center flex-col justify-start gap-4 hover:bg-gray-600 w-full p-2 cursor-pointer rounded-sm">
+                                <div id="alterarBanner" class="w-full h-52 bg-cover bg-center"></div>
+                                <p class="font-osvaldo text-white font-extralight text-lg">Alterar banner</p>
+                                <input id="inputAlterarBanner" type="file" class="text-white font-osvaldo font-light hidden">
+                            </label>
+
+                            <label for="inputAlterarPfp"
+                                class="flex items-center justify-start gap-4 hover:bg-gray-600 w-full flex-col p-2 cursor-pointer rounded-sm">
+                                <div id="alterarPfp" class="w-24 h-24 bg-cover bg-center"></div>
+                                <p class="font-osvaldo text-white font-extralight text-lg">Alterar foto de perfil</p>
+                                <input id="inputAlterarPfp" type="file" class="text-white font-osvaldo font-light hidden">
+                            </label>
+
+
+                            <label for="alterarUsername"
+                                class="flex items-center justify-start gap-4 hover:bg-gray-600 w-full flex-col p-2 cursor-pointer rounded-sm">
+                                <input type="text" id="alterarUsername"
+                                    class="text-center outline-none text-white bg-lightpurple-0 h-8 w-full">
+                                <p class="font-osvaldo text-white font-extralight text-lg">Alterar nome de exibição</p>
+                            </label>
+
+                            <div class="flex justify-center items-center w-full gap-4">
+                                <input type="submit" value="ALTERAR"
+                                    class="bg-yellow-400 p-2 rounded-sm text-white font-bold cursor-pointer hover:bg-yellow-500 w-1/4" />
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+
+                <div id="modalImage"
+                    class="fixed bg-black w-full h-full bg-opacity-50 items-center justify-center hidden cursor-zoom-out z-20"
+                    onclick="hiddeModal()">
+                    <div id="bigImageModal" class=" w-4/5 h-4/5 rounded-lg">
+                        <div id="bigImage" class="w-full h-full bg-contain bg-no-repeat bg-center "></div>
+                    </div>
+                </div>
+
+                <div id="modalAlterar" class="fixed bg-black w-full h-full bg-opacity-50 items-center justify-center hidden z-20">
+                    <div id="alterarBox" class="w-1/2 h-32 bg-land-0 flex flex-col rounded-md gap-2 p-2">
+                        <input type="text" id="descAlterada"
+                            class="outline-none h-12 bg-lightpurple-0 p-2 rounded-sm placeholder-white text-white">
+                        <div class="flex gap-2">
+                            <button id="cancelarAlteracao" onclick="hiddeModalAlterar()"
+                                class="bg-red-500 font-bold text-white p-2 rounded-md">Cancelar</button>
+                            <button id="alterarDesc" class="bg-yellow-400 font-bold text-white p-2 rounded-md">ALTERAR</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="modalComentarios"
+                    class="fixed bg-black w-full h-full bg-opacity-50 hidden items-center justify-center z-20">
+
+                    <div id=" commentSection"
+                        class="relative bg-land-0 flex flex-col rounded-sm p-2 gap-2 w-2/5 h-2/3 overflow-y-auto overflow-x-hidden">
+
+                        <div class="w-6 h-6 bg-red-500 absolute top-2 right-2 rounded-sm flex items-center justify-center cursor-pointer"
+                            onclick="hiddeModalComentarios()">
+                            <p class="text-white text-lg font-bold">X</p>
+                        </div>
+
+                        <div id="postComment" class="mt-12 w-full flex gap-2">
+                            <input type="text" id="commentDescription"
+                                class="outline-none w-full bg-lightpurple-0 p-2 rounded-sm placeholder-white text-white"
+                                placeholder="Publique um comentário">
+                            <button id="publicarComentario"
+                                class="bg-yellow-400 p-2 rounded-sm text-white font-bold cursor-pointer hover:bg-yellow-500">Enviar</button>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <header class="flex top-0 sticky justify-end items-center w-full p-5 gap-3 bg-bg-0 z-50">
+                    <div id="minimizeBtn" title="Minimize"
+                        class="topBtn minimizeBtn w-5 h-5 bg-green-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+                    </div>
+                    <div id="maxResBtn" title="Maximize"
+                        class="maxResBtn w-5 h-5 bg-yellow-300 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+                    </div>
+                    <div id="closeBtn" title="Close"
+                        class="topBtn closeBtn w-5 h-5 bg-red-500 rounded-full cursor-pointer hover:scale-110 transition-all duration-200">
+                    </div>
+                </header>
+
+                <!-- header com botoes customizados para fechar e minimizar ---------------------------------------------------------------------->
+
+                <!-- header logo pesquisa e perfil -->
+                <header class="w-full bg-bg-0 sticky top-14 z-10 flex items-center justify-around p-2">
+                    <div class="w-40 flex items-center justify-center" onclick=" goToHome()">
+                        <img src="../feed/assets/logo.png" alt="logo da empresa dev to dev"
+                            class="w-36 transition-all duration-200 hover:scale-110 hover:cursor-pointer ">
+                    </div>
+
+                    <!-- pesquisa -->
+                    <span class="flex items-center justify-center w-2/6">
+                        <div class="h-9 bg-lightpurple-0  p-2 flex items-center justify-center rounded-s-sm">
+                            <img src="../feed/assets/lupa.png" alt="" class="w-6 h-6 bg-lightpurple-0  hover:cursor-pointer">
+                        </div>
+
+                        <input type="search" placeholder="Pesquisa"
+                            class="h-9 w-full bg-lightpurple-0 rounded-e-sm outline-none placeholder-white text-white">
+                    </span>
+                    <div class="w-40 flex items-center justify-center gap-8">
+                        <img id="usericon" src="" alt="usericon"
+                            class="w-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer rounded-full"
+                            onclick="goToProfile()">
+                        <img src="assets/logout.png" alt="botão para sair" class="w-7 hover:cursor-pointer" onclick="logoff()">
+                    </div>
+                </header>
+
+                <div id="banner" class="w-full h-96 bg-white flex justify-center items-center relative"
+                    style="background-size: contain; background-position: center;">
+
+                    <div class="bg-white rounded-full hover:cursor-pointer">
+                        <img id="userGiantIcon" src="" alt="" class="rounded-full w-40" style=" position:absolute; top: 18rem ;  left: 50%;
+                                                        transform: translate(-50%, 0);">
+                    </div>
+
+                    <p id="profileName" class="absolute -bottom-28 left-1/2 text-white font-osvaldo font-light text-4xl"
+                        style="transform: translate(-50%, 0);"></p>
+
+                    <p id="profileUserName" class="absolute -bottom-36 left-1/2 text-white font-osvaldo font-thin text-2xl"
+                        style="transform: translate(-50%, 0);"></p>
+
+                    <img src="./assets/config.png" alt="config"
+                        class="w-10 absolute top-4 right-4 cursor-pointer hover:scale-105 transition-all duration-100"
+                        id="configIcon" onclick="hiddeModalConfig()">
+                </div>
+
+                <main class="flex items-start justify-around w-full mt-40">
+
+                    <!-- FAIXA DA ESQUERDA -->
+                    <div id="navLeft" class="flex items-start justify-center bg-land-0 w-1/5 h-96 rounded-md">
+                    </div>
+
+                    <!-- FAIXA DE POSTS DO MEIO -->
+                    <div id="postMain" class="flex flex-col items-start justify-start w-5/12 h-full gap-10">
+
+                        <div id="createPost" class="flex bg-land-0 w-full h-40 rounded p-2">
+
+                            <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data"
+                                class="flex flex-col w-full justify-around items-start">
+
+                                <input type="text" name="descImage" id="descImage" placeholder="Publique suas ideias!"
+                                    class="w-full outline-none bg-lightpurple-0 h-12 p-2 rounded-sm placeholder-white text-white" />
+                                <input type="file" name="postImage" id="imagem" class="text-white" />
+
+                                <input type="submit" value="PUBLICAR"
+                                    class="bg-yellow-400 p-2 rounded-sm text-white font-bold cursor-pointer hover:bg-yellow-500" />
+
+                            </form>
+
+                        </div>
+                        <div id="localPosts"
+                            class="flex items-start justify-start flex-col bg-bg-0 w-full h-full rounded-t-md gap-8">
+                        </div>
+
+                    </div>
+
+                    <!-- FAIXA DA DIREITA -->
+                    <div id="navRight" class="flex items-start justify-center bg-land-0 w-1/5 h-96 rounded-md"></div>
+
+                </main>
+                <footer class="w-full p-4">
+                </footer>
+        </body>
+        <script src="index.js"></script>
+        <script defer src="../../scripts/winButtons.js"></script>
+        
+        </html>
+        
