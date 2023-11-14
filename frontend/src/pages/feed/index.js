@@ -5,13 +5,17 @@ let userData = JSON.parse(localStorage.getItem("user"));
 
 //LOAD POSTS ------------------------------------------------------------------------
 function loadPosts() {
-    const usericon = document.getElementById('usericon')
-    usericon.src = userData.profilePicture
+    api.get('/user/listar/' + userData.username)
+        .then(resp => {
+            const data = resp.data[0]
+            const usericon = document.getElementById('usericon')
+            usericon.style.backgroundImage = `url(${data.profilePicture})`
+        })
+
     api.get('/post/listar')
         .then(resp => {
             const dados = resp.data;
             dados.forEach(e => {
-
                 const imageData = e.postImage
 
                 //card post
@@ -72,7 +76,7 @@ function loadPosts() {
 
                 //foto de perfil do user
                 const userPfp = document.createElement('div');
-                userPfp.className = 'w-16 rounded-full cursor-pointer bg-center bg-contain bg-no-repeat';
+                userPfp.className = 'w-16 h-16 rounded-full cursor-pointer bg-center bg-cover bg-no-repeat';
                 userPfp.onclick = () => {
                     window.location = `../profiles/${e.username}.html`
                 }

@@ -80,7 +80,7 @@
         </div>
 
         <!-- pesquisa -->
-        <span class="flex items-center justify-center w-2/6">
+        <span class="flex items-center justify-center w-5/12">
             <div class="h-9 bg-lightpurple-0  p-2 flex items-center justify-center rounded-s-sm">
                 <img src="../feed/assets/lupa.png" alt="" class="w-6 h-6 bg-lightpurple-0  hover:cursor-pointer">
             </div>
@@ -90,9 +90,9 @@
         </span>
 
         <div class="w-40 flex items-center justify-center gap-8">
-            <div onclick="goToProfile()">
-                <img id="usericon" src="" alt="usericon"
-                    class="w-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer rounded-full">
+            <div id="usericon"
+                class="w-16 h-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer rounded-full bg-cover bg-center bg-no-repeat"
+                onclick="goToProfile()">
             </div>
             <div onclick="logoff()">
                 <img src="./assets/logout.png" alt="botão para sair" class="w-7 hover:cursor-pointer">

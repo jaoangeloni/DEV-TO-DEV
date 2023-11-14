@@ -16,11 +16,11 @@ set PATH=%PATH%;C:\Users\SUPORTE\AppData\Roaming\npm
 <li>npm i -g yarn</li>
 <h2>Adicione as dependências na api</h2>
 <li>cd api</li>
-<li>yarn add express cors mysql multer</li>
+<li>yarn add express cors mysql multer fs cloudinary dotenv</li>
 <li>nodemon</li>
 
 <h1>FRONTEND</h1>
 <h2>Instale as dependências</h2>
 <li>cd frontend</li>
-<li>yarn add -D electron tailwindcss axios</li>
+<li>yarn add electron tailwindcss axios</li>
 <li>yarn run dev</li>
