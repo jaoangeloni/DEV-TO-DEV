@@ -66,15 +66,15 @@ function loadPosts() {
                 localPosts.innerHTML = `
                 <div class="w-full h-52 bg-land-0 flex items-center justify-center rounded-sm">
                     <p class="text-white">Você não possui publicações</p>
-                    </div>`
+                </div>`
             } else {
 
                 dados.forEach(e => {
                     if (userPageName != userData.username) {
                         const createPost = document.getElementById('createPost');
                         createPost.style.display = 'none'
-                        const config = getElementById('configIcon')
-                        configIcon.style.display = 'none'
+                        const config = document.getElementById('configIcon')
+                        config.style.display = 'none'
                     }
 
 
@@ -463,6 +463,12 @@ function hiddeModalComentarios() {
     modalComentarios.classList.toggle('hidden');
 }
 
+function formGamePage() {
+    const modalForm = document.getElementById('modalForm');
+    modalForm.classList.toggle('flex');
+    modalForm.classList.toggle('hidden');
+}
+
 function goToProfile() {
     window.location = `../profiles/${userData.username}.html`
 }
@@ -483,7 +489,6 @@ function hiddeModalConfig() {
 }
 
 const updateUser = document.getElementById('updateUser');
-
 updateUser.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -514,3 +519,38 @@ updateUser.addEventListener('submit', async (e) => {
 
 
 });
+
+criarGamePage = document.getElementById('criarGamePage')
+criarGamePage.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const gamePageName = document.getElementById('gamePageName');
+    const gamePageGenre = document.getElementById('gamePageGenre');
+    const gameDescription = document.getElementById('gameDescription');
+    const gamePageBanner = document.getElementById('gamePageBanner');
+    const gamePageImage = document.getElementById('gamePageImage');
+
+    const imagemBanner = gamePageBanner.files[0];
+    const imagemPfp = gamePageImage.files[0];
+
+    const formData = new FormData();
+    formData.append('userId', userData.id);
+    formData.append('name', gamePageName.value);
+    formData.append('gameDescription', gameDescription.value);
+    formData.append('gameGenreId', gameGenre.value);
+    formData.append('gamePicture', imagemBanner);
+    formData.append('gameImage', imagemPfp);
+
+    api.post('/gamepage/criar', formData)
+        .then(resp => {
+            try {
+                if (resp.status == 200) {
+                    window.location.reload();
+                } else {
+                    console.error('Erro ao criar página: ' + resp.statusText);
+                }
+            } catch (error) {
+                console.error('Erro ao criar página: ' + error.message);
+            }
+        });
+})

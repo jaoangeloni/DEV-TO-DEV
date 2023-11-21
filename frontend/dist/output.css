@@ -602,6 +602,90 @@ video {
   top: 1rem;
 }
 
+.top-16 {
+  top: 4rem;
+}
+
+.top-28 {
+  top: 7rem;
+}
+
+.top-36 {
+  top: 9rem;
+}
+
+.top-52 {
+  top: 13rem;
+}
+
+.top-96 {
+  top: 24rem;
+}
+
+.top-24 {
+  top: 6rem;
+}
+
+.left-0 {
+  left: 0px;
+}
+
+.left-24 {
+  left: 6rem;
+}
+
+.left-28 {
+  left: 7rem;
+}
+
+.top-72 {
+  top: 18rem;
+}
+
+.top-80 {
+  top: 20rem;
+}
+
+.left-20 {
+  left: 5rem;
+}
+
+.right-20 {
+  right: 5rem;
+}
+
+.left-16 {
+  left: 4rem;
+}
+
+.left-14 {
+  left: 3.5rem;
+}
+
+.left-12 {
+  left: 3rem;
+}
+
+.right-12 {
+  right: 3rem;
+}
+
+.left-32 {
+  left: 8rem;
+}
+
+.left-52 {
+  left: 13rem;
+}
+
+.left-44 {
+  left: 11rem;
+}
+
+.right-14 {
+  right: 3.5rem;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -622,6 +706,10 @@ video {
   margin: 0px;
 }
 
+.m-4 {
+  margin: 1rem;
+}
+
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
@@ -637,6 +725,10 @@ video {
 
 .mt-40 {
   margin-top: 10rem;
+}
+
+.mt-4 {
+  margin-top: 1rem;
 }
 
 .flex {
@@ -841,6 +933,14 @@ video {
 
 .w-24 {
   width: 6rem;
+}
+
+.w-44 {
+  width: 11rem;
+}
+
+.w-60 {
+  width: 15rem;
 }
 
 .-translate-x-1\/2 {
@@ -1071,6 +1171,11 @@ video {
   background-color: rgb(250 204 21 / var(--tw-bg-opacity));
 }
 
+.bg-green-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-50 {
   --tw-bg-opacity: 0.5;
 }
@@ -1111,6 +1216,10 @@ video {
   padding: 1.25rem;
 }
 
+.p-28 {
+  padding: 7rem;
+}
+
 .px-24 {
   padding-left: 6rem;
   padding-right: 6rem;
@@ -1149,6 +1258,11 @@ video {
 
 .text-lg {
   font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
@@ -1283,6 +1397,16 @@ video {
 .hover\:bg-gray-600:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(75 85 99 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-green-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(21 128 61 / var(--tw-bg-opacity));
+}
+
+.hover\:bg-green-600:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 163 74 / var(--tw-bg-opacity));
 }
 
 .hover\:font-light:hover {

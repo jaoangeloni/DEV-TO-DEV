@@ -15,6 +15,80 @@
 
 <body class="w-full bg-bg-0" onload="loadPosts()">
 
+    <div id="modalForm" class="fixed bg-black w-full h-full bg-opacity-50 hidden items-center justify-center z-20">
+        <div id="form"
+            class="w-1/2 h-4/5 rounded-sm bg-bg-0 flex items-center justify-evenly z-30 flex-col p-4 relative">
+            <p class="text-white font-osvaldo text-2xl font-regular">Nova página de jogo</p>
+            <p class="text-white font-osvaldo font-extralight text-lg">(Você poderá alterar os
+                valores depois)</p>
+
+            <div id="cancelarAlteracao" onclick="formGamePage()"
+                class="bg-red-500 text-white rounded-full w-6 h-6 text-center absolute top-2 right-2 cursor-pointer">
+                <img src="./assets/close.png" alt="">
+            </div>
+
+            <form action="/gamepage/criar" method="post" enctype="multipart/form-data"
+                class="flex items-start justify-evenly h-full flex-col p-4 w-full" id="criarGamePage">
+
+                <div class="flex w-full items-center justify-between">
+                    <label for="gamePageName"
+                        class="flex items-center justify-start gap-4 hover:bg-gray-600 w-1/2 flex-col p-2 cursor-pointer rounded-sm">
+                        <p class="font-osvaldo text-white font-extralight text-lg">Nome do seu jogo</p>
+                        <input type="text" id="gamePageName"
+                            class="text-center outline-none text-white bg-lightpurple-0 h-8 w-full">
+                    </label>
+
+                    <label for="gamePageGenre"
+                        class="flex items-center justify-start gap-4 hover:bg-gray-600 w-1/2 flex-col p-2 cursor-pointer rounded-sm">
+                        <p class="font-osvaldo text-white font-extralight text-lg">Gênero</p>
+                        <select name="gamePageGenre" id="gamePageGenre"
+                            class="text-center outline-none text-white bg-lightpurple-0 h-8 w-full">
+                            <option value="FPS">FPS</option>
+                            <option value="PVP">PVP</option>
+                            <option value="Aventura">Aventura</option>
+                            <option value="MOBA">MOBA</option>
+                            <option value="RPG">RPG</option>
+                            <option value="MMO">MMO</option>
+                            <option value="Luta">Luta</option>
+                            <option value="Simulação">Simulação</option>
+                            <option value="Plataforma">Plataforma</option>
+                            <option value="Corrida">Corrida</option>
+                            <option value="Terror">Terror</option>
+                            <option value="História">História</option>
+                        </select>
+                    </label>
+                </div>
+
+                <label for="gameDescription"
+                    class="flex items-center justify-start gap-4 hover:bg-gray-600 w-full flex-col p-2 cursor-pointer rounded-sm">
+                    <p class="font-osvaldo text-white font-extralight text-lg">Descrição</p>
+                    <input type="text" id="gameDescription"
+                        class="text-center outline-none text-white bg-lightpurple-0 h-8 w-full">
+                </label>
+
+                <label for="gamePageBanner"
+                    class="flex items-center flex-col justify-start gap-4 hover:bg-gray-600 w-full p-2 cursor-pointer rounded-sm">
+                    <p class="font-osvaldo text-white font-extralight text-lg">Banner</p>
+                    <div id="gameBanner" class="w-full h-48 bg-cover bg-center bg-white"></div>
+                    <input id="gamePageBanner" type="file" name="profileBanner"
+                        class="text-white font-osvaldo font-light hidden">
+                </label>
+
+                <label for="gamePageImage"
+                    class="flex items-center justify-start gap-4 hover:bg-gray-600 w-full flex-col p-2 cursor-pointer rounded-sm">
+                    <p class="font-osvaldo text-white font-extralight text-lg">Foto</p>
+                    <div id="gameImage" class="w-24 h-24 bg-cover bg-center bg-white"></div>
+                    <input id="gamePageImage" type="file" name="profilePicture"
+                        class="text-white font-osvaldo font-light hidden">
+                </label>
+
+                <div class="flex justify-center items-center w-full mt-4">
+                    <input type="submit" value="CRIAR PÁGINA"
+                        class="bg-yellow-400 p-2 rounded-sm text-white font-bold cursor-pointer hover:bg-yellow-500 w-1/4" />
+                </div>
+        </div>
+    </div>
+
     <div id="modalConfig" class="fixed bg-black w-full h-full bg-opacity-50 hidden items-center justify-center z-20">
         <div id="configBox"
             class="w-1/2 h-4/5 rounded-sm bg-bg-0 flex items-center justify-evenly z-30 flex-col p-4 relative">
@@ -147,8 +221,25 @@
     <div id="banner" class="w-full h-96 bg-white flex justify-center items-center relative"
         style="background-size: cover; background-position: center;">
 
-        <div id="userGiantIcon" class="hover:cursor-pointer rounded-full w-40 h-40 bg-cover bg-center" style=" position:absolute; top: 18rem ;  left: 50%;
+        <div class="flex items-center justify-between w-full p-28 relative">
+
+            <!-- <p id="followersCount" class="font-osvaldo text-white font-light text-2xl absolute top-0 left-44"
+                style="top: 20rem;"></p>
+
+            <div id="followersField"
+                class="w-1/5  h-12 rounded-sm bg-green-400 absolute right-12 flex items-center justify-center left-12"
+                style="top: 24rem ;">
+            </div> -->
+
+            <div id="userGiantIcon" class="hover:cursor-pointer rounded-full w-40 h-40 bg-cover bg-center" style=" position:absolute; top: 13.5rem ;  left: 50%;
             transform: translate(-50%, 0);">
+            </div>
+
+            <div id="createGamePage"
+                class="w-1/5  h-12 rounded-sm bg-green-400 absolute right-14 flex items-center justify-center hover:bg-green-600 cursor-pointer"
+                style="top: 24rem ;" onclick="formGamePage()">
+                <p class="font-osvaldo text-white font-light text-2xl">+ Nova página</p>
+            </div>
         </div>
 
         <p id="profileName" class="absolute -bottom-28 left-1/2 text-white font-osvaldo font-light text-4xl"
@@ -193,7 +284,8 @@
         </div>
 
         <!-- FAIXA DA DIREITA -->
-        <div id="navRight" class="flex items-start justify-center bg-land-0 w-1/5 h-96 rounded-md"></div>
+        <div id="navRight" class="flex items-start justify-center bg-land-0 w-1/5 h-96 rounded-md">
+        </div>
 
     </main>
     <footer class="w-full p-4">

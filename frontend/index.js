@@ -48,8 +48,8 @@ app.on('ready', () => {
 
 
 
-    win.loadURL('http://127.0.0.1:5500/frontend/src/pages/login/index.html');
+    // win.loadURL('http://127.0.0.1:5500/frontend/src/pages/login/index.html');
 
 
-    // win.loadFile(__dirname + '/pages/index.hmtl')
+    win.loadFile(__dirname + '/src/pages/login/index.html')
 });
