@@ -477,6 +477,13 @@ function goToHome() {
     window.location = '../feed/feed.html'
 }
 
+function goToFeed() {
+    window.location = `../feed/feed.html`
+}
+function goToGames() {
+    window.location = `../games/games.html`
+}
+
 function logoff() {
     localStorage.removeItem("user");
     window.location = "../login/index.html"

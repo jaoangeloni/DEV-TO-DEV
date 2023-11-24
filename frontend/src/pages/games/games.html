@@ -57,7 +57,7 @@
         </div>
 
         <!-- pesquisa -->
-        <span class="flex items-center justify-center w-2/6">
+        <span class="flex items-center justify-center w-5/12">
             <div class="h-9 bg-lightpurple-0  p-2 flex items-center justify-center rounded-s-sm">
                 <img src="../feed/assets/lupa.png" alt="" class="w-6 h-6 bg-lightpurple-0  hover:cursor-pointer">
             </div>
@@ -66,9 +66,14 @@
                 class="h-9 w-full bg-lightpurple-0 rounded-e-sm outline-none placeholder-white text-white">
         </span>
 
-        <div class="w-40 flex items-center justify-center" onclick="goToProfile()">
-            <img src="./assets/default.png" alt="usericon"
-                class="w-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer rounded-full">
+        <div class="w-40 flex items-center justify-center gap-8">
+            <div id="usericon"
+                class="w-16 h-16 transition-all duration-200 hover:scale-110 hover:cursor-pointer rounded-full bg-cover bg-center bg-no-repeat"
+                onclick="goToProfile()">
+            </div>
+            <div onclick="logoff()">
+                <img src="./assets/logout.png" alt="botão para sair" class="w-7 hover:cursor-pointer">
+            </div>
         </div>
     </header>
 
@@ -87,8 +92,22 @@
 
     <main class="flex items-start justify-around w-full" style="margin-top: 4rem;">
 
-        <!-- FAIXA DA ESQUERDA -->
-        <div id="navLeft" class="flex items-start justify-center bg-land-0 w-1/5 h-96 rounded-md">
+        <div class="flex-col h-full w-96">
+
+            <div class="flex-col items-start justify-center bg-land-0 w- rounded-md">
+                <div class="flex p-5 space-x-5 hover:cursor-pointer hover:bg-gray-500 hover:rounded-md" onclick="goToFeed()">
+                    <img src="./assets/web-content.png" class="w-7" alt="">
+                    <p class="text-white">Feed</p>
+                </div>
+                <div class="flex p-5 space-x-5 hover:cursor-pointer hover:bg-gray-500 hover:rounded-md" onclick="goToProfile()">
+                    <img src="./assets/user.png" class="w-7" alt="">
+                    <p class="text-white">Perfil</p>
+                </div>
+            </div>
+        
+            <!-- FAIXA DA ESQUERDA -->
+                <div id="navLeft" class="flex flex-col items-start justify-center bg-land-0 w-1/1 h-96 rounded-md mt-12">
+            </div>
         </div>
 
         <!-- FAIXA DE POSTS DO MEIO -->

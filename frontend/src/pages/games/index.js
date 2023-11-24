@@ -20,3 +20,19 @@
 //             });
 //         })
 // }
+let userData = JSON.parse(localStorage.getItem("user"));
+
+api.get('/user/listar/' + userData.username)
+.then(resp => {
+    const data = resp.data[0]
+    const usericon = document.getElementById('usericon')
+    usericon.style.backgroundImage = `url(${data.profilePicture})`
+})
+
+function goToFeed() {
+    window.location = `../feed/feed.html`
+}
+
+function goToProfile() {
+    window.location = `../profiles/${userData.username}.html`
+}

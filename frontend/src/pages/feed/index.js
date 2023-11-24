@@ -408,6 +408,10 @@ function goToHome() {
     window.location = '../feed/feed.html'
 }
 
+function goToGames() {
+    window.location = `../games/games.html`
+}
+
 function logoff() {
     localStorage.removeItem("");
 
