@@ -4,26 +4,49 @@ const userData = JSON.parse(localStorage.getItem("user"));
 function loadPosts() {
     const commentSection = document.getElementById(' commentSection')
     const localPosts = document.getElementById("localPosts")
-    const userPageName = document.title;
-    const usericon = document.getElementById('usericon')
-    usericon.src = userData.profilePicture
-
-
+     var userPageName = document.title;
 
     api.get('/user/listar/' + userPageName)
         .then(resp => {
 
+            api.get('user/listar')
+            .then(resp => {
+                const data = resp.data
+    
+                data.forEach(e => {
+                    const navLeft = document.getElementById('navLeft');
+    
+                    const profileCard = document.createElement('div');
+                    profileCard.className = 'w-full bg-land-0 h-16 rounded-md flex items-center justify-start p-1 gap-2 hover:bg-lightpurple-0 hover:cursor-pointer';
+                    
+                    const userCard = `
+                    <div class="bg-gray-300 w-14 h-14 rounded-full bg-cover bg-center"
+                    style="background-image: url(${e.profilePicture});"></div>
+                    <p class="font-osvaldo text-2xl text-white font-extralight">${e.name}</p>
+                    `
+    
+                    profileCard.innerHTML = userCard;
+    
+                    profileCard.onclick = () => {
+                        window.location = `../profiles/${e.username}.html`;
+                    }
+    
+                    navLeft.appendChild(profileCard);
+    
+                    });
+                })
+
             const data = resp.data[0]
+
 
             const banner = document.getElementById('banner');
             banner.style.backgroundImage = `url(${data.profileBanner})`
 
             const usericon = document.getElementById('usericon')
-            usericon.style.backgroundImage = `url(${data.profilePicture})`
+            usericon.style.backgroundImage = `url(${userData.profilePicture})`
 
             const userGiantIcon = document.getElementById('userGiantIcon');
             userGiantIcon.style.backgroundImage = `url(${data.profilePicture})`
-            console.log(data.profilePicture)
             const porfileName = document.getElementById('profileName');
             porfileName.innerHTML = `${data.name}`
 
@@ -37,7 +60,7 @@ function loadPosts() {
             alterarBanner.style.backgroundImage = `url(${data.profileBanner})`;
 
             const alterarUsername = document.getElementById('alterarUsername')
-            alterarUsername.value = data.username
+            alterarUsername.value = data.name
 
             const inputAlterarBanner = document.getElementById('inputAlterarBanner');
             const inputAlterarPfp = document.getElementById('inputAlterarPfp');
@@ -59,23 +82,25 @@ function loadPosts() {
 
     api.get('/post/listar/' + userPageName)
         .then(resp => {
-
             const dados = resp.data;
+
+            if (userPageName != userData.username) {
+                const createPost = document.getElementById('createPost');
+                createPost.style.display = 'none'
+                const config = document.getElementById('configIcon')
+                config.style.display = 'none'
+            }
+
+
             if (dados.length == 0) {
                 const localPosts = document.getElementById('localPosts');
                 localPosts.innerHTML = `
-                <div class="w-full h-52 bg-land-0 flex items-center justify-center rounded-sm">
-                    <p class="text-white">Você não possui publicações</p>
+                <div class="w-full h-96 bg-land-0 flex items-center justify-center rounded-sm">
+                    <p class="text-white">Não há publicações</p>
                 </div>`
             } else {
 
                 dados.forEach(e => {
-                    if (userPageName != userData.username) {
-                        const createPost = document.getElementById('createPost');
-                        createPost.style.display = 'none'
-                        const config = document.getElementById('configIcon')
-                        config.style.display = 'none'
-                    }
 
 
                     const imageData = e.postImage
@@ -534,8 +559,8 @@ criarGamePage.addEventListener('submit', async (e) => {
     const gamePageName = document.getElementById('gamePageName');
     const gamePageGenre = document.getElementById('gamePageGenre');
     const gameDescription = document.getElementById('gameDescription');
-    const gamePageBanner = document.getElementById('gamePageBanner');
-    const gamePageImage = document.getElementById('gamePageImage');
+    const gamePageBanner = 'https://previewcomunica.com.br/wp-content/uploads/2018/09/banner-posts-default-3.jpg'
+    const gamePageImage = 'https://res-console.cloudinary.com/dneit0fsb/media_explorer_thumbnails/fcf55aada847d4591f353ba2fd8b9daa/detailed';
 
     const imagemBanner = gamePageBanner.files[0];
     const imagemPfp = gamePageImage.files[0];

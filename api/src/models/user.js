@@ -23,7 +23,7 @@ class User {
 
     read() {
         if (this.username == undefined)
-            return `SELECT * FROM users`
+            return `SELECT * FROM users ORDER BY name`
         else
             return `SELECT * FROM users WHERE username = '${this.username}'`
     }

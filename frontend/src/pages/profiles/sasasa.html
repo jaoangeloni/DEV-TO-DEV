@@ -5,7 +5,7 @@
             <head>
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>jao</title>
+                <title>sasasa</title>
                 <link rel="stylesheet" href="../../../dist/output.css">
                 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
                 <link href="https://fonts.googleapis.com/css2?family=Passero+One&display=swap" rel="stylesheet">
@@ -17,62 +17,63 @@
             <body class="w-full bg-bg-0" onload="loadPosts()">
 
             <div id="modalForm" class="fixed bg-black w-full h-full bg-opacity-50 hidden items-center justify-center z-20">
-        <div id="form"
-            class="w-1/2 h-1/3 rounded-sm bg-bg-0 flex items-center justify-evenly z-30 flex-col p-4 relative">
-            <p class="text-white font-osvaldo text-2xl font-regular">Nova página de jogo</p>
-            <p class="text-white font-osvaldo font-extralight text-lg">(Você poderá alterar os
-                valores depois)</p>
-
-            <div id="cancelarAlteracao" onclick="formGamePage()"
-                class="bg-red-500 text-white rounded-full w-6 h-6 text-center absolute top-2 right-2 cursor-pointer">
-                <img src="./assets/close.png" alt="">
+            <div id="form"
+                class="w-1/2 h-1/3 rounded-sm bg-bg-0 flex items-center justify-evenly z-30 flex-col p-4 relative">
+                <p class="text-white font-osvaldo text-2xl font-regular">Nova página de jogo</p>
+                <p class="text-white font-osvaldo font-extralight text-lg">(Você poderá alterar os
+                    valores depois)</p>
+    
+                <div id="cancelarAlteracao" onclick="formGamePage()"
+                    class="bg-red-500 text-white rounded-full w-6 h-6 text-center absolute top-2 right-2 cursor-pointer">
+                    <img src="./assets/close.png" alt="">
+                </div>
+    
+                <form action="" method="post" enctype="multipart/form-data"
+                    class="flex items-start justify-evenly h-full flex-col p-4 w-full" id="criarGamePage">
+    
+                    <div class="flex w-full items-center justify-between">
+                        <label for="gamePageName"
+                            class="flex items-center justify-start gap-4 hover:bg-gray-600 w-1/2 flex-col p-2 cursor-pointer rounded-sm">
+                            <p class="font-osvaldo text-white font-extralight text-lg">Nome do seu jogo</p>
+                            <input type="text" id="gamePageName"
+                                class="text-center outline-none text-white bg-lightpurple-0 h-8 w-full">
+                        </label>
+    
+                        <label for="gamePageGenre"
+                            class="flex items-center justify-start gap-4 hover:bg-gray-600 w-1/2 flex-col p-2 cursor-pointer rounded-sm">
+                            <p class="font-osvaldo text-white font-extralight text-lg">Gênero</p>
+                            <select name="gamePageGenre" id="gamePageGenre"
+                                class="text-center outline-none text-white bg-lightpurple-0 h-8 w-full">
+                                <option value="FPS">FPS</option>
+                                <option value="PVP">PVP</option>
+                                <option value="Aventura">Aventura</option>
+                                <option value="MOBA">MOBA</option>
+                                <option value="RPG">RPG</option>
+                                <option value="MMO">MMO</option>
+                                <option value="Luta">Luta</option>
+                                <option value="Simulação">Simulação</option>
+                                <option value="Plataforma">Plataforma</option>
+                                <option value="Corrida">Corrida</option>
+                                <option value="Terror">Terror</option>
+                                <option value="História">História</option>
+                            </select>
+                        </label>
+                    </div>
+    
+                    <label for="gameDescription"
+                        class="flex items-center justify-start gap-4 hover:bg-gray-600 w-full flex-col p-2 cursor-pointer rounded-sm">
+                        <p class="font-osvaldo text-white font-extralight text-lg">Descrição</p>
+                        <textarea id="gameDescription" rows="4" cols="50" class="text-center outline-none text-white bg-lightpurple-0 h-20 p-2 w-full"></textarea>
+                    </label>
+    
+                    <div class="flex justify-center items-center w-full mt-4">
+                        <input type="submit" value="CRIAR PÁGINA"
+                            class="bg-yellow-400 p-2 rounded-sm text-white font-bold cursor-pointer hover:bg-yellow-500 w-1/4" />
+                    </div>
+                </form>
             </div>
-
-            <form action="" method="post" enctype="multipart/form-data"
-                class="flex items-start justify-evenly h-full flex-col p-4 w-full" id="criarGamePage">
-
-                <div class="flex w-full items-center justify-between">
-                    <label for="gamePageName"
-                        class="flex items-center justify-start gap-4 hover:bg-gray-600 w-1/2 flex-col p-2 cursor-pointer rounded-sm">
-                        <p class="font-osvaldo text-white font-extralight text-lg">Nome do seu jogo</p>
-                        <input type="text" id="gamePageName"
-                            class="text-center outline-none text-white bg-lightpurple-0 h-8 w-full">
-                    </label>
-
-                    <label for="gamePageGenre"
-                        class="flex items-center justify-start gap-4 hover:bg-gray-600 w-1/2 flex-col p-2 cursor-pointer rounded-sm">
-                        <p class="font-osvaldo text-white font-extralight text-lg">Gênero</p>
-                        <select name="gamePageGenre" id="gamePageGenre"
-                            class="text-center outline-none text-white bg-lightpurple-0 h-8 w-full">
-                            <option value="FPS">FPS</option>
-                            <option value="PVP">PVP</option>
-                            <option value="Aventura">Aventura</option>
-                            <option value="MOBA">MOBA</option>
-                            <option value="RPG">RPG</option>
-                            <option value="MMO">MMO</option>
-                            <option value="Luta">Luta</option>
-                            <option value="Simulação">Simulação</option>
-                            <option value="Plataforma">Plataforma</option>
-                            <option value="Corrida">Corrida</option>
-                            <option value="Terror">Terror</option>
-                            <option value="História">História</option>
-                        </select>
-                    </label>
-                </div>
-
-                <label for="gameDescription"
-                    class="flex items-center justify-start gap-4 hover:bg-gray-600 w-full flex-col p-2 cursor-pointer rounded-sm">
-                    <p class="font-osvaldo text-white font-extralight text-lg">Descrição</p>
-                    <textarea id="gameDescription" rows="4" cols="50" class="text-center outline-none text-white bg-lightpurple-0 h-20 p-2 w-full"></textarea>
-                </label>
-
-                <div class="flex justify-center items-center w-full mt-4">
-                    <input type="submit" value="CRIAR PÁGINA"
-                        class="bg-yellow-400 p-2 rounded-sm text-white font-bold cursor-pointer hover:bg-yellow-500 w-1/4" />
-                </div>
-            </form>
         </div>
-    </div>
+
 
     <div id="modalConfig" class="fixed bg-black w-full h-full bg-opacity-50 hidden items-center justify-center z-20">
         <div id="configBox"
@@ -255,8 +256,7 @@
 
     <!-- FAIXA DA ESQUERDA -->
         <div id="navLeft" class="flex flex-col items-start justify-start bg-land-0 w-1/1 h-96 rounded-md mt-12">
-
-        </div>
+    </div>
 </div>
 
         <!-- FAIXA DE POSTS DO MEIO -->

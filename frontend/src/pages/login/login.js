@@ -22,7 +22,7 @@ const urlPicture = [
 const imagemAleatoria = Math.floor(Math.random() * urlPicture.length);
 urlAleatoria = urlPicture[imagemAleatoria];
 
-const urlBanner = 'https://assets.tumblr.com/images/default_header/optica_pattern_05.png'
+const urlBanner = 'https://previewcomunica.com.br/wp-content/uploads/2018/09/banner-posts-default-3.jpg'
 
 //importação dos elementos do modal
 const modalError = document.getElementById("modalError");
