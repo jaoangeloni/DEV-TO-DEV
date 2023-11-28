@@ -562,18 +562,16 @@ criarGamePage.addEventListener('submit', async (e) => {
     const gamePageBanner = 'https://previewcomunica.com.br/wp-content/uploads/2018/09/banner-posts-default-3.jpg'
     const gamePageImage = 'https://res-console.cloudinary.com/dneit0fsb/media_explorer_thumbnails/fcf55aada847d4591f353ba2fd8b9daa/detailed';
 
-    const imagemBanner = gamePageBanner.files[0];
-    const imagemPfp = gamePageImage.files[0];
+    const body = {
+        userId: userData.id,
+        name: gamePageName.value,
+        gameDescription: gameDescription.value,
+        gameGenreId: gamePageGenre.value,
+        gamePicture: gamePageBanner,
+        gameImage: gamePageImage
+    }
 
-    const formData = new FormData();
-    formData.append('userId', userData.id);
-    formData.append('name', gamePageName.value);
-    formData.append('gameDescription', gameDescription.value);
-    formData.append('gameGenreId', gameGenre.value);
-    formData.append('gamePicture', imagemBanner);
-    formData.append('gameImage', imagemPfp);
-
-    api.post('/gamepage/criar', formData)
+    api.post('/gamepage/criar', body)
         .then(resp => {
             try {
                 if (resp.status == 200) {

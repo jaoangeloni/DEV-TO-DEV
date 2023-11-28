@@ -16,8 +16,8 @@ class gamePage {
       '${this.name}',
       '${this.gameDescription}',
       ${this.gameGenreId},
-      NULL,
-      NULL);`
+      '${this.gamePicture}',
+      '${this.gameBanner}');`
   }
 
   read() {
