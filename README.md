@@ -1,24 +1,49 @@
-# DEV MEDIA
+# DEV-TO-DEV
+Sistema de simulação de rede social voltado para desenvolvedores de jogos.
 
-Primeiramente clone o repositório e abra a pasta no VS code
+Sistema permite:
+<li>Cadastrar usuário</li>
+<li>Logar usuário</li>
+<li>Postar textos</li>
+<li>Postar imagens/gifs</li>
+<li>Curtir posts</li>
+<li>Comentar em posts</li>
+<li>Customizar perfil</li>
+<li>Criar um perfil para seu jogo</li>
+<li>Visualizar perfis de outros usuários</li>
+<li>Visualizar perfis de jogos de outros usuários</li>
+<br>
+(OBS: Para testar a postagem de imagens requer uma conta no cloudinary!)
 
-<h1>BANCO DE DADOS</h1>
-<h2>XAMPP é necessário</h2>
+<hr>
+
+# BANCO DE DADOS
+*XAMPP é necessário*
 <li>Inicie o módulo Apache e MySQL no XAMPP</li>
 <li>Crie o banco de dados de acordo com o script 'database' na pasta 'database'</li>
 <li>Popule o banco de dados de acordo com o script 'data' na pasta 'database'</li>
 
-<h1>BACKEND</h1>
-<h2>Instale o nodemon e yarn globalmente caso nao tenha</h2>
+# CLOUDINARY
+*Este projeto utiliza o cloudinary para armazenar imagens*
+<li>Crie um arquivo .env na pasta API e adicione os itens de seu banco de dados do cloudinary</li>
+
+# BACKEND
+*Instale o nodemon e yarn globalmente*
 <li>npm i -g nodemon</li>
 <li>npm i -g yarn</li>
-<h2>Adicione as dependências na api</h2>
+<br>
+
+
+*Adicione as dependências para a api funcionar*
+
 <li>cd api</li>
 <li>yarn add express cors mysql multer fs cloudinary dotenv</li>
 <li>nodemon</li>
 
-<h1>FRONTEND</h1>
-<h2>Instale as dependências</h2>
+# FRONTEND
+*Instale as dependências*
 <li>cd frontend</li>
 <li>yarn add electron tailwindcss axios</li>
+
+# Execute o script Electron JS
 <li>yarn run dev</li>
