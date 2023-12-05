@@ -1,25 +1,31 @@
-// const localPostGames = document.getElementById("localPostGames");
+const localPostGames = document.getElementById("localPostGames");
 
-// function loadGames() {
-//     api.get('/gamepage/listar')
+function loadGames() {
+    fetch('/gamepage/listar')
+      .then(response => response.json())
+      .then(data => {
+        const postMain = document.getElementById('postMain');
+        postMain.innerHTML = '';
 
-//         .then(resp => {
-//             const dados = resp.data
+        data.forEach(game => {
+          const gameCard = document.createElement('div');
+          gameCard.className = 'flex bg-land-0 w-full h-40 rounded p-2 gap-10 hover:cursor-pointer';
 
-//             dados.forEach(e => {
-//                 const card = document.createElement('div');
-//                 card.className = 'w-full h-56 bg-gray-200 hover:scale-105 hover:cursor-pointer duration-200 flex';
+          gameCard.innerHTML = `
+            <div class="w-80 gap-12 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
+            <div class="w-full flex flex-col">
+              <p class="text-white font-osvaldo text-2xl">${game.name}</p>
+              <p class="text-white font-osvaldo mt-4">${game.gameDescription}</p>
+              <p class="text-white text-end font-osvaldo gap-10 mt-4">${game.genreName}</p>
+            </div>
+          `;
 
-//                 const gameImg = document.createElement('div');
-//                 gameImg.className = 'w-36 h-32 hover:rounded-full duration-200 cursor-pointer';
+          postMain.appendChild(gameCard);
+        });
+      })
+  }
 
-//                 const card = document.createElement('div');
-//                 card.className = '';
-//                 const card = document.createElement('div');
-//                 card.className = '';
-//             });
-//         })
-// }
+  window.onload = loadGames;
 let userData = JSON.parse(localStorage.getItem("user"));
 
 api.get('/user/listar/' + userData.username)

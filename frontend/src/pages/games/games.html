@@ -78,30 +78,55 @@
     </header>
 
     <div class="w-full h-20 bg-land-0 mt-6 flex items-center justify-around">
-        <div class="w-20 h-20 bg-white rounded-full hover:scale-105 duration-200 cursor-pointer">
+        <div class="w-20 h-20 bg-gray-500 rounded-full hover:scale-105 duration-200 cursor-pointer flex justify-center items-center text-white font-osvaldo">
+            <p>FPS</p>
         </div>
-        <div class="w-20 h-20 bg-white rounded-full hover:scale-105 duration-200 cursor-pointer">
+        <div class="w-20 h-20 bg-gray-500 rounded-full hover:scale-105 duration-200 cursor-pointer flex justify-center items-center text-white font-osvaldo">
+            <p>PVP</p>
         </div>
-        <div class="w-20 h-20 bg-white rounded-full hover:scale-105 duration-200 cursor-pointer">
+        <div class="w-20 h-20 bg-gray-500 rounded-full hover:scale-105 duration-200 cursor-pointer flex justify-center items-center text-white font-osvaldo">
+            <p>Aventura</p>
         </div>
-        <div class="w-20 h-20 bg-white rounded-full hover:scale-105 duration-200 cursor-pointer">
+        <div class="w-20 h-20 bg-gray-500 rounded-full hover:scale-105 duration-200 cursor-pointer flex justify-center items-center text-white font-osvaldo">
+            <p>MOBA</p>
         </div>
-        <div class="w-20 h-20 bg-white rounded-full hover:scale-105 duration-200 cursor-pointer">
+        <div class="w-20 h-20 bg-gray-500 rounded-full hover:scale-105 duration-200 cursor-pointer flex justify-center items-center text-white font-osvaldo">
+            <p>RPG</p>
+        </div>
+        <div class="w-20 h-20 bg-gray-500 rounded-full hover:scale-105 duration-200 cursor-pointer flex justify-center items-center text-white font-osvaldo">
+            <p>MMO</p>
+        </div>
+        <div class="w-20 h-20 bg-gray-500 rounded-full hover:scale-105 duration-200 cursor-pointer flex justify-center items-center text-white font-osvaldo">
+            <p>Luta</p>
+        </div>
+        <div class="w-20 h-20 bg-gray-500 rounded-full hover:scale-105 duration-200 cursor-pointer flex justify-center items-center text-white font-osvaldo">
+            <p>Simulação</p>
+        </div>
+        <div class="w-20 h-20 bg-gray-500 rounded-full hover:scale-105 duration-200 cursor-pointer flex justify-center items-center text-white font-osvaldo">
+            <p>Plataforma</p>
+        </div>
+        <div class="w-20 h-20 bg-gray-500 rounded-full hover:scale-105 duration-200 cursor-pointer flex justify-center items-center text-white font-osvaldo">
+            <p>Corrida</p>
+        </div>
+        <div class="w-20 h-20 bg-gray-500 rounded-full hover:scale-105 duration-200 cursor-pointer flex justify-center items-center text-white font-osvaldo">
+            <p>Terror</p>
+        </div>
+        <div class="w-20 h-20 bg-gray-500 rounded-full hover:scale-105 duration-200 cursor-pointer flex justify-center items-center text-white font-osvaldo">
+            <P>História</P>
         </div>
     </div>
 
     <main class="flex items-start justify-around w-full" style="margin-top: 4rem;">
 
         <div class="flex-col h-full w-96">
-
             <div class="flex-col items-start justify-center bg-land-0 w- rounded-md">
                 <div class="flex p-5 space-x-5 hover:cursor-pointer hover:bg-gray-500 hover:rounded-md" onclick="goToProfile()">
                     <img src="./assets/user.png" class="w-7" alt="">
                     <p class="text-white">Perfil</p>
                 </div>
-                <div class="flex p-5 space-x-5 hover:cursor-pointer hover:bg-gray-500 hover:rounded-md" onclick="goToGames()">
-                    <img src="./assets/console.png" class="w-7" alt="">
-                    <p class="text-white">Jogos</p>
+                <div class="flex p-5 space-x-5 hover:cursor-pointer hover:bg-gray-500 hover:rounded-md" onclick="goToFeed()">
+                    <img src="./assets/web-content.png" class="w-7" alt="">
+                    <p class="text-white">Feed</p>
                 </div>
             </div>
 
@@ -119,19 +144,17 @@
             </div>
         </div> -->
 
-        <div id="postMain" class="flex flex-col items-start justify-start w-5/12 h-full gap-10">
-            <div id="createPost" class="flex bg-land-0 w-full h-40 rounded p-2 gap-10">
-                <div class="w-80 gap-12"
-                    style="height: 9rem; background-image:url(./assets/edithfinch.jpg); background-repeat: no-repeat; background-position: center; background-size: cover;">
-                </div>
+        <div id="postMain" class="flex flex-col items-start justify-start w-6/12 h-full gap-10">
+            <div id="createPost" class="flex bg-land-0 w-full h-40 rounded p-2 gap-10 hover:cursor-pointer">
+                <div class="w-80 gap-12 bg-gradient-to-r from-violet-500 to-fuchsia-500"></div>
                 <div class="w-full flex flex-col">
-                    <p class="text-white font-osvaldo">Edith Finch</p>
-                    <p class="text-white font-osvaldo">What Remains of Edith Finch é um jogo eletrônico de aventura
+                    <p class="text-white font-osvaldo text-2xl">Edith Finch</p>
+                    <p class="text-white font-osvaldo mt-4">What Remains of Edith Finch é um jogo eletrônico de aventura
                         desenvolvido pela
                         Giant Sparrow e
                         publicado pela Annapurna Interactive para Microsoft Windows, PlayStation 4 e Xbox One em 2017, e
                         para Nintendo Switch em 2019.</p>
-                    <p class="text-white text-end font-osvaldo gap-10">Aventura, Indie</p>
+                    <p class="text-white text-end font-osvaldo gap-10 mt-4">Aventura, Indie</p>
                 </div>
 
             </div>
