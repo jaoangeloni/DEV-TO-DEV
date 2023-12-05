@@ -4,35 +4,35 @@ const userData = JSON.parse(localStorage.getItem("user"));
 function loadPosts() {
     const commentSection = document.getElementById(' commentSection')
     const localPosts = document.getElementById("localPosts")
-     var userPageName = document.title;
+    var userPageName = document.title;
 
     api.get('/user/listar/' + userPageName)
         .then(resp => {
 
             api.get('user/listar')
-            .then(resp => {
-                const data = resp.data
-    
-                data.forEach(e => {
-                    const navLeft = document.getElementById('navLeft');
-    
-                    const profileCard = document.createElement('div');
-                    profileCard.className = 'w-full bg-land-0 h-16 rounded-md flex items-center justify-start p-1 gap-2 hover:bg-lightpurple-0 hover:cursor-pointer';
-                    
-                    const userCard = `
+                .then(resp => {
+                    const data = resp.data
+
+                    data.forEach(e => {
+                        const navLeft = document.getElementById('navLeft');
+
+                        const profileCard = document.createElement('div');
+                        profileCard.className = 'w-full bg-land-0 h-16 rounded-md flex items-center justify-start p-1 gap-2 hover:bg-lightpurple-0 hover:cursor-pointer';
+
+                        const userCard = `
                     <div class="bg-gray-300 w-14 h-14 rounded-full bg-cover bg-center"
                     style="background-image: url(${e.profilePicture});"></div>
                     <p class="font-osvaldo text-2xl text-white font-extralight">${e.name}</p>
                     `
-    
-                    profileCard.innerHTML = userCard;
-    
-                    profileCard.onclick = () => {
-                        window.location = `../profiles/${e.username}.html`;
-                    }
-    
-                    navLeft.appendChild(profileCard);
-    
+
+                        profileCard.innerHTML = userCard;
+
+                        profileCard.onclick = () => {
+                            window.location = `../profiles/${e.username}.html`;
+                        }
+
+                        navLeft.appendChild(profileCard);
+
                     });
                 })
 
@@ -256,6 +256,7 @@ function loadPosts() {
 
                     if (e.userId == userData.id) {
                         generic.appendChild(settingsMenu)
+
                     }
 
                     postHeader.appendChild(generic)

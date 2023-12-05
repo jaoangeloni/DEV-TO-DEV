@@ -17,12 +17,12 @@ function loadPosts() {
             const data = resp.data
 
             data.forEach(e => {
-                console.log(e)
+
                 const navLeft = document.getElementById('navLeft');
 
                 const profileCard = document.createElement('div');
                 profileCard.className = 'w-full bg-land-0 h-24 rounded-md flex items-center justify-start p-2 space-x-5 hover:bg-lightpurple-0 hover:cursor-pointer hover:bg-gray-500';
-                
+
                 const userCard = `
                 <div class="bg-gray-300 w-16 h-16 rounded-full bg-cover bg-center"
                 style="background-image: url(${e.profilePicture});"></div>
@@ -37,8 +37,8 @@ function loadPosts() {
 
                 navLeft.appendChild(profileCard);
 
-                });
-            })
+            });
+        })
 
     api.get('/post/listar')
         .then(resp => {

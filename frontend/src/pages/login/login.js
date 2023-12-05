@@ -22,7 +22,7 @@ const urlPicture = [
 const imagemAleatoria = Math.floor(Math.random() * urlPicture.length);
 urlAleatoria = urlPicture[imagemAleatoria];
 
-const urlBanner = 'https://previewcomunica.com.br/wp-content/uploads/2018/09/banner-posts-default-3.jpg'
+const urlBanner = 'https://cosn.matrix.squiz.cloud/__data/assets/image/0019/2683/default-banner-img.png'
 
 //importação dos elementos do modal
 const modalError = document.getElementById("modalError");
