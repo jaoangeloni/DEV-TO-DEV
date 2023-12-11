@@ -17,13 +17,13 @@ function loadPosts() {
                         const navLeft = document.getElementById('navLeft');
 
                         const profileCard = document.createElement('div');
-                        profileCard.className = 'w-full bg-land-0 h-16 rounded-md flex items-center justify-start p-1 gap-2 hover:bg-lightpurple-0 hover:cursor-pointer';
+                        profileCard.className = 'w-full bg-land-0 h-24 rounded-md flex items-center justify-start p-2 space-x-5 hover:bg-lightpurple-0 hover:cursor-pointer hover:bg-gray-500';
 
                         const userCard = `
-                    <div class="bg-gray-300 w-14 h-14 rounded-full bg-cover bg-center"
-                    style="background-image: url(${e.profilePicture});"></div>
-                    <p class="font-osvaldo text-2xl text-white font-extralight">${e.name}</p>
-                    `
+                        <div class="bg-gray-300 w-16 h-16 rounded-full bg-cover bg-center"
+                        style="background-image: url(${e.profilePicture});"></div>
+                        <p class="font-osvaldo text-2xl text-white font-extralight">${e.name}</p>
+                        `
 
                         profileCard.innerHTML = userCard;
 
@@ -32,7 +32,6 @@ function loadPosts() {
                         }
 
                         navLeft.appendChild(profileCard);
-
                     });
                 })
 
