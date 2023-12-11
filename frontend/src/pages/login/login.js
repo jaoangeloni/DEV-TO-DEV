@@ -22,7 +22,7 @@ const urlPicture = [
 const imagemAleatoria = Math.floor(Math.random() * urlPicture.length);
 urlAleatoria = urlPicture[imagemAleatoria];
 
-const urlBanner = 'https://cosn.matrix.squiz.cloud/__data/assets/image/0019/2683/default-banner-img.png'
+const urlBanner = 'https://res.cloudinary.com/dneit0fsb/image/upload/v1702296264/userPFP/bkd3v3rrnccmtpjwgxrv.jpg'
 
 //importação dos elementos do modal
 const modalError = document.getElementById("modalError");
