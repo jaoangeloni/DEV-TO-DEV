@@ -26,6 +26,9 @@ Sistema permite:
 # CLOUDINARY
 *Este projeto utiliza o cloudinary para armazenar imagens*
 <li>Crie um arquivo .env na pasta API e adicione os itens de seu banco de dados do cloudinary</li>
+<li>CLOUD_NAME</li>
+<li>API_KEY</li>
+<li>API_SECRET</li>
 
 # BACKEND
 *Instale o nodemon e yarn globalmente*
