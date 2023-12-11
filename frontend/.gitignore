@@ -1,4 +1,4 @@
 node_modules
 .env
 yarn.lock
-src/pages/profiles/*.html
+# src/pages/profiles/*.html
