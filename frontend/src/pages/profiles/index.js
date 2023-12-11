@@ -2,7 +2,7 @@ const userData = JSON.parse(localStorage.getItem("user"));
 
 //LOAD POSTS ------------------------------------------------------------------------
 function loadPosts() {
-    const commentSection = document.getElementById(' commentSection')
+    const comentarios = document.getElementById('comentarios')
     const localPosts = document.getElementById("localPosts")
     var userPageName = document.title;
 
@@ -314,9 +314,10 @@ function loadPosts() {
                     const footer_child2 = document.createElement('div');
                     footer_child2.className = 'bg-lightpurple-0 w-20 h-10 rounded-full flex items-center justify-between p-2 gap-3 cursor-pointer hover:scale-105 transition-all duration-100';
 
+                    let comentariosCarregados = false;
 
                     footer_child2.onclick = () => {
-
+                        comentarios.innerHTML = '';
                         api.get('/comentario/listarPost/' + e.id)
                             .then(resp => {
                                 const dados = resp.data;
@@ -336,6 +337,7 @@ function loadPosts() {
                                     imageSon.className = 'w-12 h-12 bg-lightpurple-0 rounded-full bg-cover';
 
                                     imageSon.style.backgroundImage = `url(${i.profilePicture})`
+
 
                                     const textContent = document.createElement('div');
                                     textContent.className = 'flex flex-col items-start justify-start';
@@ -357,8 +359,9 @@ function loadPosts() {
                                     modeloComment.appendChild(textContent)
 
                                     divToRemove.appendChild(modeloComment)
-                                    commentSection.appendChild(divToRemove)
+                                    comentarios.appendChild(divToRemove)
                                 })
+                                comentariosCarregados = true;
                             })
 
                         hiddeModalComentarios();

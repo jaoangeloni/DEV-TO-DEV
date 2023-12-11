@@ -183,7 +183,7 @@ const criar = (req, res) => {
                 <button id="publicarComentario"
                     class="bg-yellow-400 p-2 rounded-sm text-white font-bold cursor-pointer hover:bg-yellow-500">Enviar</button>
             </div>
-
+            <div id="comentarios" class="flex flex-col gap-2"></div>
         </div>
     </div>
 
