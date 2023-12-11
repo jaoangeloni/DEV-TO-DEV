@@ -53,7 +53,7 @@
                 <button id="publicarComentario"
                     class="bg-yellow-400 p-2 rounded-sm text-white font-bold cursor-pointer hover:bg-yellow-500">Enviar</button>
             </div>
-
+            <div id="comentarios" class="flex flex-col gap-2"></div>
         </div>
     </div>
 
@@ -105,20 +105,22 @@
         <div class="flex-col h-full w-96">
 
             <div class="flex-col items-start justify-center bg-land-0 w- rounded-md">
-                <div class="flex p-5 space-x-5 hover:cursor-pointer hover:bg-gray-500 hover:rounded-md text-white font-bold" onclick="goToProfile()">
+                <div class="flex p-5 space-x-5 hover:cursor-pointer hover:bg-gray-500 hover:rounded-md text-white font-bold"
+                    onclick="goToProfile()">
                     <img src="./assets/user.png" class="w-7" alt="">
                     <p class="text-white">Perfil</p>
                 </div>
-                <div class="flex p-5 space-x-5 hover:cursor-pointer hover:bg-gray-500 hover:rounded-md text-white font-bold" onclick="goToGames()">
+                <div class="flex p-5 space-x-5 hover:cursor-pointer hover:bg-gray-500 hover:rounded-md text-white font-bold"
+                    onclick="goToGames()">
                     <img src="./assets/console.png" class="w-7" alt="">
                     <p class="text-white">Jogos</p>
                 </div>
             </div>
 
-        <!-- FAIXA DA ESQUERDA -->
-        <div id="navLeft" class="flex flex-col items-start justify-start bg-land-0 w-1/1 h-96 rounded-md mt-12">
+            <!-- FAIXA DA ESQUERDA -->
+            <div id="navLeft" class="flex flex-col items-start justify-start bg-land-0 w-1/1 h-96 rounded-md mt-12">
+            </div>
         </div>
-    </div>
 
         <!-- FAIXA DE POSTS DO MEIO -->
         <div id="postMain" class="flex flex-col items-start justify-start w-5/12 h-full gap-10">
